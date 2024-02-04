@@ -1,5 +1,64 @@
 [
   {
+    "desc": "Control applications from the macOS Menu Bar ",
+    "name": "MenuBarApps",
+    "type": "Module"
+  },
+  {
+    "desc": "Maximize the application on the current space if it is not maximized already.",
+    "module": "MenuBarApps",
+    "name": "maximize",
+    "type": "Constant"
+  },
+  {
+    "desc": "Move the window to appear under the menu bar item as if it were a menu.",
+    "module": "MenuBarApps",
+    "name": "move",
+    "type": "Constant"
+  },
+  {
+    "desc": "Table containing each application's name and it's desired configuration. The",
+    "module": "MenuBarApps",
+    "name": "apps",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+    "module": "MenuBarApps",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
+    "module": "MenuBarApps",
+    "name": "logLevel",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table containing references to all of the created menu bars.",
+    "module": "MenuBarApps",
+    "name": "menuBars",
+    "type": "Variable"
+  },
+  {
+    "desc": "Spoon initializer method for MenuBarApps.",
+    "module": "MenuBarApps",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon start method for MenuBarApps. Creates all configured menu bars.",
+    "module": "MenuBarApps",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon stop method for MenuBarApps. Deletes all configured menu bars.",
+    "module": "MenuBarApps",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Name and switch Mission Control spaces in the menu bar",
     "name": "Spacer",
     "type": "Module"

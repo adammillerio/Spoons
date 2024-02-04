@@ -3,6 +3,347 @@
     "Command": [],
     "Constant": [
       {
+        "def": "MenuBarApps.action.maximize",
+        "def_gfm": "MenuBarApps.action.maximize",
+        "desc": "Maximize the application on the current space if it is not maximized already.",
+        "desc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
+        "doc": "Maximize the application on the current space if it is not maximized already.",
+        "doc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "47",
+        "name": "maximize",
+        "signature": "MenuBarApps.action.maximize",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
+        "def": "MenuBarApps.action.move",
+        "def_gfm": "MenuBarApps.action.move",
+        "desc": "Move the window to appear under the menu bar item as if it were a menu.",
+        "desc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
+        "doc": "Move the window to appear under the menu bar item as if it were a menu.",
+        "doc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "43",
+        "name": "move",
+        "signature": "MenuBarApps.action.move",
+        "stripped_doc": "",
+        "type": "Constant"
+      }
+    ],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "MenuBarApps:init()",
+        "def_gfm": "MenuBarApps:init()",
+        "desc": "Spoon initializer method for MenuBarApps.",
+        "desc_gfm": "<p>Spoon initializer method for MenuBarApps.</p>\n",
+        "doc": "Spoon initializer method for MenuBarApps.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for MenuBarApps.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "80",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "MenuBarApps:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MenuBarApps:start()",
+        "def_gfm": "MenuBarApps:start()",
+        "desc": "Spoon start method for MenuBarApps. Creates all configured menu bars.",
+        "desc_gfm": "<p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>\n",
+        "doc": "Spoon start method for MenuBarApps. Creates all configured menu bars.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "156",
+        "name": "start",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "MenuBarApps:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MenuBarApps:stop()",
+        "def_gfm": "MenuBarApps:stop()",
+        "desc": "Spoon stop method for MenuBarApps. Deletes all configured menu bars.",
+        "desc_gfm": "<p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>\n",
+        "doc": "Spoon stop method for MenuBarApps. Deletes all configured menu bars.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "178",
+        "name": "stop",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "MenuBarApps:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "MenuBarApps.apps",
+        "def_gfm": "MenuBarApps.apps",
+        "desc": "Table containing each application's name and it's desired configuration. The",
+        "desc_gfm": "<p>Table containing each application's name and it's desired configuration. The</p>\n",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
+        "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "55",
+        "name": "apps",
+        "signature": "MenuBarApps.apps",
+        "stripped_doc": "key of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
+        "type": "Variable"
+      },
+      {
+        "def": "MenuBarApps.logger",
+        "def_gfm": "MenuBarApps.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "64",
+        "name": "logger",
+        "signature": "MenuBarApps.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "MenuBarApps.logLevel",
+        "def_gfm": "MenuBarApps.logLevel",
+        "desc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "70",
+        "name": "logLevel",
+        "signature": "MenuBarApps.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MenuBarApps.menuBars",
+        "def_gfm": "MenuBarApps.menuBars",
+        "desc": "Table containing references to all of the created menu bars.",
+        "desc_gfm": "<p>Table containing references to all of the created menu bars.</p>\n",
+        "doc": "Table containing references to all of the created menu bars.",
+        "doc_gfm": "<p>Table containing references to all of the created menu bars.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "75",
+        "name": "menuBars",
+        "signature": "MenuBarApps.menuBars",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Control applications from the macOS Menu Bar ",
+    "desc_gfm": "<p>Control applications from the macOS Menu Bar</p>\n",
+    "doc": "Control applications from the macOS Menu Bar \n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nCreate a \"P\" menu bar item that opens and moves Plexamp and create a \"D\" menu\nbar item that opens and maximizes Discord.\nspoon.SpoonInstall:andUse(\n  \"MenuBarApps\",\n  {\n    config = {\n      apps = {\n        [\"Plexamp\"] = {\n          title = \"P\",\n          action = \"move\"\n        },\n        [\"Discord\"] = {\n          title = \"D\",\n          action = \"maximize\"\n        }\n      }\n    },\n    start = true\n  }\n)",
+    "doc_gfm": "<p>Control applications from the macOS Menu Bar</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip</p>\n<p>Example Usage (Using <a href=\"https://zzamboni.org/post/using-spoons-in-hammerspoon/\">SpoonInstall</a>):\nCreate a &quot;P&quot; menu bar item that opens and moves Plexamp and create a &quot;D&quot; menu\nbar item that opens and maximizes Discord.\nspoon.SpoonInstall:andUse(\n  &quot;MenuBarApps&quot;,\n  {\n    config = {\n      apps = {\n        [&quot;Plexamp&quot;] = {\n          title = &quot;P&quot;,\n          action = &quot;move&quot;\n        },\n        [&quot;Discord&quot;] = {\n          title = &quot;D&quot;,\n          action = &quot;maximize&quot;\n        }\n      }\n    },\n    start = true\n  }\n)</p>\n",
+    "items": [
+      {
+        "def": "MenuBarApps.apps",
+        "def_gfm": "MenuBarApps.apps",
+        "desc": "Table containing each application's name and it's desired configuration. The",
+        "desc_gfm": "<p>Table containing each application's name and it's desired configuration. The</p>\n",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
+        "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "55",
+        "name": "apps",
+        "signature": "MenuBarApps.apps",
+        "stripped_doc": "key of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
+        "type": "Variable"
+      },
+      {
+        "def": "MenuBarApps:init()",
+        "def_gfm": "MenuBarApps:init()",
+        "desc": "Spoon initializer method for MenuBarApps.",
+        "desc_gfm": "<p>Spoon initializer method for MenuBarApps.</p>\n",
+        "doc": "Spoon initializer method for MenuBarApps.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for MenuBarApps.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "80",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "MenuBarApps:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MenuBarApps.logger",
+        "def_gfm": "MenuBarApps.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "64",
+        "name": "logger",
+        "signature": "MenuBarApps.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "MenuBarApps.logLevel",
+        "def_gfm": "MenuBarApps.logLevel",
+        "desc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "70",
+        "name": "logLevel",
+        "signature": "MenuBarApps.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MenuBarApps.action.maximize",
+        "def_gfm": "MenuBarApps.action.maximize",
+        "desc": "Maximize the application on the current space if it is not maximized already.",
+        "desc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
+        "doc": "Maximize the application on the current space if it is not maximized already.",
+        "doc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "47",
+        "name": "maximize",
+        "signature": "MenuBarApps.action.maximize",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
+        "def": "MenuBarApps.menuBars",
+        "def_gfm": "MenuBarApps.menuBars",
+        "desc": "Table containing references to all of the created menu bars.",
+        "desc_gfm": "<p>Table containing references to all of the created menu bars.</p>\n",
+        "doc": "Table containing references to all of the created menu bars.",
+        "doc_gfm": "<p>Table containing references to all of the created menu bars.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "75",
+        "name": "menuBars",
+        "signature": "MenuBarApps.menuBars",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MenuBarApps.action.move",
+        "def_gfm": "MenuBarApps.action.move",
+        "desc": "Move the window to appear under the menu bar item as if it were a menu.",
+        "desc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
+        "doc": "Move the window to appear under the menu bar item as if it were a menu.",
+        "doc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "43",
+        "name": "move",
+        "signature": "MenuBarApps.action.move",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
+        "def": "MenuBarApps:start()",
+        "def_gfm": "MenuBarApps:start()",
+        "desc": "Spoon start method for MenuBarApps. Creates all configured menu bars.",
+        "desc_gfm": "<p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>\n",
+        "doc": "Spoon start method for MenuBarApps. Creates all configured menu bars.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "156",
+        "name": "start",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "MenuBarApps:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MenuBarApps:stop()",
+        "def_gfm": "MenuBarApps:stop()",
+        "desc": "Spoon stop method for MenuBarApps. Deletes all configured menu bars.",
+        "desc_gfm": "<p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>\n",
+        "doc": "Spoon stop method for MenuBarApps. Deletes all configured menu bars.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "178",
+        "name": "stop",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "MenuBarApps:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "MenuBarApps",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nCreate a \"P\" menu bar item that opens and moves Plexamp and create a \"D\" menu\nbar item that opens and maximizes Discord.\nspoon.SpoonInstall:andUse(\n  \"MenuBarApps\",\n  {\n    config = {\n      apps = {\n        [\"Plexamp\"] = {\n          title = \"P\",\n          action = \"move\"\n        },\n        [\"Discord\"] = {\n          title = \"D\",\n          action = \"maximize\"\n        }\n      }\n    },\n    start = true\n  }\n)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [
+      {
         "def": "Spacer.settingsKey",
         "def_gfm": "Spacer.settingsKey",
         "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
