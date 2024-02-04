@@ -1,0 +1,355 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Spacer</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Spacer</h1>
+      <p>Name and switch Mission Control spaces in the menu bar</p>
+<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip</p>
+<p>Example Usage (Using <a href="https://zzamboni.org/post/using-spoons-in-hammerspoon/">SpoonInstall</a>):
+spoon.SpoonInstall:andUse(
+  &quot;Spacer&quot;,
+  {
+    start = true
+  }
+)</p>
+<p>Space names can be changed from the menubar by holding Alt while selecting
+the desired space to rename. These are persisted between launches via the
+hs.settings module.</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Constants - Useful values which cannot be changed</li>
+          <ul>
+            <li><a href="#settingsKey">settingsKey</a></li>
+          </ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#logLevel">logLevel</a></li>
+            <li><a href="#menuBar">menuBar</a></li>
+            <li><a href="#orderedSpaceNames">orderedSpaceNames</a></li>
+            <li><a href="#orderedSpaces">orderedSpaces</a></li>
+            <li><a href="#spaceNames">spaceNames</a></li>
+            <li><a href="#spaceWatcher">spaceWatcher</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#init">init</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Constants</h4>
+          <section id="settingsKey">
+            <a name="//apple_ref/cpp/Constant/settingsKey" class="dashAnchor"></a>
+            <h5><a href="#settingsKey">settingsKey</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.settingsKey</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Constant</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Key used for persisting space names between Hammerspoon launches via hs.settings.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L28">Source/Spacer.spoon/init.lua line 28</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L33">Source/Spacer.spoon/init.lua line 33</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="logLevel">
+            <a name="//apple_ref/cpp/Variable/logLevel" class="dashAnchor"></a>
+            <h5><a href="#logLevel">logLevel</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.logLevel</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Spacer specific log level override, see hs.logger.setLogLevel for options.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L39">Source/Spacer.spoon/init.lua line 39</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBar">
+            <a name="//apple_ref/cpp/Variable/menuBar" class="dashAnchor"></a>
+            <h5><a href="#menuBar">menuBar</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.menuBar</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>hs.menubar representing the menu bar for Spacer.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L44">Source/Spacer.spoon/init.lua line 44</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="orderedSpaceNames">
+            <a name="//apple_ref/cpp/Variable/orderedSpaceNames" class="dashAnchor"></a>
+            <h5><a href="#orderedSpaceNames">orderedSpaceNames</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.orderedSpaceNames</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table with an ordered list of the space names, which is used when loading</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L65">Source/Spacer.spoon/init.lua line 65</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="orderedSpaces">
+            <a name="//apple_ref/cpp/Variable/orderedSpaces" class="dashAnchor"></a>
+            <h5><a href="#orderedSpaces">orderedSpaces</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.orderedSpaces</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table holding an ordered list of space IDs, which is then used to resolve</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L59">Source/Spacer.spoon/init.lua line 59</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="spaceNames">
+            <a name="//apple_ref/cpp/Variable/spaceNames" class="dashAnchor"></a>
+            <h5><a href="#spaceNames">spaceNames</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.spaceNames</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table with key-value mapping of Space ID to it's user set name.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L54">Source/Spacer.spoon/init.lua line 54</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="spaceWatcher">
+            <a name="//apple_ref/cpp/Variable/spaceWatcher" class="dashAnchor"></a>
+            <h5><a href="#spaceWatcher">spaceWatcher</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.spaceWatcher</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>hs.spaces.watcher instance used for monitoring for space changes.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L49">Source/Spacer.spoon/init.lua line 49</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Spoon initializer method for Spacer.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L310">Source/Spacer.spoon/init.lua line 310</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Spoon start method for Spacer. Creates/starts menu bar item and space watcher.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L324">Source/Spacer.spoon/init.lua line 324</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L359">Source/Spacer.spoon/init.lua line 359</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

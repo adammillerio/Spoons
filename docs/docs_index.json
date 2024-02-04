@@ -1,0 +1,73 @@
+[
+  {
+    "desc": "Name and switch Mission Control spaces in the menu bar",
+    "name": "Spacer",
+    "type": "Module"
+  },
+  {
+    "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
+    "module": "Spacer",
+    "name": "settingsKey",
+    "type": "Constant"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+    "module": "Spacer",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+    "module": "Spacer",
+    "name": "logLevel",
+    "type": "Variable"
+  },
+  {
+    "desc": "hs.menubar representing the menu bar for Spacer.",
+    "module": "Spacer",
+    "name": "menuBar",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table with an ordered list of the space names, which is used when loading",
+    "module": "Spacer",
+    "name": "orderedSpaceNames",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table holding an ordered list of space IDs, which is then used to resolve",
+    "module": "Spacer",
+    "name": "orderedSpaces",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table with key-value mapping of Space ID to it's user set name.",
+    "module": "Spacer",
+    "name": "spaceNames",
+    "type": "Variable"
+  },
+  {
+    "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
+    "module": "Spacer",
+    "name": "spaceWatcher",
+    "type": "Variable"
+  },
+  {
+    "desc": "Spoon initializer method for Spacer.",
+    "module": "Spacer",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.",
+    "module": "Spacer",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.",
+    "module": "Spacer",
+    "name": "stop",
+    "type": "Method"
+  }
+]
