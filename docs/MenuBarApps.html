@@ -1,0 +1,318 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: MenuBarApps</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; MenuBarApps</h1>
+      <p>Control applications from the macOS Menu Bar</p>
+<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip</p>
+<p>Example Usage (Using <a href="https://zzamboni.org/post/using-spoons-in-hammerspoon/">SpoonInstall</a>):
+Create a &quot;P&quot; menu bar item that opens and moves Plexamp and create a &quot;D&quot; menu
+bar item that opens and maximizes Discord.
+spoon.SpoonInstall:andUse(
+  &quot;MenuBarApps&quot;,
+  {
+    config = {
+      apps = {
+        [&quot;Plexamp&quot;] = {
+          title = &quot;P&quot;,
+          action = &quot;move&quot;
+        },
+        [&quot;Discord&quot;] = {
+          title = &quot;D&quot;,
+          action = &quot;maximize&quot;
+        }
+      }
+    },
+    start = true
+  }
+)</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Constants - Useful values which cannot be changed</li>
+          <ul>
+            <li><a href="#maximize">maximize</a></li>
+            <li><a href="#move">move</a></li>
+          </ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#apps">apps</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#logLevel">logLevel</a></li>
+            <li><a href="#menuBars">menuBars</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#init">init</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Constants</h4>
+          <section id="maximize">
+            <a name="//apple_ref/cpp/Constant/maximize" class="dashAnchor"></a>
+            <h5><a href="#maximize">maximize</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps.action.maximize</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Constant</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Maximize the application on the current space if it is not maximized already.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L47">Source/MenuBarApps.spoon/init.lua line 47</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="move">
+            <a name="//apple_ref/cpp/Constant/move" class="dashAnchor"></a>
+            <h5><a href="#move">move</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps.action.move</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Constant</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Move the window to appear under the menu bar item as if it were a menu.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L43">Source/MenuBarApps.spoon/init.lua line 43</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="apps">
+            <a name="//apple_ref/cpp/Variable/apps" class="dashAnchor"></a>
+            <h5><a href="#apps">apps</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps.apps</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing each application's name and it's desired configuration. The</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L55">Source/MenuBarApps.spoon/init.lua line 55</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L64">Source/MenuBarApps.spoon/init.lua line 64</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="logLevel">
+            <a name="//apple_ref/cpp/Variable/logLevel" class="dashAnchor"></a>
+            <h5><a href="#logLevel">logLevel</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps.logLevel</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L70">Source/MenuBarApps.spoon/init.lua line 70</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBars">
+            <a name="//apple_ref/cpp/Variable/menuBars" class="dashAnchor"></a>
+            <h5><a href="#menuBars">menuBars</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps.menuBars</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing references to all of the created menu bars.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L75">Source/MenuBarApps.spoon/init.lua line 75</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Spoon initializer method for MenuBarApps.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L80">Source/MenuBarApps.spoon/init.lua line 80</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L156">Source/MenuBarApps.spoon/init.lua line 156</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L178">Source/MenuBarApps.spoon/init.lua line 178</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
