@@ -1,0 +1,399 @@
+[
+  {
+    "Command": [],
+    "Constant": [
+      {
+        "def": "Spacer.settingsKey",
+        "def_gfm": "Spacer.settingsKey",
+        "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
+        "desc_gfm": "<p>Key used for persisting space names between Hammerspoon launches via hs.settings.</p>\n",
+        "doc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
+        "doc_gfm": "<p>Key used for persisting space names between Hammerspoon launches via hs.settings.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "28",
+        "name": "settingsKey",
+        "signature": "Spacer.settingsKey",
+        "stripped_doc": "",
+        "type": "Constant"
+      }
+    ],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Spacer:init()",
+        "def_gfm": "Spacer:init()",
+        "desc": "Spoon initializer method for Spacer.",
+        "desc_gfm": "<p>Spoon initializer method for Spacer.</p>\n",
+        "doc": "Spoon initializer method for Spacer.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for Spacer.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "310",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Spacer:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Spacer:start()",
+        "def_gfm": "Spacer:start()",
+        "desc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.",
+        "desc_gfm": "<p>Spoon start method for Spacer. Creates/starts menu bar item and space watcher.</p>\n",
+        "doc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon start method for Spacer. Creates/starts menu bar item and space watcher.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "324",
+        "name": "start",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Spacer:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Spacer:stop()",
+        "def_gfm": "Spacer:stop()",
+        "desc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.",
+        "desc_gfm": "<p>Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.</p>\n",
+        "doc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "359",
+        "name": "stop",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Spacer:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Spacer.logger",
+        "def_gfm": "Spacer.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "33",
+        "name": "logger",
+        "signature": "Spacer.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.logLevel",
+        "def_gfm": "Spacer.logLevel",
+        "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>Spacer specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>Spacer specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "39",
+        "name": "logLevel",
+        "signature": "Spacer.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.menuBar",
+        "def_gfm": "Spacer.menuBar",
+        "desc": "hs.menubar representing the menu bar for Spacer.",
+        "desc_gfm": "<p>hs.menubar representing the menu bar for Spacer.</p>\n",
+        "doc": "hs.menubar representing the menu bar for Spacer.",
+        "doc_gfm": "<p>hs.menubar representing the menu bar for Spacer.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "44",
+        "name": "menuBar",
+        "signature": "Spacer.menuBar",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.orderedSpaceNames",
+        "def_gfm": "Spacer.orderedSpaceNames",
+        "desc": "Table with an ordered list of the space names, which is used when loading",
+        "desc_gfm": "<p>Table with an ordered list of the space names, which is used when loading</p>\n",
+        "doc": "Table with an ordered list of the space names, which is used when loading\nthe menubar, as well as persisted to and from hs.settings between loads.",
+        "doc_gfm": "<p>Table with an ordered list of the space names, which is used when loading\nthe menubar, as well as persisted to and from hs.settings between loads.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "65",
+        "name": "orderedSpaceNames",
+        "signature": "Spacer.orderedSpaceNames",
+        "stripped_doc": "the menubar, as well as persisted to and from hs.settings between loads.",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.orderedSpaces",
+        "def_gfm": "Spacer.orderedSpaces",
+        "desc": "Table holding an ordered list of space IDs, which is then used to resolve",
+        "desc_gfm": "<p>Table holding an ordered list of space IDs, which is then used to resolve</p>\n",
+        "doc": "Table holding an ordered list of space IDs, which is then used to resolve\nactual space names for IDs from Spacer.spaceNames.",
+        "doc_gfm": "<p>Table holding an ordered list of space IDs, which is then used to resolve\nactual space names for IDs from Spacer.spaceNames.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "59",
+        "name": "orderedSpaces",
+        "signature": "Spacer.orderedSpaces",
+        "stripped_doc": "actual space names for IDs from Spacer.spaceNames.",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.spaceNames",
+        "def_gfm": "Spacer.spaceNames",
+        "desc": "Table with key-value mapping of Space ID to it's user set name.",
+        "desc_gfm": "<p>Table with key-value mapping of Space ID to it's user set name.</p>\n",
+        "doc": "Table with key-value mapping of Space ID to it's user set name.",
+        "doc_gfm": "<p>Table with key-value mapping of Space ID to it's user set name.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "54",
+        "name": "spaceNames",
+        "signature": "Spacer.spaceNames",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.spaceWatcher",
+        "def_gfm": "Spacer.spaceWatcher",
+        "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
+        "desc_gfm": "<p>hs.spaces.watcher instance used for monitoring for space changes.</p>\n",
+        "doc": "hs.spaces.watcher instance used for monitoring for space changes.",
+        "doc_gfm": "<p>hs.spaces.watcher instance used for monitoring for space changes.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "49",
+        "name": "spaceWatcher",
+        "signature": "Spacer.spaceWatcher",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Name and switch Mission Control spaces in the menu bar",
+    "desc_gfm": "<p>Name and switch Mission Control spaces in the menu bar</p>\n",
+    "doc": "Name and switch Mission Control spaces in the menu bar\n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nspoon.SpoonInstall:andUse(\n  \"Spacer\",\n  {\n    start = true\n  }\n)\n\nSpace names can be changed from the menubar by holding Alt while selecting\nthe desired space to rename. These are persisted between launches via the\nhs.settings module.",
+    "doc_gfm": "<p>Name and switch Mission Control spaces in the menu bar</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip</p>\n<p>Example Usage (Using <a href=\"https://zzamboni.org/post/using-spoons-in-hammerspoon/\">SpoonInstall</a>):\nspoon.SpoonInstall:andUse(\n  &quot;Spacer&quot;,\n  {\n    start = true\n  }\n)</p>\n<p>Space names can be changed from the menubar by holding Alt while selecting\nthe desired space to rename. These are persisted between launches via the\nhs.settings module.</p>\n",
+    "items": [
+      {
+        "def": "Spacer:init()",
+        "def_gfm": "Spacer:init()",
+        "desc": "Spoon initializer method for Spacer.",
+        "desc_gfm": "<p>Spoon initializer method for Spacer.</p>\n",
+        "doc": "Spoon initializer method for Spacer.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for Spacer.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "310",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Spacer:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Spacer.logger",
+        "def_gfm": "Spacer.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "33",
+        "name": "logger",
+        "signature": "Spacer.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.logLevel",
+        "def_gfm": "Spacer.logLevel",
+        "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>Spacer specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>Spacer specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "39",
+        "name": "logLevel",
+        "signature": "Spacer.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.menuBar",
+        "def_gfm": "Spacer.menuBar",
+        "desc": "hs.menubar representing the menu bar for Spacer.",
+        "desc_gfm": "<p>hs.menubar representing the menu bar for Spacer.</p>\n",
+        "doc": "hs.menubar representing the menu bar for Spacer.",
+        "doc_gfm": "<p>hs.menubar representing the menu bar for Spacer.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "44",
+        "name": "menuBar",
+        "signature": "Spacer.menuBar",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.orderedSpaceNames",
+        "def_gfm": "Spacer.orderedSpaceNames",
+        "desc": "Table with an ordered list of the space names, which is used when loading",
+        "desc_gfm": "<p>Table with an ordered list of the space names, which is used when loading</p>\n",
+        "doc": "Table with an ordered list of the space names, which is used when loading\nthe menubar, as well as persisted to and from hs.settings between loads.",
+        "doc_gfm": "<p>Table with an ordered list of the space names, which is used when loading\nthe menubar, as well as persisted to and from hs.settings between loads.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "65",
+        "name": "orderedSpaceNames",
+        "signature": "Spacer.orderedSpaceNames",
+        "stripped_doc": "the menubar, as well as persisted to and from hs.settings between loads.",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.orderedSpaces",
+        "def_gfm": "Spacer.orderedSpaces",
+        "desc": "Table holding an ordered list of space IDs, which is then used to resolve",
+        "desc_gfm": "<p>Table holding an ordered list of space IDs, which is then used to resolve</p>\n",
+        "doc": "Table holding an ordered list of space IDs, which is then used to resolve\nactual space names for IDs from Spacer.spaceNames.",
+        "doc_gfm": "<p>Table holding an ordered list of space IDs, which is then used to resolve\nactual space names for IDs from Spacer.spaceNames.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "59",
+        "name": "orderedSpaces",
+        "signature": "Spacer.orderedSpaces",
+        "stripped_doc": "actual space names for IDs from Spacer.spaceNames.",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.settingsKey",
+        "def_gfm": "Spacer.settingsKey",
+        "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
+        "desc_gfm": "<p>Key used for persisting space names between Hammerspoon launches via hs.settings.</p>\n",
+        "doc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
+        "doc_gfm": "<p>Key used for persisting space names between Hammerspoon launches via hs.settings.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "28",
+        "name": "settingsKey",
+        "signature": "Spacer.settingsKey",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
+        "def": "Spacer.spaceNames",
+        "def_gfm": "Spacer.spaceNames",
+        "desc": "Table with key-value mapping of Space ID to it's user set name.",
+        "desc_gfm": "<p>Table with key-value mapping of Space ID to it's user set name.</p>\n",
+        "doc": "Table with key-value mapping of Space ID to it's user set name.",
+        "doc_gfm": "<p>Table with key-value mapping of Space ID to it's user set name.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "54",
+        "name": "spaceNames",
+        "signature": "Spacer.spaceNames",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.spaceWatcher",
+        "def_gfm": "Spacer.spaceWatcher",
+        "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
+        "desc_gfm": "<p>hs.spaces.watcher instance used for monitoring for space changes.</p>\n",
+        "doc": "hs.spaces.watcher instance used for monitoring for space changes.",
+        "doc_gfm": "<p>hs.spaces.watcher instance used for monitoring for space changes.</p>\n",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "49",
+        "name": "spaceWatcher",
+        "signature": "Spacer.spaceWatcher",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer:start()",
+        "def_gfm": "Spacer:start()",
+        "desc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.",
+        "desc_gfm": "<p>Spoon start method for Spacer. Creates/starts menu bar item and space watcher.</p>\n",
+        "doc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon start method for Spacer. Creates/starts menu bar item and space watcher.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "324",
+        "name": "start",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Spacer:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Spacer:stop()",
+        "def_gfm": "Spacer:stop()",
+        "desc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.",
+        "desc_gfm": "<p>Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.</p>\n",
+        "doc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "359",
+        "name": "stop",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Spacer:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Spacer",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nspoon.SpoonInstall:andUse(\n  \"Spacer\",\n  {\n    start = true\n  }\n)\n\nSpace names can be changed from the menubar by holding Alt while selecting\nthe desired space to rename. These are persisted between launches via the\nhs.settings module.",
+    "submodules": [],
+    "type": "Module"
+  }
+]
