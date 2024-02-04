@@ -395,5 +395,527 @@
     "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nspoon.SpoonInstall:andUse(\n  \"Spacer\",\n  {\n    start = true\n  }\n)\n\nSpace names can be changed from the menubar by holding Alt while selecting\nthe desired space to rename. These are persisted between launches via the\nhs.settings module.",
     "submodules": [],
     "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "WindowCache:findWindowByApp(appName)",
+        "def_gfm": "WindowCache:findWindowByApp(appName)",
+        "desc": "Find the last opened window by application name.",
+        "desc_gfm": "<p>Find the last opened window by application name.</p>\n",
+        "doc": "Find the last opened window by application name.\n\nParameters:\n * appName - name of the application to find\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
+        "doc_gfm": "<p>Find the last opened window by application name.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "113",
+        "name": "findWindowByApp",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * appName - name of the application to find"
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n</ul>\n",
+        "returns": [
+          " * The `hs.window` object if found, `nil` otherwise"
+        ],
+        "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "signature": "WindowCache:findWindowByApp(appName)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:findWindowByTitle(title)",
+        "def_gfm": "WindowCache:findWindowByTitle(title)",
+        "desc": "Find a window by title.",
+        "desc_gfm": "<p>Find a window by title.</p>\n",
+        "doc": "Find a window by title.\n\nParameters:\n * title - title of the window to find\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
+        "doc_gfm": "<p>Find a window by title.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "77",
+        "name": "findWindowByTitle",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * title - title of the window to find"
+        ],
+        "parameters_gfm": "<ul>\n<li>title - title of the window to find</li>\n</ul>\n",
+        "returns": [
+          " * The `hs.window` object if found, `nil` otherwise"
+        ],
+        "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "signature": "WindowCache:findWindowByTitle(title)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:focusWindowByApp(appName)",
+        "def_gfm": "WindowCache:focusWindowByApp(appName)",
+        "desc": "Find the last opened window by application name and focus it.",
+        "desc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n",
+        "doc": "Find the last opened window by application name and focus it.\n\nParameters:\n * appName - name of the application to find\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
+        "doc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "132",
+        "name": "focusWindowByApp",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * appName - name of the application to find"
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n</ul>\n",
+        "returns": [
+          " * The `hs.window` object focused if found, `nil` otherwise"
+        ],
+        "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "signature": "WindowCache:focusWindowByApp(appName)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:focusWindowByTitle(title)",
+        "def_gfm": "WindowCache:focusWindowByTitle(title)",
+        "desc": "Find a window by title and focus it.",
+        "desc_gfm": "<p>Find a window by title and focus it.</p>\n",
+        "doc": "Find a window by title and focus it.\n\nParameters:\n * title - title of the window to focus\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
+        "doc_gfm": "<p>Find a window by title and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to focus</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "96",
+        "name": "focusWindowByTitle",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * title - title of the window to focus"
+        ],
+        "parameters_gfm": "<ul>\n<li>title - title of the window to focus</li>\n</ul>\n",
+        "returns": [
+          " * The `hs.window` object focused if found, `nil` otherwise"
+        ],
+        "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "signature": "WindowCache:focusWindowByTitle(title)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:init()",
+        "def_gfm": "WindowCache:init()",
+        "desc": "Spoon initializer method for WindowCache.",
+        "desc_gfm": "<p>Spoon initializer method for WindowCache.</p>\n",
+        "doc": "Spoon initializer method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "63",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "WindowCache:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:start()",
+        "def_gfm": "WindowCache:start()",
+        "desc": "Spoon start method for WindowCache.",
+        "desc_gfm": "<p>Spoon start method for WindowCache.</p>\n",
+        "doc": "Spoon start method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, initializes the cache with all existing\n   windows, and then subscribes to all window related events to be cached.",
+        "doc_gfm": "<p>Spoon start method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "196",
+        "name": "start",
+        "notes": [
+          " * Configures the window filter, initializes the cache with all existing",
+          "   windows, and then subscribes to all window related events to be cached."
+        ],
+        "notes_gfm": "<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "WindowCache:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:stop()",
+        "def_gfm": "WindowCache:stop()",
+        "desc": "Spoon stop method for WindowCache.",
+        "desc_gfm": "<p>Spoon stop method for WindowCache.</p>\n",
+        "doc": "Spoon stop method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
+        "doc_gfm": "<p>Spoon stop method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "235",
+        "name": "stop",
+        "notes": [
+          " * Unsubscribes the window filter from all subscribed functions."
+        ],
+        "notes_gfm": "<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "WindowCache:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "WindowCache.currentWindows",
+        "def_gfm": "WindowCache.currentWindows",
+        "desc": "Table containing the window cache, ordered by the time it was added to the",
+        "desc_gfm": "<p>Table containing the window cache, ordered by the time it was added to the</p>\n",
+        "doc": "Table containing the window cache, ordered by the time it was added to the\ncache.",
+        "doc_gfm": "<p>Table containing the window cache, ordered by the time it was added to the\ncache.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "51",
+        "name": "currentWindows",
+        "signature": "WindowCache.currentWindows",
+        "stripped_doc": "cache.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.logger",
+        "def_gfm": "WindowCache.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "33",
+        "name": "logger",
+        "signature": "WindowCache.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.logLevel",
+        "def_gfm": "WindowCache.logLevel",
+        "desc": "WindowCache specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>WindowCache specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "WindowCache specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>WindowCache specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "39",
+        "name": "logLevel",
+        "signature": "WindowCache.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.subscribedFunctions",
+        "def_gfm": "WindowCache.subscribedFunctions",
+        "desc": "Table containing all subscribed instance callbacks for the window filter, used",
+        "desc_gfm": "<p>Table containing all subscribed instance callbacks for the window filter, used</p>\n",
+        "doc": "Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.",
+        "doc_gfm": "<p>Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "57",
+        "name": "subscribedFunctions",
+        "signature": "WindowCache.subscribedFunctions",
+        "stripped_doc": "during shutdown.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.windowFilter",
+        "def_gfm": "WindowCache.windowFilter",
+        "desc": "Main hs.window.filter. This is what is used to enumerate and maintain the window",
+        "desc_gfm": "<p>Main hs.window.filter. This is what is used to enumerate and maintain the window</p>\n",
+        "doc": "Main hs.window.filter. This is what is used to enumerate and maintain the window\ncache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
+        "doc_gfm": "<p>Main hs.window.filter. This is what is used to enumerate and maintain the window\ncache. It is a copy of the &quot;default&quot; window filter with WindowCache specific\nsort order and callback configurations applied in the start method.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "44",
+        "name": "windowFilter",
+        "signature": "WindowCache.windowFilter",
+        "stripped_doc": "cache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Utility for quickly retrieving windows",
+    "desc_gfm": "<p>Utility for quickly retrieving windows</p>\n",
+    "doc": "Utility for quickly retrieving windows\n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/WindowCache.spoon.zip\n\nThis uses a hs.window.filter to maintain a Least Recently Used cache which\ncan be searched either by window title or application name. This is useful\nfor automations which benefit from quick access to windows.\n\nThis was implemented based entirely off of the source of\n[hs_select_window.spoon](https://github.com/dmgerman/hs_select_window.spoon)\nand split out to be used across other Spoons.\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nspoon.SpoonInstall:andUse(\n  \"WindowCache\",\n  {\n    start = true\n  }\n)",
+    "doc_gfm": "<p>Utility for quickly retrieving windows</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/WindowCache.spoon.zip</p>\n<p>This uses a hs.window.filter to maintain a Least Recently Used cache which\ncan be searched either by window title or application name. This is useful\nfor automations which benefit from quick access to windows.</p>\n<p>This was implemented based entirely off of the source of\n<a href=\"https://github.com/dmgerman/hs_select_window.spoon\">hs_select_window.spoon</a>\nand split out to be used across other Spoons.</p>\n<p>Example Usage (Using <a href=\"https://zzamboni.org/post/using-spoons-in-hammerspoon/\">SpoonInstall</a>):\nspoon.SpoonInstall:andUse(\n  &quot;WindowCache&quot;,\n  {\n    start = true\n  }\n)</p>\n",
+    "items": [
+      {
+        "def": "WindowCache.currentWindows",
+        "def_gfm": "WindowCache.currentWindows",
+        "desc": "Table containing the window cache, ordered by the time it was added to the",
+        "desc_gfm": "<p>Table containing the window cache, ordered by the time it was added to the</p>\n",
+        "doc": "Table containing the window cache, ordered by the time it was added to the\ncache.",
+        "doc_gfm": "<p>Table containing the window cache, ordered by the time it was added to the\ncache.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "51",
+        "name": "currentWindows",
+        "signature": "WindowCache.currentWindows",
+        "stripped_doc": "cache.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache:findWindowByApp(appName)",
+        "def_gfm": "WindowCache:findWindowByApp(appName)",
+        "desc": "Find the last opened window by application name.",
+        "desc_gfm": "<p>Find the last opened window by application name.</p>\n",
+        "doc": "Find the last opened window by application name.\n\nParameters:\n * appName - name of the application to find\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
+        "doc_gfm": "<p>Find the last opened window by application name.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "113",
+        "name": "findWindowByApp",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * appName - name of the application to find"
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n</ul>\n",
+        "returns": [
+          " * The `hs.window` object if found, `nil` otherwise"
+        ],
+        "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "signature": "WindowCache:findWindowByApp(appName)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:findWindowByTitle(title)",
+        "def_gfm": "WindowCache:findWindowByTitle(title)",
+        "desc": "Find a window by title.",
+        "desc_gfm": "<p>Find a window by title.</p>\n",
+        "doc": "Find a window by title.\n\nParameters:\n * title - title of the window to find\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
+        "doc_gfm": "<p>Find a window by title.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "77",
+        "name": "findWindowByTitle",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * title - title of the window to find"
+        ],
+        "parameters_gfm": "<ul>\n<li>title - title of the window to find</li>\n</ul>\n",
+        "returns": [
+          " * The `hs.window` object if found, `nil` otherwise"
+        ],
+        "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "signature": "WindowCache:findWindowByTitle(title)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:focusWindowByApp(appName)",
+        "def_gfm": "WindowCache:focusWindowByApp(appName)",
+        "desc": "Find the last opened window by application name and focus it.",
+        "desc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n",
+        "doc": "Find the last opened window by application name and focus it.\n\nParameters:\n * appName - name of the application to find\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
+        "doc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "132",
+        "name": "focusWindowByApp",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * appName - name of the application to find"
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n</ul>\n",
+        "returns": [
+          " * The `hs.window` object focused if found, `nil` otherwise"
+        ],
+        "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "signature": "WindowCache:focusWindowByApp(appName)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:focusWindowByTitle(title)",
+        "def_gfm": "WindowCache:focusWindowByTitle(title)",
+        "desc": "Find a window by title and focus it.",
+        "desc_gfm": "<p>Find a window by title and focus it.</p>\n",
+        "doc": "Find a window by title and focus it.\n\nParameters:\n * title - title of the window to focus\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
+        "doc_gfm": "<p>Find a window by title and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to focus</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "96",
+        "name": "focusWindowByTitle",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * title - title of the window to focus"
+        ],
+        "parameters_gfm": "<ul>\n<li>title - title of the window to focus</li>\n</ul>\n",
+        "returns": [
+          " * The `hs.window` object focused if found, `nil` otherwise"
+        ],
+        "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "signature": "WindowCache:focusWindowByTitle(title)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:init()",
+        "def_gfm": "WindowCache:init()",
+        "desc": "Spoon initializer method for WindowCache.",
+        "desc_gfm": "<p>Spoon initializer method for WindowCache.</p>\n",
+        "doc": "Spoon initializer method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "63",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "WindowCache:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache.logger",
+        "def_gfm": "WindowCache.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "33",
+        "name": "logger",
+        "signature": "WindowCache.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.logLevel",
+        "def_gfm": "WindowCache.logLevel",
+        "desc": "WindowCache specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>WindowCache specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "WindowCache specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>WindowCache specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "39",
+        "name": "logLevel",
+        "signature": "WindowCache.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache:start()",
+        "def_gfm": "WindowCache:start()",
+        "desc": "Spoon start method for WindowCache.",
+        "desc_gfm": "<p>Spoon start method for WindowCache.</p>\n",
+        "doc": "Spoon start method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, initializes the cache with all existing\n   windows, and then subscribes to all window related events to be cached.",
+        "doc_gfm": "<p>Spoon start method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "196",
+        "name": "start",
+        "notes": [
+          " * Configures the window filter, initializes the cache with all existing",
+          "   windows, and then subscribes to all window related events to be cached."
+        ],
+        "notes_gfm": "<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "WindowCache:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:stop()",
+        "def_gfm": "WindowCache:stop()",
+        "desc": "Spoon stop method for WindowCache.",
+        "desc_gfm": "<p>Spoon stop method for WindowCache.</p>\n",
+        "doc": "Spoon stop method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
+        "doc_gfm": "<p>Spoon stop method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "235",
+        "name": "stop",
+        "notes": [
+          " * Unsubscribes the window filter from all subscribed functions."
+        ],
+        "notes_gfm": "<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "WindowCache:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache.subscribedFunctions",
+        "def_gfm": "WindowCache.subscribedFunctions",
+        "desc": "Table containing all subscribed instance callbacks for the window filter, used",
+        "desc_gfm": "<p>Table containing all subscribed instance callbacks for the window filter, used</p>\n",
+        "doc": "Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.",
+        "doc_gfm": "<p>Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "57",
+        "name": "subscribedFunctions",
+        "signature": "WindowCache.subscribedFunctions",
+        "stripped_doc": "during shutdown.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.windowFilter",
+        "def_gfm": "WindowCache.windowFilter",
+        "desc": "Main hs.window.filter. This is what is used to enumerate and maintain the window",
+        "desc_gfm": "<p>Main hs.window.filter. This is what is used to enumerate and maintain the window</p>\n",
+        "doc": "Main hs.window.filter. This is what is used to enumerate and maintain the window\ncache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
+        "doc_gfm": "<p>Main hs.window.filter. This is what is used to enumerate and maintain the window\ncache. It is a copy of the &quot;default&quot; window filter with WindowCache specific\nsort order and callback configurations applied in the start method.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "44",
+        "name": "windowFilter",
+        "signature": "WindowCache.windowFilter",
+        "stripped_doc": "cache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
+        "type": "Variable"
+      }
+    ],
+    "name": "WindowCache",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/WindowCache.spoon.zip\n\nThis uses a hs.window.filter to maintain a Least Recently Used cache which\ncan be searched either by window title or application name. This is useful\nfor automations which benefit from quick access to windows.\n\nThis was implemented based entirely off of the source of\n[hs_select_window.spoon](https://github.com/dmgerman/hs_select_window.spoon)\nand split out to be used across other Spoons.\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nspoon.SpoonInstall:andUse(\n  \"WindowCache\",\n  {\n    start = true\n  }\n)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
