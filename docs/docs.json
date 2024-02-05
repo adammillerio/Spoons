@@ -292,7 +292,7 @@
         "doc": "Spoon initializer method for Spacer.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "375",
+        "lineno": "395",
         "name": "init",
         "notes": [],
         "parameters": [
@@ -311,7 +311,7 @@
         "doc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "389",
+        "lineno": "409",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -330,7 +330,7 @@
         "doc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "433",
+        "lineno": "453",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -487,7 +487,7 @@
         "doc": "Spoon initializer method for Spacer.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "375",
+        "lineno": "395",
         "name": "init",
         "notes": [],
         "parameters": [
@@ -605,7 +605,7 @@
         "doc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "389",
+        "lineno": "409",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -624,7 +624,7 @@
         "doc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "433",
+        "lineno": "453",
         "name": "stop",
         "notes": [],
         "parameters": [
