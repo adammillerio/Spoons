@@ -16,14 +16,8 @@
     <header>
       <h1><a href="./index.html">docs</a> &raquo; Spacer</h1>
       <p>Name and switch Mission Control spaces in the menu bar</p>
-<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip</p>
-<p>Example Usage (Using <a href="https://zzamboni.org/post/using-spoons-in-hammerspoon/">SpoonInstall</a>):
-spoon.SpoonInstall:andUse(
-  &quot;Spacer&quot;,
-  {
-    start = true
-  }
-)</p>
+<p>Download: <a href="https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip">Spacer.spoon.zip</a></p>
+<p>README: <a href="https://github.com/adammillerio/Spacer.spoon/blob/main/README.md">README.md</a></p>
 <p>Space names can be changed from the menubar by holding Alt while selecting
 the desired space to rename. These are persisted between launches via the
 hs.settings module.</p>
@@ -37,11 +31,14 @@ hs.settings module.</p>
           </ul>
         <li>Variables - Configurable values</li>
           <ul>
+            <li><a href="#defaultHotkeys">defaultHotkeys</a></li>
+            <li><a href="#focusedSpace">focusedSpace</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#logLevel">logLevel</a></li>
             <li><a href="#menuBar">menuBar</a></li>
             <li><a href="#orderedSpaceNames">orderedSpaceNames</a></li>
             <li><a href="#orderedSpaces">orderedSpaces</a></li>
+            <li><a href="#spaceChooser">spaceChooser</a></li>
             <li><a href="#spaceNames">spaceNames</a></li>
             <li><a href="#spaceWatcher">spaceWatcher</a></li>
           </ul>
@@ -73,11 +70,57 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L28">Source/Spacer.spoon/init.lua line 28</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L22">Source/Spacer.spoon/init.lua line 22</a></td>
               </tr>
             </table>
           </section>
         <h4 class="documentation-section">Variables</h4>
+          <section id="defaultHotkeys">
+            <a name="//apple_ref/cpp/Variable/defaultHotkeys" class="dashAnchor"></a>
+            <h5><a href="#defaultHotkeys">defaultHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.defaultHotkeys</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Default hotkey to use for the space chooser when &quot;hotkeys&quot; =</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L27">Source/Spacer.spoon/init.lua line 27</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="focusedSpace">
+            <a name="//apple_ref/cpp/Variable/focusedSpace" class="dashAnchor"></a>
+            <h5><a href="#focusedSpace">focusedSpace</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.focusedSpace</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>int with the ID of the currently focused space.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L70">Source/Spacer.spoon/init.lua line 70</a></td>
+              </tr>
+            </table>
+          </section>
           <section id="logger">
             <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
             <h5><a href="#logger">logger</a></h5>
@@ -97,7 +140,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L33">Source/Spacer.spoon/init.lua line 33</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L32">Source/Spacer.spoon/init.lua line 32</a></td>
               </tr>
             </table>
           </section>
@@ -120,7 +163,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L39">Source/Spacer.spoon/init.lua line 39</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L38">Source/Spacer.spoon/init.lua line 38</a></td>
               </tr>
             </table>
           </section>
@@ -143,7 +186,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L44">Source/Spacer.spoon/init.lua line 44</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L43">Source/Spacer.spoon/init.lua line 43</a></td>
               </tr>
             </table>
           </section>
@@ -166,7 +209,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L65">Source/Spacer.spoon/init.lua line 65</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L64">Source/Spacer.spoon/init.lua line 64</a></td>
               </tr>
             </table>
           </section>
@@ -189,7 +232,30 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L59">Source/Spacer.spoon/init.lua line 59</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L58">Source/Spacer.spoon/init.lua line 58</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="spaceChooser">
+            <a name="//apple_ref/cpp/Variable/spaceChooser" class="dashAnchor"></a>
+            <h5><a href="#spaceChooser">spaceChooser</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.spaceChooser</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>hs.chooser object representing the Space chooser.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L75">Source/Spacer.spoon/init.lua line 75</a></td>
               </tr>
             </table>
           </section>
@@ -212,7 +278,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L54">Source/Spacer.spoon/init.lua line 54</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L53">Source/Spacer.spoon/init.lua line 53</a></td>
               </tr>
             </table>
           </section>
@@ -235,7 +301,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L49">Source/Spacer.spoon/init.lua line 49</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L48">Source/Spacer.spoon/init.lua line 48</a></td>
               </tr>
             </table>
           </section>
@@ -273,7 +339,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L310">Source/Spacer.spoon/init.lua line 310</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L375">Source/Spacer.spoon/init.lua line 375</a></td>
               </tr>
             </table>
           </section>
@@ -310,7 +376,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L324">Source/Spacer.spoon/init.lua line 324</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L389">Source/Spacer.spoon/init.lua line 389</a></td>
               </tr>
             </table>
           </section>
@@ -347,7 +413,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L359">Source/Spacer.spoon/init.lua line 359</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L433">Source/Spacer.spoon/init.lua line 433</a></td>
               </tr>
             </table>
           </section>
