@@ -2,15 +2,9 @@
 ---
 --- Name and switch Mission Control spaces in the menu bar
 ---
---- Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip
----
---- Example Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):
---- spoon.SpoonInstall:andUse(
----   "Spacer",
----   {
----     start = true
----   }
---- )
+--- Download: [Spacer.spoon.zip](https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip)
+--- 
+--- README: [README.md](https://github.com/adammillerio/Spacer.spoon/blob/main/README.md)
 ---
 --- Space names can be changed from the menubar by holding Alt while selecting
 --- the desired space to rename. These are persisted between launches via the
@@ -20,7 +14,7 @@ Spacer.__index = Spacer
 
 -- Metadata
 Spacer.name = "Spacer"
-Spacer.version = "0.1"
+Spacer.version = "0.0.3"
 Spacer.author = "Adam Miller <adam@adammiller.io>"
 Spacer.homepage = "https://github.com/adammillerio/Spacer.spoon"
 Spacer.license = "MIT - https://opensource.org/licenses/MIT"
@@ -29,6 +23,11 @@ Spacer.license = "MIT - https://opensource.org/licenses/MIT"
 --- Constant
 --- Key used for persisting space names between Hammerspoon launches via hs.settings.
 Spacer.settingsKey = "SpacerSpaceNames"
+
+--- Spacer.defaultHotkeys
+--- Variable
+--- Default hotkey to use for the space chooser when "hotkeys" = 
+Spacer.defaultHotkeys = {space_chooser = {{"ctrl"}, "space"}}
 
 --- Spacer.logger
 --- Variable
@@ -68,9 +67,19 @@ Spacer.orderedSpaces = nil
 --- the menubar, as well as persisted to and from hs.settings between loads.
 Spacer.orderedSpaceNames = nil
 
+--- Spacer.focusedSpace
+--- Variable
+--- int with the ID of the currently focused space.
+Spacer.focusedSpace = nil
+
+--- Spacer.spaceChooser
+--- Variable
+--- hs.chooser object representing the Space chooser.
+Spacer.spaceChooser = nil
+
 -- Set the menu text of the Spacer menu bar item.
 function Spacer:_setMenuText()
-    self.menuBar:setTitle(self.spaceNames[hs.spaces.focusedSpace()])
+    self.menuBar:setTitle(self.spaceNames[self.focusedSpace])
 end
 
 -- Handler for user clicking one of the Spacer menu bar menu items.
@@ -86,8 +95,10 @@ function Spacer:_menuItemClicked(spacePos, spaceID, modifiers, menuItem)
         self:_renameSpace(spacePos, spaceID, inputSpaceName)
         self:_setMenuText()
     else
-        -- Go to the selected space.
-        hs.spaces.gotoSpace(spaceID)
+        if spaceID ~= self.focusedSpace then        
+            -- Go to the selected space if it is not the current one.
+            hs.spaces.gotoSpace(spaceID)
+        end
     end
 end
 
@@ -125,9 +136,6 @@ function Spacer:_menuHandler()
     return menuItems
 end
 
--- Add some sort of space spotlight search, ie you can just type "Printer" and it
--- will resolve that named space and send you to it.
-
 -- Rename a space, updating both the positional and by-ID value, and writing
 -- back to hs.settings.
 function Spacer:_renameSpace(spacePos, spaceID, name)
@@ -148,6 +156,9 @@ end
 -- although in my testing this has always been -1 and the docs say that it was
 -- not something to be relied on.
 function Spacer:_spaceChanged(spaceID)
+    -- Store the focused space ID.
+    self.focusedSpace = hs.spaces.focusedSpace()
+
     -- Reload space names, in case user has created and switched to a new Desktop.
     self:_reloadSpaceNames()
 
@@ -307,6 +318,60 @@ function Spacer:_loadSpaceNames()
     self.logger.vf("Loaded space names: %s", hs.inspect(self.orderedSpaceNames))
 end
 
+-- Choice generator for Spacer Chooser.
+function Spacer:_spaceChooserChoices()
+    choices = {}
+
+    --  Create a table of all space names in order from left-to-right.
+    for i, spaceID in ipairs(self.orderedSpaces) do
+        table.insert(choices, {
+            text = self.spaceNames[spaceID],
+            subText = nil,
+            image = nil,
+            valid = true,
+            spaceID = spaceID
+        })
+    end
+
+    return choices;
+end
+
+-- Completion function for space chooser, which switches to the selected space
+-- unless it is the current one or nil.
+-- Input is the table representing the choice from the Chooser.
+function Spacer:_spaceChooserCompletion(choice)
+    if choice == nil then
+        self.logger.vf("No choice made, skipping")
+        return
+    elseif choice.spaceID == self.focusedSpace then
+        self.logger.vf("Choice is currently focused space, skipping")
+        return
+    end
+
+    -- Go to the selected space.
+    hs.spaces.gotoSpace(choice.spaceID)
+end
+
+-- Spacer space chooser.
+-- Reloads spaces, then shows a Spotlight-like completion menu on screen for
+-- selecting a space either by it's position, or by it's name.
+function Spacer:_showSpaceChooser()
+    if not self.spaceChooser:isVisible() then
+        -- Reload, in case user has made a space without changing spaces or clicking
+        -- the menu.
+        self:_reloadSpaceNames()
+
+        -- Update row count, clear previous input, and show chooser.
+        self.spaceChooser:rows(#self.orderedSpaces)
+        self.spaceChooser:query(nil)
+        self.spaceChooser:show()
+    else
+        -- Hotkey pressed again while chooser is visible, so hide it. Mostly
+        -- replicating Spotlight behavior.
+        self.spaceChooser:hide()
+    end
+end
+
 --- Spacer:init()
 --- Method
 --- Spoon initializer method for Spacer.
@@ -338,6 +403,9 @@ function Spacer:start()
 
     self.logger.v("Starting Spacer")
 
+    -- Set focused space.
+    self.focusedSpace = hs.spaces.focusedSpace()
+
     -- Load initial space names from settings or initialize new set.
     self:_loadSpaceNames()
 
@@ -351,6 +419,12 @@ function Spacer:start()
                             self:_instanceCallback(self._spaceChanged))
 
     self.spaceWatcher:start()
+
+    -- Create space chooser.
+    self.logger.v("Creating space chooser")
+    self.spaceChooser = hs.chooser.new(self:_instanceCallback(
+                                           self._spaceChooserCompletion))
+    self.spaceChooser:choices(self:_instanceCallback(self._spaceChooserChoices))
 
     -- Perform an initial text set for the current space.
     self:_setMenuText()
@@ -372,8 +446,18 @@ function Spacer:stop()
     self.logger.v("Stopping space watcher")
     self.spaceWatcher:stop()
 
+    self.logger.v("Deleting space chooser")
+    self.spaceChooser:delete()
+
     -- Write space names back to settings.
     self._writeSpaceNames()
+end
+
+function Spacer:bindHotkeys(mapping)
+    -- Bind method for showing the space chooser to the desired hotkey.
+    hs.spoons.bindHotkeysToSpec({
+        space_chooser = self:_instanceCallback(self._showSpaceChooser)
+    }, mapping)
 end
 
 return Spacer

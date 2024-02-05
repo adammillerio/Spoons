@@ -70,6 +70,18 @@
     "type": "Constant"
   },
   {
+    "desc": "Default hotkey to use for the space chooser when \"hotkeys\" = ",
+    "module": "Spacer",
+    "name": "defaultHotkeys",
+    "type": "Variable"
+  },
+  {
+    "desc": "int with the ID of the currently focused space.",
+    "module": "Spacer",
+    "name": "focusedSpace",
+    "type": "Variable"
+  },
+  {
     "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
     "module": "Spacer",
     "name": "logger",
@@ -97,6 +109,12 @@
     "desc": "Table holding an ordered list of space IDs, which is then used to resolve",
     "module": "Spacer",
     "name": "orderedSpaces",
+    "type": "Variable"
+  },
+  {
+    "desc": "hs.chooser object representing the Space chooser.",
+    "module": "Spacer",
+    "name": "spaceChooser",
     "type": "Variable"
   },
   {
