@@ -14,7 +14,7 @@ Spacer.__index = Spacer
 
 -- Metadata
 Spacer.name = "Spacer"
-Spacer.version = "0.0.3"
+Spacer.version = "1.0.0"
 Spacer.author = "Adam Miller <adam@adammiller.io>"
 Spacer.homepage = "https://github.com/adammillerio/Spacer.spoon"
 Spacer.license = "MIT - https://opensource.org/licenses/MIT"
@@ -95,7 +95,7 @@ function Spacer:_menuItemClicked(spacePos, spaceID, modifiers, menuItem)
         self:_renameSpace(spacePos, spaceID, inputSpaceName)
         self:_setMenuText()
     else
-        if spaceID ~= self.focusedSpace then        
+        if spaceID ~= self.focusedSpace then
             -- Go to the selected space if it is not the current one.
             hs.spaces.gotoSpace(spaceID)
         end
@@ -166,19 +166,31 @@ function Spacer:_spaceChanged(spaceID)
     self:_setMenuText()
 end
 
--- Load a new space into Spacer, resolving either it's previously persisted
--- ordinal name, or initializing it to "None".
-function Spacer:_loadNewSpace(spacePos, spaceID)
+-- Load a new space into Spacer, resolving either it's current name if a new but
+-- moved space, outside of initial load, it's previous ordinal name at the current
+-- position if on initial load, or defaulting to "None".
+function Spacer:_loadNewSpace(spacePos, spaceID, initial)
     self.logger.vf("Creating new space at \"Desktop %d\" with ID %d", spacePos,
                    spaceID)
 
-    -- See if there was a name for the space in this position last load.
-    spaceName = self.orderedSpaceNames[spacePos]
-    if spaceName == nil then
-        -- No previous name in position, default space name to "None" and insert
-        -- it into the table.
-        spaceName = "None"
-        table.insert(self.orderedSpaceNames, spaceName)
+    if initial then
+        -- See if there was a name for the space in this position last load.
+        spaceName = self.orderedSpaceNames[spacePos]
+        if spaceName == nil then
+            -- No previous name in position, default space name to "None" and insert
+            -- it into the table.
+            spaceName = "None"
+            self.orderedSpaceNames[spacePos] = spaceName
+        end
+    else
+        -- See if there's already a name stored for this space and use if there is.
+        spaceName = self.spaceNames[spaceID]
+        if spaceName == nil then
+            -- No previous name in position, default space name to "None" and insert
+            -- it into the table.
+            spaceName = "None"
+            self.orderedSpaceNames[spacePos] = spaceName
+        end
     end
 
     self.logger.vf("Setting name for \"Desktop %d\" to \"%s\"", spacePos,
@@ -211,39 +223,47 @@ function Spacer:_reloadSpaceNames()
     -- Get the spaces for this screen.
     screenSpaces = spaces[screen:getUUID()]
 
-    -- Step 1: Retrieve the number of spaces we had before making any changes
+    -- Retrieve the number of spaces we had before making any changes
     existingNumSpaces = #self.orderedSpaces
     self.logger.vf("Existing number of spaces is %d", existingNumSpaces)
 
     -- For every numerical index i and spaceID for spaces on this screen, from left
     -- to right.
     for i, spaceID in ipairs(screenSpaces) do
-        -- Step 2: Retrieve ID of the space that was in this this position last time
+        -- Retrieve ID of the space that was in this this position last time
         self.logger.vf("Getting existing space ID for Desktop %d", i)
         existingSpaceID = self.orderedSpaces[i]
         self.logger.vf("Existing space ID for Desktop %d: %s", i,
                        existingSpaceID)
 
-        -- Step 3: If there was no ID in this position, then this is a newly
+        -- If there was no ID in this position, then this is a newly
         --  created space in the rightmost position, so initialize and append it
         --  to the orderedSpaces and continue iteration.
         if existingSpaceID == nil then
-            -- New space at end, append
-            self:_loadNewSpace(i, spaceID)
+            -- New space at end, append.
+            self:_loadNewSpace(i, spaceID, false)
 
             changed = true
             goto continue
         end
 
-        -- Step 4: Look up the assigned name for this space ID
+        -- Look up the assigned name for this space ID
         self.logger.vf("Getting existing space name for Desktop %d", i)
         existingSpaceName = self.spaceNames[existingSpaceID]
         self.logger.vf("Existing space name for Desktop %d: %s", i,
                        existingSpaceName)
 
-        -- Step 5: Load the space name for the ID at this index during this run
+        -- Load the space name for the ID at this index during this run
         spaceName = self.spaceNames[spaceID]
-        -- Step 6: If the resolved name now does not match the resolved name from
+        if spaceName == nil then
+            -- New space not at end, append.
+            self:_loadNewSpace(i, spaceID, false)
+
+            changed = true
+            goto continue
+        end
+
+        -- If the resolved name now does not match the resolved name from
         --  last run, then update the ordered left-to-right set of space IDs at
         --  this index to now be the ID of the current space in this position. Also
         --  update the ordered name to the same thing.
@@ -260,7 +280,7 @@ function Spacer:_reloadSpaceNames()
         ::continue::
     end
 
-    -- Step 7: Check if the new number of spaces we have is less than the old
+    -- Check if the new number of spaces we have is less than the old
     --  one, if it is, then remove all extra indices in the orderedSpaces table.
     numSpaces = #screenSpaces
     self.logger.vf("New number of spaces is %d", numSpaces)
@@ -312,7 +332,7 @@ function Spacer:_loadSpaceNames()
     -- Iterate through spaces by index, this gives them to us from left to right.
     for i, spaceID in ipairs(screenSpaces) do
         -- Load new space.
-        self:_loadNewSpace(i, spaceID)
+        self:_loadNewSpace(i, spaceID, true)
     end
 
     self.logger.vf("Loaded space names: %s", hs.inspect(self.orderedSpaceNames))
