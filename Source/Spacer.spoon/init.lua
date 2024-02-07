@@ -381,9 +381,10 @@ function Spacer:_showSpaceChooser()
         -- the menu.
         self:_reloadSpaceNames()
 
-        -- Update row count, clear previous input, and show chooser.
+        -- Update row count, clear previous input, refresh choices, and show chooser.
         self.spaceChooser:rows(#self.orderedSpaces)
         self.spaceChooser:query(nil)
+        self.spaceChooser:refreshChoicesCallback()
         self.spaceChooser:show()
     else
         -- Hotkey pressed again while chooser is visible, so hide it. Mostly
