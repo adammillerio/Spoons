@@ -17,27 +17,7 @@
       <h1><a href="./index.html">docs</a> &raquo; MenuBarApps</h1>
       <p>Control applications from the macOS Menu Bar</p>
 <p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip</p>
-<p>Example Usage (Using <a href="https://zzamboni.org/post/using-spoons-in-hammerspoon/">SpoonInstall</a>):
-Create a &quot;P&quot; menu bar item that opens and moves Plexamp and create a &quot;D&quot; menu
-bar item that opens and maximizes Discord.
-spoon.SpoonInstall:andUse(
-  &quot;MenuBarApps&quot;,
-  {
-    config = {
-      apps = {
-        [&quot;Plexamp&quot;] = {
-          title = &quot;P&quot;,
-          action = &quot;move&quot;
-        },
-        [&quot;Discord&quot;] = {
-          title = &quot;D&quot;,
-          action = &quot;maximize&quot;
-        }
-      }
-    },
-    start = true
-  }
-)</p>
+<p>README with Example Usage: <a href="https://github.com/adammillerio/MenuBarApps.spoon/blob/main/README.md">README.md</a></p>
 
       </header>
       <h3>API Overview</h3>
@@ -52,6 +32,7 @@ spoon.SpoonInstall:andUse(
             <li><a href="#apps">apps</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#logLevel">logLevel</a></li>
+            <li><a href="#menuBarOpenTimer">menuBarOpenTimer</a></li>
             <li><a href="#menuBars">menuBars</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
@@ -82,7 +63,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L47">Source/MenuBarApps.spoon/init.lua line 47</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L27">Source/MenuBarApps.spoon/init.lua line 27</a></td>
               </tr>
             </table>
           </section>
@@ -105,7 +86,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L43">Source/MenuBarApps.spoon/init.lua line 43</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L23">Source/MenuBarApps.spoon/init.lua line 23</a></td>
               </tr>
             </table>
           </section>
@@ -129,7 +110,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L55">Source/MenuBarApps.spoon/init.lua line 55</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L35">Source/MenuBarApps.spoon/init.lua line 35</a></td>
               </tr>
             </table>
           </section>
@@ -152,7 +133,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L64">Source/MenuBarApps.spoon/init.lua line 64</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L44">Source/MenuBarApps.spoon/init.lua line 44</a></td>
               </tr>
             </table>
           </section>
@@ -175,7 +156,30 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L70">Source/MenuBarApps.spoon/init.lua line 70</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L50">Source/MenuBarApps.spoon/init.lua line 50</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBarOpenTimer">
+            <a name="//apple_ref/cpp/Variable/menuBarOpenTimer" class="dashAnchor"></a>
+            <h5><a href="#menuBarOpenTimer">menuBarOpenTimer</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenuBarApps.menuBarOpenTimer</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>hs.timer for moving an app's first window after being opened via MenuBarApps.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L60">Source/MenuBarApps.spoon/init.lua line 60</a></td>
               </tr>
             </table>
           </section>
@@ -198,7 +202,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L75">Source/MenuBarApps.spoon/init.lua line 75</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L55">Source/MenuBarApps.spoon/init.lua line 55</a></td>
               </tr>
             </table>
           </section>
@@ -236,7 +240,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L80">Source/MenuBarApps.spoon/init.lua line 80</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L66">Source/MenuBarApps.spoon/init.lua line 66</a></td>
               </tr>
             </table>
           </section>
@@ -273,7 +277,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L156">Source/MenuBarApps.spoon/init.lua line 156</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L340">Source/MenuBarApps.spoon/init.lua line 340</a></td>
               </tr>
             </table>
           </section>
@@ -310,7 +314,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L178">Source/MenuBarApps.spoon/init.lua line 178</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L360">Source/MenuBarApps.spoon/init.lua line 360</a></td>
               </tr>
             </table>
           </section>
