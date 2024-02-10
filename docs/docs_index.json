@@ -118,7 +118,7 @@
     "type": "Method"
   },
   {
-    "desc": "Name and switch Mission Control spaces in the menu bar",
+    "desc": "Name and switch Mission Control spaces in the menu bar, with fullscreen support!",
     "name": "Spacer",
     "type": "Module"
   },
@@ -129,9 +129,21 @@
     "type": "Constant"
   },
   {
-    "desc": "Default hotkey to use for the space chooser when \"hotkeys\" = ",
+    "desc": "Default hotkey to use for the space chooser and fullscreen ",
     "module": "Spacer",
     "name": "defaultHotkeys",
+    "type": "Variable"
+  },
+  {
+    "desc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
+    "module": "Spacer",
+    "name": "delayedWindowClickTimer",
+    "type": "Variable"
+  },
+  {
+    "desc": "Keystroke representing shortcut to exit a full screen application. Defaults to",
+    "module": "Spacer",
+    "name": "exitFullScreenKeystroke",
     "type": "Variable"
   },
   {
@@ -189,6 +201,30 @@
     "type": "Variable"
   },
   {
+    "desc": "Menu item for tiling window to the left. Set this according to your language.",
+    "module": "Spacer",
+    "name": "tilingMenuItem",
+    "type": "Variable"
+  },
+  {
+    "desc": "Menu \"section\" which has tiling options. Set this according to your language.",
+    "module": "Spacer",
+    "name": "tilingMenuSection",
+    "type": "Variable"
+  },
+  {
+    "desc": "Exit fullscreen on window.",
+    "module": "Spacer",
+    "name": "exitFullscreen",
+    "type": "Method"
+  },
+  {
+    "desc": "Fullscreen app's focused window to the left of current space.",
+    "module": "Spacer",
+    "name": "fullscreenWindowToLeft",
+    "type": "Method"
+  },
+  {
     "desc": "Spoon initializer method for Spacer.",
     "module": "Spacer",
     "name": "init",
@@ -204,6 +240,12 @@
     "desc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.",
     "module": "Spacer",
     "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle the fullscreen state of current window to left of space.",
+    "module": "Spacer",
+    "name": "toggleFullscreenWindowToLeft",
     "type": "Method"
   },
   {

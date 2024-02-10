@@ -15,12 +15,15 @@
   <body>
     <header>
       <h1><a href="./index.html">docs</a> &raquo; Spacer</h1>
-      <p>Name and switch Mission Control spaces in the menu bar</p>
+      <p>Name and switch Mission Control spaces in the menu bar, with fullscreen support!</p>
 <p>Download: <a href="https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip">Spacer.spoon.zip</a></p>
 <p>README: <a href="https://github.com/adammillerio/Spacer.spoon/blob/main/README.md">README.md</a></p>
 <p>Space names can be changed from the menubar by holding Alt while selecting
 the desired space to rename. These are persisted between launches via the
 hs.settings module.</p>
+<p>A GUI based space &quot;chooser&quot; can be opened space_chooser hotkey (default cmd+space)</p>
+<p>Current application can be put in fullscreen to the left of the current space
+via the toggle_fullscreen_window_to_left hotkey (default cmd+shift+f)</p>
 
       </header>
       <h3>API Overview</h3>
@@ -32,6 +35,8 @@ hs.settings module.</p>
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#defaultHotkeys">defaultHotkeys</a></li>
+            <li><a href="#delayedWindowClickTimer">delayedWindowClickTimer</a></li>
+            <li><a href="#exitFullScreenKeystroke">exitFullScreenKeystroke</a></li>
             <li><a href="#focusedSpace">focusedSpace</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#logLevel">logLevel</a></li>
@@ -41,12 +46,17 @@ hs.settings module.</p>
             <li><a href="#spaceChooser">spaceChooser</a></li>
             <li><a href="#spaceNames">spaceNames</a></li>
             <li><a href="#spaceWatcher">spaceWatcher</a></li>
+            <li><a href="#tilingMenuItem">tilingMenuItem</a></li>
+            <li><a href="#tilingMenuSection">tilingMenuSection</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
+            <li><a href="#exitFullscreen">exitFullscreen</a></li>
+            <li><a href="#fullscreenWindowToLeft">fullscreenWindowToLeft</a></li>
             <li><a href="#init">init</a></li>
             <li><a href="#start">start</a></li>
             <li><a href="#stop">stop</a></li>
+            <li><a href="#toggleFullscreenWindowToLeft">toggleFullscreenWindowToLeft</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
@@ -70,7 +80,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L22">Source/Spacer.spoon/init.lua line 22</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L27">Source/Spacer.spoon/init.lua line 27</a></td>
               </tr>
             </table>
           </section>
@@ -89,12 +99,58 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Default hotkey to use for the space chooser when &quot;hotkeys&quot; =</p>
+                <td><p>Default hotkey to use for the space chooser and fullscreen</p>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L27">Source/Spacer.spoon/init.lua line 27</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L32">Source/Spacer.spoon/init.lua line 32</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="delayedWindowClickTimer">
+            <a name="//apple_ref/cpp/Variable/delayedWindowClickTimer" class="dashAnchor"></a>
+            <h5><a href="#delayedWindowClickTimer">delayedWindowClickTimer</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.delayedWindowClickTimer</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>hs.timer used in fullscreenWindowToLeft to perform a delayed left click.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L105">Source/Spacer.spoon/init.lua line 105</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="exitFullScreenKeystroke">
+            <a name="//apple_ref/cpp/Variable/exitFullScreenKeystroke" class="dashAnchor"></a>
+            <h5><a href="#exitFullScreenKeystroke">exitFullScreenKeystroke</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.exitFullScreenKeystroke</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Keystroke representing shortcut to exit a full screen application. Defaults to</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L51">Source/Spacer.spoon/init.lua line 51</a></td>
               </tr>
             </table>
           </section>
@@ -117,7 +173,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L70">Source/Spacer.spoon/init.lua line 70</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L95">Source/Spacer.spoon/init.lua line 95</a></td>
               </tr>
             </table>
           </section>
@@ -140,7 +196,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L32">Source/Spacer.spoon/init.lua line 32</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L57">Source/Spacer.spoon/init.lua line 57</a></td>
               </tr>
             </table>
           </section>
@@ -163,7 +219,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L38">Source/Spacer.spoon/init.lua line 38</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L63">Source/Spacer.spoon/init.lua line 63</a></td>
               </tr>
             </table>
           </section>
@@ -186,7 +242,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L43">Source/Spacer.spoon/init.lua line 43</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L68">Source/Spacer.spoon/init.lua line 68</a></td>
               </tr>
             </table>
           </section>
@@ -209,7 +265,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L64">Source/Spacer.spoon/init.lua line 64</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L89">Source/Spacer.spoon/init.lua line 89</a></td>
               </tr>
             </table>
           </section>
@@ -232,7 +288,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L58">Source/Spacer.spoon/init.lua line 58</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L83">Source/Spacer.spoon/init.lua line 83</a></td>
               </tr>
             </table>
           </section>
@@ -255,7 +311,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L75">Source/Spacer.spoon/init.lua line 75</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L100">Source/Spacer.spoon/init.lua line 100</a></td>
               </tr>
             </table>
           </section>
@@ -278,7 +334,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L53">Source/Spacer.spoon/init.lua line 53</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L78">Source/Spacer.spoon/init.lua line 78</a></td>
               </tr>
             </table>
           </section>
@@ -301,11 +357,162 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L48">Source/Spacer.spoon/init.lua line 48</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L73">Source/Spacer.spoon/init.lua line 73</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="tilingMenuItem">
+            <a name="//apple_ref/cpp/Variable/tilingMenuItem" class="dashAnchor"></a>
+            <h5><a href="#tilingMenuItem">tilingMenuItem</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.tilingMenuItem</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Menu item for tiling window to the left. Set this according to your language.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L46">Source/Spacer.spoon/init.lua line 46</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="tilingMenuSection">
+            <a name="//apple_ref/cpp/Variable/tilingMenuSection" class="dashAnchor"></a>
+            <h5><a href="#tilingMenuSection">tilingMenuSection</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer.tilingMenuSection</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Menu &quot;section&quot; which has tiling options. Set this according to your language.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L41">Source/Spacer.spoon/init.lua line 41</a></td>
               </tr>
             </table>
           </section>
         <h4 class="documentation-section">Methods</h4>
+          <section id="exitFullscreen">
+            <a name="//apple_ref/cpp/Method/exitFullscreen" class="dashAnchor"></a>
+            <h5><a href="#exitFullscreen">exitFullscreen</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer:exitFullscreen(window)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Exit fullscreen on window.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This presses the keystroke cmd+ctrl+f by default, which should work globally<ul>
+<li>Configurable via exitFullscreenKeystroke</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L521">Source/Spacer.spoon/init.lua line 521</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="fullscreenWindowToLeft">
+            <a name="//apple_ref/cpp/Method/fullscreenWindowToLeft" class="dashAnchor"></a>
+            <h5><a href="#fullscreenWindowToLeft">fullscreenWindowToLeft</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer:fullscreenWindowToLeft(app)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Fullscreen app's focused window to the left of current space.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>app - hs.application to fullscreen</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Attempts to select Window -&gt; Tile Window to Left of Screen in app menu<ul>
+<li>Manually configurable via tilingMenuSection and tilingMenuItem</li>
+</ul>
+</li>
+<li>If this doesn't work, it will manually macro the OS flow for this<ul>
+<li>Show the menu for the green resize button in the top left</li>
+<li>Press Down, Down, and Return to select Tile Window to Left of Screen</li>
+</ul>
+</li>
+<li>Clicks around the top-left of the current screen to exit tiling and fullscreen</li>
+<li>Returns mouse to original position</li>
+<li>All credit for this goes to clay_golem on Apple StackExchange<ul>
+<li>https://apple.stackexchange.com/posts/462160/revisions</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L490">Source/Spacer.spoon/init.lua line 490</a></td>
+              </tr>
+            </table>
+          </section>
           <section id="init">
             <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
             <h5><a href="#init">init</a></h5>
@@ -339,7 +546,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L396">Source/Spacer.spoon/init.lua line 396</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L595">Source/Spacer.spoon/init.lua line 595</a></td>
               </tr>
             </table>
           </section>
@@ -376,7 +583,7 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L410">Source/Spacer.spoon/init.lua line 410</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L609">Source/Spacer.spoon/init.lua line 609</a></td>
               </tr>
             </table>
           </section>
@@ -413,7 +620,52 @@ hs.settings module.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L454">Source/Spacer.spoon/init.lua line 454</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L653">Source/Spacer.spoon/init.lua line 653</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleFullscreenWindowToLeft">
+            <a name="//apple_ref/cpp/Method/toggleFullscreenWindowToLeft" class="dashAnchor"></a>
+            <h5><a href="#toggleFullscreenWindowToLeft">toggleFullscreenWindowToLeft</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Spacer:toggleFullscreenWindowToLeft()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggle the fullscreen state of current window to left of space.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>args - Args provided to hs CLI after &quot;--&quot; via _cli.args.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft
+or exitFullscreen based on the current fullscreen state of the application.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Spacer.spoon/init.lua#L453">Source/Spacer.spoon/init.lua line 453</a></td>
               </tr>
             </table>
           </section>

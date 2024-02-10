@@ -1,6 +1,6 @@
 --- === Spacer ===
 ---
---- Name and switch Mission Control spaces in the menu bar
+--- Name and switch Mission Control spaces in the menu bar, with fullscreen support!
 ---
 --- Download: [Spacer.spoon.zip](https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip)
 --- 
@@ -9,12 +9,17 @@
 --- Space names can be changed from the menubar by holding Alt while selecting
 --- the desired space to rename. These are persisted between launches via the
 --- hs.settings module.
+---
+--- A GUI based space "chooser" can be opened space_chooser hotkey (default cmd+space)
+---
+--- Current application can be put in fullscreen to the left of the current space
+--- via the toggle_fullscreen_window_to_left hotkey (default cmd+shift+f)
 local Spacer = {}
 Spacer.__index = Spacer
 
 -- Metadata
 Spacer.name = "Spacer"
-Spacer.version = "1.0.0"
+Spacer.version = "1.0.2"
 Spacer.author = "Adam Miller <adam@adammiller.io>"
 Spacer.homepage = "https://github.com/adammillerio/Spacer.spoon"
 Spacer.license = "MIT - https://opensource.org/licenses/MIT"
@@ -26,8 +31,28 @@ Spacer.settingsKey = "SpacerSpaceNames"
 
 --- Spacer.defaultHotkeys
 --- Variable
---- Default hotkey to use for the space chooser when "hotkeys" = 
-Spacer.defaultHotkeys = {space_chooser = {{"ctrl"}, "space"}}
+--- Default hotkey to use for the space chooser and fullscreen 
+--- when "hotkeys" = "default".
+Spacer.defaultHotkeys = {
+    space_chooser = {{"ctrl"}, "space"},
+    toggle_fullscreen_window_to_left = {{"cmd", "shift"}, "f"}
+}
+
+--- Spacer.tilingMenuSection
+--- Variable
+--- Menu "section" which has tiling options. Set this according to your language.
+Spacer.tilingMenuSection = "Window"
+
+--- Spacer.tilingMenuItem
+--- Variable
+--- Menu item for tiling window to the left. Set this according to your language.
+Spacer.tilingMenuItem = "Tile Window to Left of Screen"
+
+--- Spacer.exitFullScreenKeystroke
+--- Variable
+--- Keystroke representing shortcut to exit a full screen application. Defaults to
+--- Cmd+Ctrl+F which has worked for all applications so far.
+Spacer.exitFullScreenKeystroke = {modifiers = {"cmd", "ctrl"}, character = "f"}
 
 --- Spacer.logger
 --- Variable
@@ -76,6 +101,11 @@ Spacer.focusedSpace = nil
 --- Variable
 --- hs.chooser object representing the Space chooser.
 Spacer.spaceChooser = nil
+
+--- Spacer.delayedWindowClickTimer
+--- Variable
+--- hs.timer used in fullscreenWindowToLeft to perform a delayed left click.
+Spacer.delayedWindowClickTimer = nil
 
 -- Set the menu text of the Spacer menu bar item.
 function Spacer:_setMenuText()
@@ -166,6 +196,34 @@ function Spacer:_spaceChanged(spaceID)
     self:_setMenuText()
 end
 
+-- Retrieve the "name" of a fullscreen space.
+-- This trudges through the internal data_managedDisplaySpaces structure to locate
+-- and set the name of a fullscreen space, which is the app name of the first
+-- "tile" in a tiled space.
+function Spacer:_getFullScreenSpaceName(spaceID)
+    spaceData = hs.spaces.data_managedDisplaySpaces()
+
+    screenUUID = hs.screen.mainScreen():getUUID()
+
+    for _, displaySpaces in ipairs(spaceData) do
+        -- Find spaces for this screen.
+        if displaySpaces["Display Identifier"] == screenUUID then
+            for _, space in ipairs(displaySpaces["Spaces"]) do
+                -- Find the space with this ID.
+                if space["ManagedSpaceID"] == spaceID then
+                    -- Retrieve and return tiled app name.
+                    return
+                        space["TileLayoutManager"]["TileSpaces"][1]["appName"] ..
+                            " (F)"
+                end
+            end
+        end
+    end
+
+    -- Could not find name.
+    return nil
+end
+
 -- Load a new space into Spacer, resolving either it's current name if a new but
 -- moved space, outside of initial load, it's previous ordinal name at the current
 -- position if on initial load, or defaulting to "None".
@@ -173,24 +231,23 @@ function Spacer:_loadNewSpace(spacePos, spaceID, initial)
     self.logger.vf("Creating new space at \"Desktop %d\" with ID %d", spacePos,
                    spaceID)
 
-    if initial then
-        -- See if there was a name for the space in this position last load.
-        spaceName = self.orderedSpaceNames[spacePos]
-        if spaceName == nil then
-            -- No previous name in position, default space name to "None" and insert
-            -- it into the table.
-            spaceName = "None"
-            self.orderedSpaceNames[spacePos] = spaceName
-        end
+    -- If this is a Fullscreen app space, find and format a name based on the app.
+    if hs.spaces.spaceType(spaceID) == "fullscreen" then
+        spaceName = self:_getFullScreenSpaceName(spaceID)
     else
-        -- See if there's already a name stored for this space and use if there is.
-        spaceName = self.spaceNames[spaceID]
-        if spaceName == nil then
-            -- No previous name in position, default space name to "None" and insert
-            -- it into the table.
-            spaceName = "None"
-            self.orderedSpaceNames[spacePos] = spaceName
+        if initial then
+            -- See if there was a name for the space in this position last load.
+            spaceName = self.orderedSpaceNames[spacePos]
+        else
+            -- See if there's already a name stored for this space and use if there is.
+            spaceName = self.spaceNames[spaceID]
         end
+    end
+
+    if spaceName == nil then
+        -- No existing name, default space name to "None" and inser it into the table.
+        spaceName = "None"
+        self.orderedSpaceNames[spacePos] = spaceName
     end
 
     self.logger.vf("Setting name for \"Desktop %d\" to \"%s\"", spacePos,
@@ -393,6 +450,148 @@ function Spacer:_showSpaceChooser()
     end
 end
 
+--- Spacer:toggleFullscreenWindowToLeft()
+--- Method
+--- Toggle the fullscreen state of current window to left of space.
+---
+--- Parameters:
+---  * args - Args provided to hs CLI after "--" via _cli.args.
+---
+--- Returns:
+---  * None
+---
+--- Notes:
+---  * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft
+---    or exitFullscreen based on the current fullscreen state of the application.
+function Spacer:toggleFullscreenWindowToLeft()
+    app = hs.application.frontmostApplication()
+    if app == nil then
+        self.logger.w("No frontmost application, can't fullscreen")
+        return
+    end
+
+    window = app:focusedWindow()
+    if window == nil then
+        self.logger.w("Frontmost application has no windows, can't fullscreen")
+        return
+    end
+
+    if window:isFullScreen() then
+        self.logger
+            .v("Current window is already fullscreen, exiting fullscreen")
+        self:exitFullScreen()
+    else
+        self.logger.v(
+            "Current window not fullscreen, entering fullscreen to left")
+        self:fullscreenWindowToLeft(app)
+    end
+end
+
+--- Spacer:fullscreenWindowToLeft(app)
+--- Method
+--- Fullscreen app's focused window to the left of current space.
+---
+--- Parameters:
+---  * app - hs.application to fullscreen
+---
+--- Returns:
+---  * None
+---
+--- Notes:
+---  * Attempts to select Window -> Tile Window to Left of Screen in app menu
+---    * Manually configurable via tilingMenuSection and tilingMenuItem
+---  * If this doesn't work, it will manually macro the OS flow for this
+---    * Show the menu for the green resize button in the top left
+---    * Press Down, Down, and Return to select Tile Window to Left of Screen
+---  * Clicks around the top-left of the current screen to exit tiling and fullscreen
+---  * Returns mouse to original position
+---  * All credit for this goes to clay_golem on Apple StackExchange
+---    * https://apple.stackexchange.com/posts/462160/revisions
+function Spacer:fullscreenWindowToLeft(app)
+    if not self:_trySelectingTilingMenuItem(app) then
+        self:_tileToTheLeft(app)
+    end
+
+    self.delayedWindowClickTimer = hs.timer.delayed.new(1,
+                                                        self:_instanceCallback(
+                                                            self._clickOnLeftScreenSide))
+    self.delayedWindowClickTimer:start()
+end
+
+--- Spacer:exitFullscreen(window)
+--- Method
+--- Exit fullscreen on window.
+---
+--- Parameters:
+---  * None
+--- Returns:
+---  * None
+---
+--- Notes:
+---  * This presses the keystroke cmd+ctrl+f by default, which should work globally
+---    * Configurable via exitFullscreenKeystroke
+function Spacer:exitFullScreen()
+    self.logger.vf("Pressing keystroke to exit fullscreen: %s",
+                   hs.inspect(self.exitFullScreenKeystroke))
+    hs.eventtap.keyStroke(self.exitFullScreenKeystroke.modifiers,
+                          self.exitFullScreenKeystroke.character)
+end
+
+-- Click the mouse around the upper left corner of the screen, and return it
+-- to the initial position.
+function Spacer:_clickOnLeftScreenSide()
+    mousePosition = hs.mouse.getRelativePosition()
+    currentScreenFrame = hs.mouse.getCurrentScreen():frame()
+
+    clickPosition = {
+        x = currentScreenFrame.x + 10,
+        y = currentScreenFrame.y + 10
+    }
+
+    self.logger.vf("Clicking at position: %s", hs.inspect(clickPosition))
+
+    -- Click for 1ms
+    hs.eventtap.leftClick(clickPosition, 1000) -- hold for 1ms
+
+    -- Restore the original mouse position
+    self.logger.vf("Restoring mouse position to: %s", mousePosition)
+    hs.mouse.setRelativePosition(mousePosition)
+end
+
+-- Attempt to select tiling window options via application menu.
+function Spacer:_trySelectingTilingMenuItem(app)
+    self.logger.vf("Selecting menu item '%s' in section '%s'",
+                   self.tilingMenuItem, self.tiling)
+    selected = app:selectMenuItem({self.tilingMenuSection, self.tilingMenuItem})
+
+    if not selected then
+        self.logger.wf("Could not find menu item '%s' in section '%s'",
+                       self.tilingMenuItem, self.tilingMenuSection)
+    end
+
+    return selected
+end
+
+-- Tile application to the left via the green fullscreen window element in the OS.
+function Spacer:_tileToTheLeft(app)
+    window = app:focusedWindow()
+
+    if not window then
+        self.logger.w("No window found")
+        return false
+    end
+
+    windowAx = hs.axuielement.windowElement(window)
+    windowAx:setTimeout(0.01)
+    resizeButtonAx = windowAx:attributeValue("AXFullScreenButton")
+    resizeButtonAx:setTimeout(0.01)
+    resizeButtonAx:performAction("AXShowMenu")
+
+    hs.eventtap.keyStroke({}, "down", 1000)
+    hs.eventtap.keyStroke({}, "down", 1000)
+    hs.eventtap.keyStroke({}, "return", 1000)
+end
+
 --- Spacer:init()
 --- Method
 --- Spoon initializer method for Spacer.
@@ -475,9 +674,11 @@ function Spacer:stop()
 end
 
 function Spacer:bindHotkeys(mapping)
-    -- Bind method for showing the space chooser to the desired hotkey.
+    -- Bind method for showing the space chooser and fullscreen to the desired hotkey.
     hs.spoons.bindHotkeysToSpec({
-        space_chooser = self:_instanceCallback(self._showSpaceChooser)
+        space_chooser = self:_instanceCallback(self._showSpaceChooser),
+        toggle_fullscreen_window_to_left = self:_instanceCallback(
+            self.toggleFullscreenWindowToLeft)
     }, mapping)
 end
 
