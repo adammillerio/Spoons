@@ -270,6 +270,305 @@
     "Command": [],
     "Constant": [
       {
+        "def": "SiriSays.notificationCenterBundleID",
+        "desc": "Bundle ID of Apple Notification Center, used to detect when \"Type to Siri\"",
+        "doc": "Bundle ID of Apple Notification Center, used to detect when \"Type to Siri\"\nprompt is up.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "18",
+        "name": "notificationCenterBundleID",
+        "signature": "SiriSays.notificationCenterBundleID",
+        "stripped_doc": "prompt is up.",
+        "type": "Constant"
+      }
+    ],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "SiriSays:siri(prompt)",
+        "desc": "Initiate a macro for sending text to Siri.",
+        "doc": "Initiate a macro for sending text to Siri.\n\nParameters:\n * prompt - string prompt to send to Siri\n\nReturns:\n * None\n\nNotes:\n * This \"function\" is really a multi-step macro that does the following\n   * Presses Fn+Space to open the TTS prompt\n   * Waits until \"Notification Center\" is the focused application (TTS prompt)\n   * Sends the provided prompt as keystrokes\n   * Presses return to submit prompt\n   * Waits typeToSiriCloseDelay seconds before \"auto closing\" the prompt\n   * Auto close focuses the window from before TTS prompt then clicks the center\n     * Will not occur if prompt is already unfocused\n * This requires the following settings to be enabled\n   * Accessibility\n     * Type to Siri\n       * On\n   * Siri & Spotlight\n     * Siri Responses\n       * Voice Feedback\n         * Off\n       * Always show Siri captions\n         * On\n       * Keyboard Shortcut\n         * Press Fn (Globe) Space",
+        "examples": [],
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "115",
+        "name": "siri",
+        "notes": [
+          " * This \"function\" is really a multi-step macro that does the following",
+          "   * Presses Fn+Space to open the TTS prompt",
+          "   * Waits until \"Notification Center\" is the focused application (TTS prompt)",
+          "   * Sends the provided prompt as keystrokes",
+          "   * Presses return to submit prompt",
+          "   * Waits typeToSiriCloseDelay seconds before \"auto closing\" the prompt",
+          "   * Auto close focuses the window from before TTS prompt then clicks the center",
+          "     * Will not occur if prompt is already unfocused",
+          " * This requires the following settings to be enabled",
+          "   * Accessibility",
+          "     * Type to Siri",
+          "       * On",
+          "   * Siri & Spotlight",
+          "     * Siri Responses",
+          "       * Voice Feedback",
+          "         * Off",
+          "       * Always show Siri captions",
+          "         * On",
+          "       * Keyboard Shortcut",
+          "         * Press Fn (Globe) Space"
+        ],
+        "parameters": [
+          " * prompt - string prompt to send to Siri"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "SiriSays:siri(prompt)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "SiriSays:siri_cli(args)",
+        "desc": "Initiate a siri prompt from the Hammerspoon CLI.",
+        "doc": "Initiate a siri prompt from the Hammerspoon CLI.\n\nParameters:\n * args - Args provided to hs CLI after \"--\" via _cli.args.\n\nReturns:\n * None\n\nNotes:\n * This is intended to be invoked via the Hammerspoon CLI with the prompt after \n * ie `alias siri='hs -c \"spoon.SiriSays:siri_cli(_cli.args)\" --'`",
+        "examples": [],
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "165",
+        "name": "siri_cli",
+        "notes": [
+          " * This is intended to be invoked via the Hammerspoon CLI with the prompt after ",
+          " * ie `alias siri='hs -c \"spoon.SiriSays:siri_cli(_cli.args)\" --'`"
+        ],
+        "parameters": [
+          " * args - Args provided to hs CLI after \"--\" via _cli.args."
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "SiriSays:siri_cli(args)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "SiriSays.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "24",
+        "name": "logger",
+        "signature": "SiriSays.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.logLevel",
+        "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+        "doc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "30",
+        "name": "logLevel",
+        "signature": "SiriSays.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.previouslyFocusedWindow",
+        "desc": "The previously focused window stored prior to starting the macro, used for",
+        "doc": "The previously focused window stored prior to starting the macro, used for\nauto closing the TTS prompt.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "41",
+        "name": "previouslyFocusedWindow",
+        "signature": "SiriSays.previouslyFocusedWindow",
+        "stripped_doc": "auto closing the TTS prompt.",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.typeToSiriCloseDelay",
+        "desc": "int representing the time in seconds to wait before \"auto closing\"",
+        "doc": "int representing the time in seconds to wait before \"auto closing\"\nthe Type-to-Siri prompt.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "35",
+        "name": "typeToSiriCloseDelay",
+        "signature": "SiriSays.typeToSiriCloseDelay",
+        "stripped_doc": "the Type-to-Siri prompt.",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.typeToSiriCloseTimer",
+        "desc": "hs.timer that waits typeToSiriCloseDelay seconds before auto closing the TTS",
+        "doc": "hs.timer that waits typeToSiriCloseDelay seconds before auto closing the TTS\nprompt.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "52",
+        "name": "typeToSiriCloseTimer",
+        "signature": "SiriSays.typeToSiriCloseTimer",
+        "stripped_doc": "prompt.",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.typeToSiriOpenTimer",
+        "desc": "hs.timer that waits unto the TTS prompt is open.",
+        "doc": "hs.timer that waits unto the TTS prompt is open.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "47",
+        "name": "typeToSiriOpenTimer",
+        "signature": "SiriSays.typeToSiriOpenTimer",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Use \"Type to Siri\" through Hammerspoon",
+    "doc": "Use \"Type to Siri\" through Hammerspoon\n\nDownload: [SiriSays.spoon.zip](https://github.com/adammillerio/Spoons/raw/main/Spoons/SiriSays.spoon.zip)\n\nREADME: [README.md](https://github.com/adammillerio/SiriSays.spoon/blob/main/README.md)",
+    "items": [
+      {
+        "def": "SiriSays.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "24",
+        "name": "logger",
+        "signature": "SiriSays.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.logLevel",
+        "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+        "doc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "30",
+        "name": "logLevel",
+        "signature": "SiriSays.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.notificationCenterBundleID",
+        "desc": "Bundle ID of Apple Notification Center, used to detect when \"Type to Siri\"",
+        "doc": "Bundle ID of Apple Notification Center, used to detect when \"Type to Siri\"\nprompt is up.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "18",
+        "name": "notificationCenterBundleID",
+        "signature": "SiriSays.notificationCenterBundleID",
+        "stripped_doc": "prompt is up.",
+        "type": "Constant"
+      },
+      {
+        "def": "SiriSays.previouslyFocusedWindow",
+        "desc": "The previously focused window stored prior to starting the macro, used for",
+        "doc": "The previously focused window stored prior to starting the macro, used for\nauto closing the TTS prompt.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "41",
+        "name": "previouslyFocusedWindow",
+        "signature": "SiriSays.previouslyFocusedWindow",
+        "stripped_doc": "auto closing the TTS prompt.",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays:siri(prompt)",
+        "desc": "Initiate a macro for sending text to Siri.",
+        "doc": "Initiate a macro for sending text to Siri.\n\nParameters:\n * prompt - string prompt to send to Siri\n\nReturns:\n * None\n\nNotes:\n * This \"function\" is really a multi-step macro that does the following\n   * Presses Fn+Space to open the TTS prompt\n   * Waits until \"Notification Center\" is the focused application (TTS prompt)\n   * Sends the provided prompt as keystrokes\n   * Presses return to submit prompt\n   * Waits typeToSiriCloseDelay seconds before \"auto closing\" the prompt\n   * Auto close focuses the window from before TTS prompt then clicks the center\n     * Will not occur if prompt is already unfocused\n * This requires the following settings to be enabled\n   * Accessibility\n     * Type to Siri\n       * On\n   * Siri & Spotlight\n     * Siri Responses\n       * Voice Feedback\n         * Off\n       * Always show Siri captions\n         * On\n       * Keyboard Shortcut\n         * Press Fn (Globe) Space",
+        "examples": [],
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "115",
+        "name": "siri",
+        "notes": [
+          " * This \"function\" is really a multi-step macro that does the following",
+          "   * Presses Fn+Space to open the TTS prompt",
+          "   * Waits until \"Notification Center\" is the focused application (TTS prompt)",
+          "   * Sends the provided prompt as keystrokes",
+          "   * Presses return to submit prompt",
+          "   * Waits typeToSiriCloseDelay seconds before \"auto closing\" the prompt",
+          "   * Auto close focuses the window from before TTS prompt then clicks the center",
+          "     * Will not occur if prompt is already unfocused",
+          " * This requires the following settings to be enabled",
+          "   * Accessibility",
+          "     * Type to Siri",
+          "       * On",
+          "   * Siri & Spotlight",
+          "     * Siri Responses",
+          "       * Voice Feedback",
+          "         * Off",
+          "       * Always show Siri captions",
+          "         * On",
+          "       * Keyboard Shortcut",
+          "         * Press Fn (Globe) Space"
+        ],
+        "parameters": [
+          " * prompt - string prompt to send to Siri"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "SiriSays:siri(prompt)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "SiriSays:siri_cli(args)",
+        "desc": "Initiate a siri prompt from the Hammerspoon CLI.",
+        "doc": "Initiate a siri prompt from the Hammerspoon CLI.\n\nParameters:\n * args - Args provided to hs CLI after \"--\" via _cli.args.\n\nReturns:\n * None\n\nNotes:\n * This is intended to be invoked via the Hammerspoon CLI with the prompt after \n * ie `alias siri='hs -c \"spoon.SiriSays:siri_cli(_cli.args)\" --'`",
+        "examples": [],
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "165",
+        "name": "siri_cli",
+        "notes": [
+          " * This is intended to be invoked via the Hammerspoon CLI with the prompt after ",
+          " * ie `alias siri='hs -c \"spoon.SiriSays:siri_cli(_cli.args)\" --'`"
+        ],
+        "parameters": [
+          " * args - Args provided to hs CLI after \"--\" via _cli.args."
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "SiriSays:siri_cli(args)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "SiriSays.typeToSiriCloseDelay",
+        "desc": "int representing the time in seconds to wait before \"auto closing\"",
+        "doc": "int representing the time in seconds to wait before \"auto closing\"\nthe Type-to-Siri prompt.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "35",
+        "name": "typeToSiriCloseDelay",
+        "signature": "SiriSays.typeToSiriCloseDelay",
+        "stripped_doc": "the Type-to-Siri prompt.",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.typeToSiriCloseTimer",
+        "desc": "hs.timer that waits typeToSiriCloseDelay seconds before auto closing the TTS",
+        "doc": "hs.timer that waits typeToSiriCloseDelay seconds before auto closing the TTS\nprompt.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "52",
+        "name": "typeToSiriCloseTimer",
+        "signature": "SiriSays.typeToSiriCloseTimer",
+        "stripped_doc": "prompt.",
+        "type": "Variable"
+      },
+      {
+        "def": "SiriSays.typeToSiriOpenTimer",
+        "desc": "hs.timer that waits unto the TTS prompt is open.",
+        "doc": "hs.timer that waits unto the TTS prompt is open.",
+        "file": "Source/SiriSays.spoon/init.lua",
+        "lineno": "47",
+        "name": "typeToSiriOpenTimer",
+        "signature": "SiriSays.typeToSiriOpenTimer",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "SiriSays",
+    "stripped_doc": "\nDownload: [SiriSays.spoon.zip](https://github.com/adammillerio/Spoons/raw/main/Spoons/SiriSays.spoon.zip)\n\nREADME: [README.md](https://github.com/adammillerio/SiriSays.spoon/blob/main/README.md)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [
+      {
         "def": "Spacer.settingsKey",
         "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
         "doc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",

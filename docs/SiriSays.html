@@ -1,0 +1,338 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: SiriSays</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; SiriSays</h1>
+      <p>Use &quot;Type to Siri&quot; through Hammerspoon</p>
+<p>Download: <a href="https://github.com/adammillerio/Spoons/raw/main/Spoons/SiriSays.spoon.zip">SiriSays.spoon.zip</a></p>
+<p>README: <a href="https://github.com/adammillerio/SiriSays.spoon/blob/main/README.md">README.md</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Constants - Useful values which cannot be changed</li>
+          <ul>
+            <li><a href="#notificationCenterBundleID">notificationCenterBundleID</a></li>
+          </ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#logLevel">logLevel</a></li>
+            <li><a href="#previouslyFocusedWindow">previouslyFocusedWindow</a></li>
+            <li><a href="#typeToSiriCloseDelay">typeToSiriCloseDelay</a></li>
+            <li><a href="#typeToSiriCloseTimer">typeToSiriCloseTimer</a></li>
+            <li><a href="#typeToSiriOpenTimer">typeToSiriOpenTimer</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#siri">siri</a></li>
+            <li><a href="#siri_cli">siri_cli</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Constants</h4>
+          <section id="notificationCenterBundleID">
+            <a name="//apple_ref/cpp/Constant/notificationCenterBundleID" class="dashAnchor"></a>
+            <h5><a href="#notificationCenterBundleID">notificationCenterBundleID</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays.notificationCenterBundleID</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Constant</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Bundle ID of Apple Notification Center, used to detect when &quot;Type to Siri&quot;</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L18">Source/SiriSays.spoon/init.lua line 18</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L24">Source/SiriSays.spoon/init.lua line 24</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="logLevel">
+            <a name="//apple_ref/cpp/Variable/logLevel" class="dashAnchor"></a>
+            <h5><a href="#logLevel">logLevel</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays.logLevel</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Spacer specific log level override, see hs.logger.setLogLevel for options.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L30">Source/SiriSays.spoon/init.lua line 30</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="previouslyFocusedWindow">
+            <a name="//apple_ref/cpp/Variable/previouslyFocusedWindow" class="dashAnchor"></a>
+            <h5><a href="#previouslyFocusedWindow">previouslyFocusedWindow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays.previouslyFocusedWindow</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>The previously focused window stored prior to starting the macro, used for</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L41">Source/SiriSays.spoon/init.lua line 41</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="typeToSiriCloseDelay">
+            <a name="//apple_ref/cpp/Variable/typeToSiriCloseDelay" class="dashAnchor"></a>
+            <h5><a href="#typeToSiriCloseDelay">typeToSiriCloseDelay</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays.typeToSiriCloseDelay</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>int representing the time in seconds to wait before &quot;auto closing&quot;</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L35">Source/SiriSays.spoon/init.lua line 35</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="typeToSiriCloseTimer">
+            <a name="//apple_ref/cpp/Variable/typeToSiriCloseTimer" class="dashAnchor"></a>
+            <h5><a href="#typeToSiriCloseTimer">typeToSiriCloseTimer</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays.typeToSiriCloseTimer</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>hs.timer that waits typeToSiriCloseDelay seconds before auto closing the TTS</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L52">Source/SiriSays.spoon/init.lua line 52</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="typeToSiriOpenTimer">
+            <a name="//apple_ref/cpp/Variable/typeToSiriOpenTimer" class="dashAnchor"></a>
+            <h5><a href="#typeToSiriOpenTimer">typeToSiriOpenTimer</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays.typeToSiriOpenTimer</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>hs.timer that waits unto the TTS prompt is open.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L47">Source/SiriSays.spoon/init.lua line 47</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="siri">
+            <a name="//apple_ref/cpp/Method/siri" class="dashAnchor"></a>
+            <h5><a href="#siri">siri</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays:siri(prompt)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Initiate a macro for sending text to Siri.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>prompt - string prompt to send to Siri</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This &quot;function&quot; is really a multi-step macro that does the following<ul>
+<li>Presses Fn+Space to open the TTS prompt</li>
+<li>Waits until &quot;Notification Center&quot; is the focused application (TTS prompt)</li>
+<li>Sends the provided prompt as keystrokes</li>
+<li>Presses return to submit prompt</li>
+<li>Waits typeToSiriCloseDelay seconds before &quot;auto closing&quot; the prompt</li>
+<li>Auto close focuses the window from before TTS prompt then clicks the center<ul>
+<li>Will not occur if prompt is already unfocused</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>This requires the following settings to be enabled<ul>
+<li>Accessibility<ul>
+<li>Type to Siri<ul>
+<li>On</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Siri &amp; Spotlight<ul>
+<li>Siri Responses<ul>
+<li>Voice Feedback<ul>
+<li>Off</li>
+</ul>
+</li>
+<li>Always show Siri captions<ul>
+<li>On</li>
+</ul>
+</li>
+<li>Keyboard Shortcut<ul>
+<li>Press Fn (Globe) Space</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L115">Source/SiriSays.spoon/init.lua line 115</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="siri_cli">
+            <a name="//apple_ref/cpp/Method/siri_cli" class="dashAnchor"></a>
+            <h5><a href="#siri_cli">siri_cli</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SiriSays:siri_cli(args)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Initiate a siri prompt from the Hammerspoon CLI.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>args - Args provided to hs CLI after &quot;--&quot; via _cli.args.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This is intended to be invoked via the Hammerspoon CLI with the prompt after</li>
+<li>ie <code>alias siri='hs -c &quot;spoon.SiriSays:siri_cli(_cli.args)&quot; --'</code></li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/SiriSays.spoon/init.lua#L165">Source/SiriSays.spoon/init.lua line 165</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

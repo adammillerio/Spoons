@@ -59,6 +59,65 @@
     "type": "Method"
   },
   {
+    "desc": "Use \"Type to Siri\" through Hammerspoon",
+    "name": "SiriSays",
+    "type": "Module"
+  },
+  {
+    "desc": "Bundle ID of Apple Notification Center, used to detect when \"Type to Siri\"",
+    "module": "SiriSays",
+    "name": "notificationCenterBundleID",
+    "type": "Constant"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+    "module": "SiriSays",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
+    "module": "SiriSays",
+    "name": "logLevel",
+    "type": "Variable"
+  },
+  {
+    "desc": "The previously focused window stored prior to starting the macro, used for",
+    "module": "SiriSays",
+    "name": "previouslyFocusedWindow",
+    "type": "Variable"
+  },
+  {
+    "desc": "int representing the time in seconds to wait before \"auto closing\"",
+    "module": "SiriSays",
+    "name": "typeToSiriCloseDelay",
+    "type": "Variable"
+  },
+  {
+    "desc": "hs.timer that waits typeToSiriCloseDelay seconds before auto closing the TTS",
+    "module": "SiriSays",
+    "name": "typeToSiriCloseTimer",
+    "type": "Variable"
+  },
+  {
+    "desc": "hs.timer that waits unto the TTS prompt is open.",
+    "module": "SiriSays",
+    "name": "typeToSiriOpenTimer",
+    "type": "Variable"
+  },
+  {
+    "desc": "Initiate a macro for sending text to Siri.",
+    "module": "SiriSays",
+    "name": "siri",
+    "type": "Method"
+  },
+  {
+    "desc": "Initiate a siri prompt from the Hammerspoon CLI.",
+    "module": "SiriSays",
+    "name": "siri_cli",
+    "type": "Method"
+  },
+  {
     "desc": "Name and switch Mission Control spaces in the menu bar",
     "name": "Spacer",
     "type": "Module"
