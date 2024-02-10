@@ -10,7 +10,7 @@
         "doc": "Maximize the application on the current space if it is not maximized already.",
         "doc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "47",
+        "lineno": "27",
         "name": "maximize",
         "signature": "MenuBarApps.action.maximize",
         "stripped_doc": "",
@@ -24,7 +24,7 @@
         "doc": "Move the window to appear under the menu bar item as if it were a menu.",
         "doc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "43",
+        "lineno": "23",
         "name": "move",
         "signature": "MenuBarApps.action.move",
         "stripped_doc": "",
@@ -45,7 +45,7 @@
         "doc_gfm": "<p>Spoon initializer method for MenuBarApps.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "80",
+        "lineno": "66",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -70,7 +70,7 @@
         "doc_gfm": "<p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "156",
+        "lineno": "340",
         "name": "start",
         "notes": [],
         "notes_gfm": "",
@@ -95,7 +95,7 @@
         "doc_gfm": "<p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "178",
+        "lineno": "360",
         "name": "stop",
         "notes": [],
         "notes_gfm": "",
@@ -121,7 +121,7 @@
         "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
         "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "55",
+        "lineno": "35",
         "name": "apps",
         "signature": "MenuBarApps.apps",
         "stripped_doc": "key of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
@@ -135,7 +135,7 @@
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "64",
+        "lineno": "44",
         "name": "logger",
         "signature": "MenuBarApps.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -149,10 +149,24 @@
         "doc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
         "doc_gfm": "<p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "70",
+        "lineno": "50",
         "name": "logLevel",
         "signature": "MenuBarApps.logLevel",
         "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MenuBarApps.menuBarOpenTimer",
+        "def_gfm": "MenuBarApps.menuBarOpenTimer",
+        "desc": "hs.timer for moving an app's first window after being opened via MenuBarApps.",
+        "desc_gfm": "<p>hs.timer for moving an app's first window after being opened via MenuBarApps.</p>\n",
+        "doc": "hs.timer for moving an app's first window after being opened via MenuBarApps.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
+        "doc_gfm": "<p>hs.timer for moving an app's first window after being opened via MenuBarApps.\nThis behavior can be disabled by setting disableOpen=true on the app config.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "60",
+        "name": "menuBarOpenTimer",
+        "signature": "MenuBarApps.menuBarOpenTimer",
+        "stripped_doc": "This behavior can be disabled by setting disableOpen=true on the app config.",
         "type": "Variable"
       },
       {
@@ -163,7 +177,7 @@
         "doc": "Table containing references to all of the created menu bars.",
         "doc_gfm": "<p>Table containing references to all of the created menu bars.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "75",
+        "lineno": "55",
         "name": "menuBars",
         "signature": "MenuBarApps.menuBars",
         "stripped_doc": "",
@@ -172,8 +186,8 @@
     ],
     "desc": "Control applications from the macOS Menu Bar ",
     "desc_gfm": "<p>Control applications from the macOS Menu Bar</p>\n",
-    "doc": "Control applications from the macOS Menu Bar \n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nCreate a \"P\" menu bar item that opens and moves Plexamp and create a \"D\" menu\nbar item that opens and maximizes Discord.\nspoon.SpoonInstall:andUse(\n  \"MenuBarApps\",\n  {\n    config = {\n      apps = {\n        [\"Plexamp\"] = {\n          title = \"P\",\n          action = \"move\"\n        },\n        [\"Discord\"] = {\n          title = \"D\",\n          action = \"maximize\"\n        }\n      }\n    },\n    start = true\n  }\n)",
-    "doc_gfm": "<p>Control applications from the macOS Menu Bar</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip</p>\n<p>Example Usage (Using <a href=\"https://zzamboni.org/post/using-spoons-in-hammerspoon/\">SpoonInstall</a>):\nCreate a &quot;P&quot; menu bar item that opens and moves Plexamp and create a &quot;D&quot; menu\nbar item that opens and maximizes Discord.\nspoon.SpoonInstall:andUse(\n  &quot;MenuBarApps&quot;,\n  {\n    config = {\n      apps = {\n        [&quot;Plexamp&quot;] = {\n          title = &quot;P&quot;,\n          action = &quot;move&quot;\n        },\n        [&quot;Discord&quot;] = {\n          title = &quot;D&quot;,\n          action = &quot;maximize&quot;\n        }\n      }\n    },\n    start = true\n  }\n)</p>\n",
+    "doc": "Control applications from the macOS Menu Bar \n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip\n\nREADME with Example Usage: [README.md](https://github.com/adammillerio/MenuBarApps.spoon/blob/main/README.md)",
+    "doc_gfm": "<p>Control applications from the macOS Menu Bar</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip</p>\n<p>README with Example Usage: <a href=\"https://github.com/adammillerio/MenuBarApps.spoon/blob/main/README.md\">README.md</a></p>\n",
     "items": [
       {
         "def": "MenuBarApps.apps",
@@ -183,7 +197,7 @@
         "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
         "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "55",
+        "lineno": "35",
         "name": "apps",
         "signature": "MenuBarApps.apps",
         "stripped_doc": "key of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
@@ -198,7 +212,7 @@
         "doc_gfm": "<p>Spoon initializer method for MenuBarApps.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "80",
+        "lineno": "66",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -222,7 +236,7 @@
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "64",
+        "lineno": "44",
         "name": "logger",
         "signature": "MenuBarApps.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -236,7 +250,7 @@
         "doc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
         "doc_gfm": "<p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "70",
+        "lineno": "50",
         "name": "logLevel",
         "signature": "MenuBarApps.logLevel",
         "stripped_doc": "",
@@ -250,11 +264,25 @@
         "doc": "Maximize the application on the current space if it is not maximized already.",
         "doc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "47",
+        "lineno": "27",
         "name": "maximize",
         "signature": "MenuBarApps.action.maximize",
         "stripped_doc": "",
         "type": "Constant"
+      },
+      {
+        "def": "MenuBarApps.menuBarOpenTimer",
+        "def_gfm": "MenuBarApps.menuBarOpenTimer",
+        "desc": "hs.timer for moving an app's first window after being opened via MenuBarApps.",
+        "desc_gfm": "<p>hs.timer for moving an app's first window after being opened via MenuBarApps.</p>\n",
+        "doc": "hs.timer for moving an app's first window after being opened via MenuBarApps.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
+        "doc_gfm": "<p>hs.timer for moving an app's first window after being opened via MenuBarApps.\nThis behavior can be disabled by setting disableOpen=true on the app config.</p>\n",
+        "file": "Source/MenuBarApps.spoon/init.lua",
+        "lineno": "60",
+        "name": "menuBarOpenTimer",
+        "signature": "MenuBarApps.menuBarOpenTimer",
+        "stripped_doc": "This behavior can be disabled by setting disableOpen=true on the app config.",
+        "type": "Variable"
       },
       {
         "def": "MenuBarApps.menuBars",
@@ -264,7 +292,7 @@
         "doc": "Table containing references to all of the created menu bars.",
         "doc_gfm": "<p>Table containing references to all of the created menu bars.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "75",
+        "lineno": "55",
         "name": "menuBars",
         "signature": "MenuBarApps.menuBars",
         "stripped_doc": "",
@@ -278,7 +306,7 @@
         "doc": "Move the window to appear under the menu bar item as if it were a menu.",
         "doc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "43",
+        "lineno": "23",
         "name": "move",
         "signature": "MenuBarApps.action.move",
         "stripped_doc": "",
@@ -293,7 +321,7 @@
         "doc_gfm": "<p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "156",
+        "lineno": "340",
         "name": "start",
         "notes": [],
         "notes_gfm": "",
@@ -318,7 +346,7 @@
         "doc_gfm": "<p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "178",
+        "lineno": "360",
         "name": "stop",
         "notes": [],
         "notes_gfm": "",
@@ -336,7 +364,7 @@
       }
     ],
     "name": "MenuBarApps",
-    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nCreate a \"P\" menu bar item that opens and moves Plexamp and create a \"D\" menu\nbar item that opens and maximizes Discord.\nspoon.SpoonInstall:andUse(\n  \"MenuBarApps\",\n  {\n    config = {\n      apps = {\n        [\"Plexamp\"] = {\n          title = \"P\",\n          action = \"move\"\n        },\n        [\"Discord\"] = {\n          title = \"D\",\n          action = \"maximize\"\n        }\n      }\n    },\n    start = true\n  }\n)",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip\n\nREADME with Example Usage: [README.md](https://github.com/adammillerio/MenuBarApps.spoon/blob/main/README.md)",
     "submodules": [],
     "type": "Module"
   },
@@ -1491,102 +1519,106 @@
     "Function": [],
     "Method": [
       {
-        "def": "WindowCache:findWindowByApp(appName)",
-        "def_gfm": "WindowCache:findWindowByApp(appName)",
+        "def": "WindowCache:findWindowByApp(appName[, spaceID])",
+        "def_gfm": "WindowCache:findWindowByApp(appName[, spaceID])",
         "desc": "Find the last opened window by application name.",
         "desc_gfm": "<p>Find the last opened window by application name.</p>\n",
-        "doc": "Find the last opened window by application name.\n\nParameters:\n * appName - name of the application to find\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
-        "doc_gfm": "<p>Find the last opened window by application name.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "doc": "Find the last opened window by application name.\n\nParameters:\n * appName - name of the application to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
+        "doc_gfm": "<p>Find the last opened window by application name.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "113",
+        "lineno": "134",
         "name": "findWindowByApp",
         "notes": [],
         "notes_gfm": "",
         "parameters": [
-          " * appName - name of the application to find"
+          " * appName - name of the application to find",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
         ],
-        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n</ul>\n",
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
         "returns": [
           " * The `hs.window` object if found, `nil` otherwise"
         ],
         "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
-        "signature": "WindowCache:findWindowByApp(appName)",
+        "signature": "WindowCache:findWindowByApp(appName[, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "WindowCache:findWindowByTitle(title)",
-        "def_gfm": "WindowCache:findWindowByTitle(title)",
+        "def": "WindowCache:findWindowByTitle(title[, spaceID])",
+        "def_gfm": "WindowCache:findWindowByTitle(title[, spaceID])",
         "desc": "Find a window by title.",
         "desc_gfm": "<p>Find a window by title.</p>\n",
-        "doc": "Find a window by title.\n\nParameters:\n * title - title of the window to find\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
-        "doc_gfm": "<p>Find a window by title.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "doc": "Find a window by title.\n\nParameters:\n * title - title of the window to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
+        "doc_gfm": "<p>Find a window by title.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "77",
+        "lineno": "84",
         "name": "findWindowByTitle",
         "notes": [],
         "notes_gfm": "",
         "parameters": [
-          " * title - title of the window to find"
+          " * title - title of the window to find",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
         ],
-        "parameters_gfm": "<ul>\n<li>title - title of the window to find</li>\n</ul>\n",
+        "parameters_gfm": "<ul>\n<li>title - title of the window to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
         "returns": [
           " * The `hs.window` object if found, `nil` otherwise"
         ],
         "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
-        "signature": "WindowCache:findWindowByTitle(title)",
+        "signature": "WindowCache:findWindowByTitle(title[, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "WindowCache:focusWindowByApp(appName)",
-        "def_gfm": "WindowCache:focusWindowByApp(appName)",
+        "def": "WindowCache:focusWindowByApp(appName[, spaceID])",
+        "def_gfm": "WindowCache:focusWindowByApp(appName[, spaceID])",
         "desc": "Find the last opened window by application name and focus it.",
         "desc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n",
-        "doc": "Find the last opened window by application name and focus it.\n\nParameters:\n * appName - name of the application to find\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
-        "doc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "doc": "Find the last opened window by application name and focus it.\n\nParameters:\n * appName - name of the application to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
+        "doc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "132",
+        "lineno": "185",
         "name": "focusWindowByApp",
         "notes": [],
         "notes_gfm": "",
         "parameters": [
-          " * appName - name of the application to find"
+          " * appName - name of the application to find",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
         ],
-        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n</ul>\n",
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
         "returns": [
           " * The `hs.window` object focused if found, `nil` otherwise"
         ],
         "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
-        "signature": "WindowCache:focusWindowByApp(appName)",
+        "signature": "WindowCache:focusWindowByApp(appName[, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "WindowCache:focusWindowByTitle(title)",
-        "def_gfm": "WindowCache:focusWindowByTitle(title)",
+        "def": "WindowCache:focusWindowByTitle(title[, spaceID])",
+        "def_gfm": "WindowCache:focusWindowByTitle(title[, spaceID])",
         "desc": "Find a window by title and focus it.",
         "desc_gfm": "<p>Find a window by title and focus it.</p>\n",
-        "doc": "Find a window by title and focus it.\n\nParameters:\n * title - title of the window to focus\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
-        "doc_gfm": "<p>Find a window by title and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to focus</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "doc": "Find a window by title and focus it.\n\nParameters:\n * title - title of the window to focus\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
+        "doc_gfm": "<p>Find a window by title and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to focus</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "96",
+        "lineno": "116",
         "name": "focusWindowByTitle",
         "notes": [],
         "notes_gfm": "",
         "parameters": [
-          " * title - title of the window to focus"
+          " * title - title of the window to focus",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
         ],
-        "parameters_gfm": "<ul>\n<li>title - title of the window to focus</li>\n</ul>\n",
+        "parameters_gfm": "<ul>\n<li>title - title of the window to focus</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
         "returns": [
           " * The `hs.window` object focused if found, `nil` otherwise"
         ],
         "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
-        "signature": "WindowCache:focusWindowByTitle(title)",
+        "signature": "WindowCache:focusWindowByTitle(title[, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -1599,7 +1631,7 @@
         "doc_gfm": "<p>Spoon initializer method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "63",
+        "lineno": "69",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -1624,7 +1656,7 @@
         "doc_gfm": "<p>Spoon start method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "196",
+        "lineno": "300",
         "name": "start",
         "notes": [
           " * Configures the window filter, initializes the cache with all existing",
@@ -1652,7 +1684,7 @@
         "doc_gfm": "<p>Spoon stop method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "235",
+        "lineno": "339",
         "name": "stop",
         "notes": [
           " * Unsubscribes the window filter from all subscribed functions."
@@ -1667,6 +1699,34 @@
         ],
         "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
         "signature": "WindowCache:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowCache:waitForWindowByApp(appName, fn[, interval, spaceID])",
+        "def_gfm": "WindowCache:waitForWindowByApp(appName, fn[, interval, spaceID])",
+        "desc": "Wait for cached window in appName every interval and run fn when found.",
+        "desc_gfm": "<p>Wait for cached window in appName every interval and run fn when found.</p>\n",
+        "doc": "Wait for cached window in appName every interval and run fn when found.\n\nParameters:\n * appName - name of the application to wait for first cached window of\n * fn - function to run when first cached window is found. This function may\n   take a single argument, the timer itself\n * interval - How often to check for cached window, defaults to 1 second.\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The started `hs.timer` instance.",
+        "doc_gfm": "<p>Wait for cached window in appName every interval and run fn when found.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to wait for first cached window of</li>\n<li>fn - function to run when first cached window is found. This function may\ntake a single argument, the timer itself</li>\n<li>interval - How often to check for cached window, defaults to 1 second.</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The started <code>hs.timer</code> instance.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "166",
+        "name": "waitForWindowByApp",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * appName - name of the application to wait for first cached window of",
+          " * fn - function to run when first cached window is found. This function may take a single argument, the timer itself",
+          " * interval - How often to check for cached window, defaults to 1 second.",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to wait for first cached window of</li>\n<li>fn - function to run when first cached window is found. This function may take a single argument, the timer itself</li>\n<li>interval - How often to check for cached window, defaults to 1 second.</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
+        "returns": [
+          " * The started `hs.timer` instance."
+        ],
+        "returns_gfm": "<ul>\n<li>The started <code>hs.timer</code> instance.</li>\n</ul>\n",
+        "signature": "WindowCache:waitForWindowByApp(appName, fn[, interval, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -1741,6 +1801,20 @@
         "signature": "WindowCache.windowFilter",
         "stripped_doc": "cache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
         "type": "Variable"
+      },
+      {
+        "def": "WindowCache.windowsBySpace",
+        "def_gfm": "WindowCache.windowsBySpace",
+        "desc": "Table containing per-Space window caches, keyed off of Mission Control Space ID,",
+        "desc_gfm": "<p>Table containing per-Space window caches, keyed off of Mission Control Space ID,</p>\n",
+        "doc": "Table containing per-Space window caches, keyed off of Mission Control Space ID,\nwhich can be used for retrieving Space-specific instances of apps and windows.",
+        "doc_gfm": "<p>Table containing per-Space window caches, keyed off of Mission Control Space ID,\nwhich can be used for retrieving Space-specific instances of apps and windows.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "63",
+        "name": "windowsBySpace",
+        "signature": "WindowCache.windowsBySpace",
+        "stripped_doc": "which can be used for retrieving Space-specific instances of apps and windows.",
+        "type": "Variable"
       }
     ],
     "desc": "Utility for quickly retrieving windows",
@@ -1763,102 +1837,106 @@
         "type": "Variable"
       },
       {
-        "def": "WindowCache:findWindowByApp(appName)",
-        "def_gfm": "WindowCache:findWindowByApp(appName)",
+        "def": "WindowCache:findWindowByApp(appName[, spaceID])",
+        "def_gfm": "WindowCache:findWindowByApp(appName[, spaceID])",
         "desc": "Find the last opened window by application name.",
         "desc_gfm": "<p>Find the last opened window by application name.</p>\n",
-        "doc": "Find the last opened window by application name.\n\nParameters:\n * appName - name of the application to find\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
-        "doc_gfm": "<p>Find the last opened window by application name.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "doc": "Find the last opened window by application name.\n\nParameters:\n * appName - name of the application to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
+        "doc_gfm": "<p>Find the last opened window by application name.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "113",
+        "lineno": "134",
         "name": "findWindowByApp",
         "notes": [],
         "notes_gfm": "",
         "parameters": [
-          " * appName - name of the application to find"
+          " * appName - name of the application to find",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
         ],
-        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n</ul>\n",
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
         "returns": [
           " * The `hs.window` object if found, `nil` otherwise"
         ],
         "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
-        "signature": "WindowCache:findWindowByApp(appName)",
+        "signature": "WindowCache:findWindowByApp(appName[, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "WindowCache:findWindowByTitle(title)",
-        "def_gfm": "WindowCache:findWindowByTitle(title)",
+        "def": "WindowCache:findWindowByTitle(title[, spaceID])",
+        "def_gfm": "WindowCache:findWindowByTitle(title[, spaceID])",
         "desc": "Find a window by title.",
         "desc_gfm": "<p>Find a window by title.</p>\n",
-        "doc": "Find a window by title.\n\nParameters:\n * title - title of the window to find\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
-        "doc_gfm": "<p>Find a window by title.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "doc": "Find a window by title.\n\nParameters:\n * title - title of the window to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
+        "doc_gfm": "<p>Find a window by title.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "77",
+        "lineno": "84",
         "name": "findWindowByTitle",
         "notes": [],
         "notes_gfm": "",
         "parameters": [
-          " * title - title of the window to find"
+          " * title - title of the window to find",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
         ],
-        "parameters_gfm": "<ul>\n<li>title - title of the window to find</li>\n</ul>\n",
+        "parameters_gfm": "<ul>\n<li>title - title of the window to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
         "returns": [
           " * The `hs.window` object if found, `nil` otherwise"
         ],
         "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
-        "signature": "WindowCache:findWindowByTitle(title)",
+        "signature": "WindowCache:findWindowByTitle(title[, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "WindowCache:focusWindowByApp(appName)",
-        "def_gfm": "WindowCache:focusWindowByApp(appName)",
+        "def": "WindowCache:focusWindowByApp(appName[, spaceID])",
+        "def_gfm": "WindowCache:focusWindowByApp(appName[, spaceID])",
         "desc": "Find the last opened window by application name and focus it.",
         "desc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n",
-        "doc": "Find the last opened window by application name and focus it.\n\nParameters:\n * appName - name of the application to find\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
-        "doc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "doc": "Find the last opened window by application name and focus it.\n\nParameters:\n * appName - name of the application to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
+        "doc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "132",
+        "lineno": "185",
         "name": "focusWindowByApp",
         "notes": [],
         "notes_gfm": "",
         "parameters": [
-          " * appName - name of the application to find"
+          " * appName - name of the application to find",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
         ],
-        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n</ul>\n",
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
         "returns": [
           " * The `hs.window` object focused if found, `nil` otherwise"
         ],
         "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
-        "signature": "WindowCache:focusWindowByApp(appName)",
+        "signature": "WindowCache:focusWindowByApp(appName[, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "WindowCache:focusWindowByTitle(title)",
-        "def_gfm": "WindowCache:focusWindowByTitle(title)",
+        "def": "WindowCache:focusWindowByTitle(title[, spaceID])",
+        "def_gfm": "WindowCache:focusWindowByTitle(title[, spaceID])",
         "desc": "Find a window by title and focus it.",
         "desc_gfm": "<p>Find a window by title and focus it.</p>\n",
-        "doc": "Find a window by title and focus it.\n\nParameters:\n * title - title of the window to focus\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
-        "doc_gfm": "<p>Find a window by title and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to focus</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
+        "doc": "Find a window by title and focus it.\n\nParameters:\n * title - title of the window to focus\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
+        "doc_gfm": "<p>Find a window by title and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to focus</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "96",
+        "lineno": "116",
         "name": "focusWindowByTitle",
         "notes": [],
         "notes_gfm": "",
         "parameters": [
-          " * title - title of the window to focus"
+          " * title - title of the window to focus",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
         ],
-        "parameters_gfm": "<ul>\n<li>title - title of the window to focus</li>\n</ul>\n",
+        "parameters_gfm": "<ul>\n<li>title - title of the window to focus</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
         "returns": [
           " * The `hs.window` object focused if found, `nil` otherwise"
         ],
         "returns_gfm": "<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
-        "signature": "WindowCache:focusWindowByTitle(title)",
+        "signature": "WindowCache:focusWindowByTitle(title[, spaceID])",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -1871,7 +1949,7 @@
         "doc_gfm": "<p>Spoon initializer method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "63",
+        "lineno": "69",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -1924,7 +2002,7 @@
         "doc_gfm": "<p>Spoon start method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "196",
+        "lineno": "300",
         "name": "start",
         "notes": [
           " * Configures the window filter, initializes the cache with all existing",
@@ -1952,7 +2030,7 @@
         "doc_gfm": "<p>Spoon stop method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "235",
+        "lineno": "339",
         "name": "stop",
         "notes": [
           " * Unsubscribes the window filter from all subscribed functions."
@@ -1985,6 +2063,34 @@
         "type": "Variable"
       },
       {
+        "def": "WindowCache:waitForWindowByApp(appName, fn[, interval, spaceID])",
+        "def_gfm": "WindowCache:waitForWindowByApp(appName, fn[, interval, spaceID])",
+        "desc": "Wait for cached window in appName every interval and run fn when found.",
+        "desc_gfm": "<p>Wait for cached window in appName every interval and run fn when found.</p>\n",
+        "doc": "Wait for cached window in appName every interval and run fn when found.\n\nParameters:\n * appName - name of the application to wait for first cached window of\n * fn - function to run when first cached window is found. This function may\n   take a single argument, the timer itself\n * interval - How often to check for cached window, defaults to 1 second.\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The started `hs.timer` instance.",
+        "doc_gfm": "<p>Wait for cached window in appName every interval and run fn when found.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to wait for first cached window of</li>\n<li>fn - function to run when first cached window is found. This function may\ntake a single argument, the timer itself</li>\n<li>interval - How often to check for cached window, defaults to 1 second.</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The started <code>hs.timer</code> instance.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "166",
+        "name": "waitForWindowByApp",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * appName - name of the application to wait for first cached window of",
+          " * fn - function to run when first cached window is found. This function may take a single argument, the timer itself",
+          " * interval - How often to check for cached window, defaults to 1 second.",
+          " * spaceID - optional ID of Space to access Space-specific cache for"
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - name of the application to wait for first cached window of</li>\n<li>fn - function to run when first cached window is found. This function may take a single argument, the timer itself</li>\n<li>interval - How often to check for cached window, defaults to 1 second.</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n",
+        "returns": [
+          " * The started `hs.timer` instance."
+        ],
+        "returns_gfm": "<ul>\n<li>The started <code>hs.timer</code> instance.</li>\n</ul>\n",
+        "signature": "WindowCache:waitForWindowByApp(appName, fn[, interval, spaceID])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "WindowCache.windowFilter",
         "def_gfm": "WindowCache.windowFilter",
         "desc": "Main hs.window.filter. This is what is used to enumerate and maintain the window",
@@ -1996,6 +2102,20 @@
         "name": "windowFilter",
         "signature": "WindowCache.windowFilter",
         "stripped_doc": "cache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.windowsBySpace",
+        "def_gfm": "WindowCache.windowsBySpace",
+        "desc": "Table containing per-Space window caches, keyed off of Mission Control Space ID,",
+        "desc_gfm": "<p>Table containing per-Space window caches, keyed off of Mission Control Space ID,</p>\n",
+        "doc": "Table containing per-Space window caches, keyed off of Mission Control Space ID,\nwhich can be used for retrieving Space-specific instances of apps and windows.",
+        "doc_gfm": "<p>Table containing per-Space window caches, keyed off of Mission Control Space ID,\nwhich can be used for retrieving Space-specific instances of apps and windows.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "63",
+        "name": "windowsBySpace",
+        "signature": "WindowCache.windowsBySpace",
+        "stripped_doc": "which can be used for retrieving Space-specific instances of apps and windows.",
         "type": "Variable"
       }
     ],

@@ -35,6 +35,12 @@
     "type": "Variable"
   },
   {
+    "desc": "hs.timer for moving an app's first window after being opened via MenuBarApps.",
+    "module": "MenuBarApps",
+    "name": "menuBarOpenTimer",
+    "type": "Variable"
+  },
+  {
     "desc": "Table containing references to all of the created menu bars.",
     "module": "MenuBarApps",
     "name": "menuBars",
@@ -284,6 +290,12 @@
     "type": "Variable"
   },
   {
+    "desc": "Table containing per-Space window caches, keyed off of Mission Control Space ID,",
+    "module": "WindowCache",
+    "name": "windowsBySpace",
+    "type": "Variable"
+  },
+  {
     "desc": "Find the last opened window by application name.",
     "module": "WindowCache",
     "name": "findWindowByApp",
@@ -323,6 +335,12 @@
     "desc": "Spoon stop method for WindowCache.",
     "module": "WindowCache",
     "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Wait for cached window in appName every interval and run fn when found.",
+    "module": "WindowCache",
+    "name": "waitForWindowByApp",
     "type": "Method"
   }
 ]

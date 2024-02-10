@@ -41,6 +41,7 @@ spoon.SpoonInstall:andUse(
             <li><a href="#logLevel">logLevel</a></li>
             <li><a href="#subscribedFunctions">subscribedFunctions</a></li>
             <li><a href="#windowFilter">windowFilter</a></li>
+            <li><a href="#windowsBySpace">windowsBySpace</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -51,6 +52,7 @@ spoon.SpoonInstall:andUse(
             <li><a href="#init">init</a></li>
             <li><a href="#start">start</a></li>
             <li><a href="#stop">stop</a></li>
+            <li><a href="#waitForWindowByApp">waitForWindowByApp</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
@@ -170,6 +172,29 @@ spoon.SpoonInstall:andUse(
               </tr>
             </table>
           </section>
+          <section id="windowsBySpace">
+            <a name="//apple_ref/cpp/Variable/windowsBySpace" class="dashAnchor"></a>
+            <h5><a href="#windowsBySpace">windowsBySpace</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowCache.windowsBySpace</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing per-Space window caches, keyed off of Mission Control Space ID,</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L63">Source/WindowCache.spoon/init.lua line 63</a></td>
+              </tr>
+            </table>
+          </section>
         <h4 class="documentation-section">Methods</h4>
           <section id="findWindowByApp">
             <a name="//apple_ref/cpp/Method/findWindowByApp" class="dashAnchor"></a>
@@ -177,7 +202,7 @@ spoon.SpoonInstall:andUse(
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>WindowCache:findWindowByApp(appName)</code></td>
+                <td><code>WindowCache:findWindowByApp(appName[, spaceID])</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -192,6 +217,7 @@ spoon.SpoonInstall:andUse(
                   <th>Parameters</th>
                   <td><ul>
 <li>appName - name of the application to find</li>
+<li>spaceID - optional ID of Space to access Space-specific cache for</li>
 </ul>
 </td>
               </tr>
@@ -204,7 +230,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L113">Source/WindowCache.spoon/init.lua line 113</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L134">Source/WindowCache.spoon/init.lua line 134</a></td>
               </tr>
             </table>
           </section>
@@ -214,7 +240,7 @@ spoon.SpoonInstall:andUse(
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>WindowCache:findWindowByTitle(title)</code></td>
+                <td><code>WindowCache:findWindowByTitle(title[, spaceID])</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -229,6 +255,7 @@ spoon.SpoonInstall:andUse(
                   <th>Parameters</th>
                   <td><ul>
 <li>title - title of the window to find</li>
+<li>spaceID - optional ID of Space to access Space-specific cache for</li>
 </ul>
 </td>
               </tr>
@@ -241,7 +268,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L77">Source/WindowCache.spoon/init.lua line 77</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L84">Source/WindowCache.spoon/init.lua line 84</a></td>
               </tr>
             </table>
           </section>
@@ -251,7 +278,7 @@ spoon.SpoonInstall:andUse(
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>WindowCache:focusWindowByApp(appName)</code></td>
+                <td><code>WindowCache:focusWindowByApp(appName[, spaceID])</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -266,6 +293,7 @@ spoon.SpoonInstall:andUse(
                   <th>Parameters</th>
                   <td><ul>
 <li>appName - name of the application to find</li>
+<li>spaceID - optional ID of Space to access Space-specific cache for</li>
 </ul>
 </td>
               </tr>
@@ -278,7 +306,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L132">Source/WindowCache.spoon/init.lua line 132</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L185">Source/WindowCache.spoon/init.lua line 185</a></td>
               </tr>
             </table>
           </section>
@@ -288,7 +316,7 @@ spoon.SpoonInstall:andUse(
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>WindowCache:focusWindowByTitle(title)</code></td>
+                <td><code>WindowCache:focusWindowByTitle(title[, spaceID])</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -303,6 +331,7 @@ spoon.SpoonInstall:andUse(
                   <th>Parameters</th>
                   <td><ul>
 <li>title - title of the window to focus</li>
+<li>spaceID - optional ID of Space to access Space-specific cache for</li>
 </ul>
 </td>
               </tr>
@@ -315,7 +344,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L96">Source/WindowCache.spoon/init.lua line 96</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L116">Source/WindowCache.spoon/init.lua line 116</a></td>
               </tr>
             </table>
           </section>
@@ -352,7 +381,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L63">Source/WindowCache.spoon/init.lua line 63</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L69">Source/WindowCache.spoon/init.lua line 69</a></td>
               </tr>
             </table>
           </section>
@@ -397,7 +426,7 @@ windows, and then subscribes to all window related events to be cached.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L196">Source/WindowCache.spoon/init.lua line 196</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L300">Source/WindowCache.spoon/init.lua line 300</a></td>
               </tr>
             </table>
           </section>
@@ -441,7 +470,47 @@ windows, and then subscribes to all window related events to be cached.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L235">Source/WindowCache.spoon/init.lua line 235</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L339">Source/WindowCache.spoon/init.lua line 339</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="waitForWindowByApp">
+            <a name="//apple_ref/cpp/Method/waitForWindowByApp" class="dashAnchor"></a>
+            <h5><a href="#waitForWindowByApp">waitForWindowByApp</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowCache:waitForWindowByApp(appName, fn[, interval, spaceID])</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Wait for cached window in appName every interval and run fn when found.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>appName - name of the application to wait for first cached window of</li>
+<li>fn - function to run when first cached window is found. This function may take a single argument, the timer itself</li>
+<li>interval - How often to check for cached window, defaults to 1 second.</li>
+<li>spaceID - optional ID of Space to access Space-specific cache for</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The started <code>hs.timer</code> instance.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L166">Source/WindowCache.spoon/init.lua line 166</a></td>
               </tr>
             </table>
           </section>
