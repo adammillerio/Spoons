@@ -573,7 +573,7 @@
         "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
         "doc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "22",
+        "lineno": "27",
         "name": "settingsKey",
         "signature": "Spacer.settingsKey",
         "stripped_doc": "",
@@ -586,12 +586,63 @@
     "Function": [],
     "Method": [
       {
+        "def": "Spacer:exitFullscreen(window)",
+        "desc": "Exit fullscreen on window.",
+        "doc": "Exit fullscreen on window.\n\nParameters:\n * None\nReturns:\n * None\n\nNotes:\n * This presses the keystroke cmd+ctrl+f by default, which should work globally\n   * Configurable via exitFullscreenKeystroke",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "521",
+        "name": "exitFullscreen",
+        "notes": [
+          " * This presses the keystroke cmd+ctrl+f by default, which should work globally",
+          "   * Configurable via exitFullscreenKeystroke"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Spacer:exitFullscreen(window)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Spacer:fullscreenWindowToLeft(app)",
+        "desc": "Fullscreen app's focused window to the left of current space.",
+        "doc": "Fullscreen app's focused window to the left of current space.\n\nParameters:\n * app - hs.application to fullscreen\n\nReturns:\n * None\n\nNotes:\n * Attempts to select Window -> Tile Window to Left of Screen in app menu\n   * Manually configurable via tilingMenuSection and tilingMenuItem\n * If this doesn't work, it will manually macro the OS flow for this\n   * Show the menu for the green resize button in the top left\n   * Press Down, Down, and Return to select Tile Window to Left of Screen\n * Clicks around the top-left of the current screen to exit tiling and fullscreen\n * Returns mouse to original position\n * All credit for this goes to clay_golem on Apple StackExchange\n   * https://apple.stackexchange.com/posts/462160/revisions",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "490",
+        "name": "fullscreenWindowToLeft",
+        "notes": [
+          " * Attempts to select Window -> Tile Window to Left of Screen in app menu",
+          "   * Manually configurable via tilingMenuSection and tilingMenuItem",
+          " * If this doesn't work, it will manually macro the OS flow for this",
+          "   * Show the menu for the green resize button in the top left",
+          "   * Press Down, Down, and Return to select Tile Window to Left of Screen",
+          " * Clicks around the top-left of the current screen to exit tiling and fullscreen",
+          " * Returns mouse to original position",
+          " * All credit for this goes to clay_golem on Apple StackExchange",
+          "   * https://apple.stackexchange.com/posts/462160/revisions"
+        ],
+        "parameters": [
+          " * app - hs.application to fullscreen"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Spacer:fullscreenWindowToLeft(app)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "Spacer:init()",
         "desc": "Spoon initializer method for Spacer.",
         "doc": "Spoon initializer method for Spacer.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "396",
+        "lineno": "595",
         "name": "init",
         "notes": [],
         "parameters": [
@@ -610,7 +661,7 @@
         "doc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "410",
+        "lineno": "609",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -629,7 +680,7 @@
         "doc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "454",
+        "lineno": "653",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -641,18 +692,62 @@
         "signature": "Spacer:stop()",
         "stripped_doc": "",
         "type": "Method"
+      },
+      {
+        "def": "Spacer:toggleFullscreenWindowToLeft()",
+        "desc": "Toggle the fullscreen state of current window to left of space.",
+        "doc": "Toggle the fullscreen state of current window to left of space.\n\nParameters:\n * args - Args provided to hs CLI after \"--\" via _cli.args.\n\nReturns:\n * None\n\nNotes:\n * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft\n   or exitFullscreen based on the current fullscreen state of the application.",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "453",
+        "name": "toggleFullscreenWindowToLeft",
+        "notes": [
+          " * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft",
+          "   or exitFullscreen based on the current fullscreen state of the application."
+        ],
+        "parameters": [
+          " * args - Args provided to hs CLI after \"--\" via _cli.args."
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Spacer:toggleFullscreenWindowToLeft()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
     "Variable": [
       {
         "def": "Spacer.defaultHotkeys",
-        "desc": "Default hotkey to use for the space chooser when \"hotkeys\" = ",
-        "doc": "Default hotkey to use for the space chooser when \"hotkeys\" = ",
+        "desc": "Default hotkey to use for the space chooser and fullscreen ",
+        "doc": "Default hotkey to use for the space chooser and fullscreen \nwhen \"hotkeys\" = \"default\".",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "27",
+        "lineno": "32",
         "name": "defaultHotkeys",
         "signature": "Spacer.defaultHotkeys",
+        "stripped_doc": "when \"hotkeys\" = \"default\".",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.delayedWindowClickTimer",
+        "desc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
+        "doc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "105",
+        "name": "delayedWindowClickTimer",
+        "signature": "Spacer.delayedWindowClickTimer",
         "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.exitFullScreenKeystroke",
+        "desc": "Keystroke representing shortcut to exit a full screen application. Defaults to",
+        "doc": "Keystroke representing shortcut to exit a full screen application. Defaults to\nCmd+Ctrl+F which has worked for all applications so far.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "51",
+        "name": "exitFullScreenKeystroke",
+        "signature": "Spacer.exitFullScreenKeystroke",
+        "stripped_doc": "Cmd+Ctrl+F which has worked for all applications so far.",
         "type": "Variable"
       },
       {
@@ -660,7 +755,7 @@
         "desc": "int with the ID of the currently focused space.",
         "doc": "int with the ID of the currently focused space.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "70",
+        "lineno": "95",
         "name": "focusedSpace",
         "signature": "Spacer.focusedSpace",
         "stripped_doc": "",
@@ -671,7 +766,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "32",
+        "lineno": "57",
         "name": "logger",
         "signature": "Spacer.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -682,7 +777,7 @@
         "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
         "doc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "38",
+        "lineno": "63",
         "name": "logLevel",
         "signature": "Spacer.logLevel",
         "stripped_doc": "",
@@ -693,7 +788,7 @@
         "desc": "hs.menubar representing the menu bar for Spacer.",
         "doc": "hs.menubar representing the menu bar for Spacer.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "43",
+        "lineno": "68",
         "name": "menuBar",
         "signature": "Spacer.menuBar",
         "stripped_doc": "",
@@ -704,7 +799,7 @@
         "desc": "Table with an ordered list of the space names, which is used when loading",
         "doc": "Table with an ordered list of the space names, which is used when loading\nthe menubar, as well as persisted to and from hs.settings between loads.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "64",
+        "lineno": "89",
         "name": "orderedSpaceNames",
         "signature": "Spacer.orderedSpaceNames",
         "stripped_doc": "the menubar, as well as persisted to and from hs.settings between loads.",
@@ -715,7 +810,7 @@
         "desc": "Table holding an ordered list of space IDs, which is then used to resolve",
         "doc": "Table holding an ordered list of space IDs, which is then used to resolve\nactual space names for IDs from Spacer.spaceNames.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "58",
+        "lineno": "83",
         "name": "orderedSpaces",
         "signature": "Spacer.orderedSpaces",
         "stripped_doc": "actual space names for IDs from Spacer.spaceNames.",
@@ -726,7 +821,7 @@
         "desc": "hs.chooser object representing the Space chooser.",
         "doc": "hs.chooser object representing the Space chooser.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "75",
+        "lineno": "100",
         "name": "spaceChooser",
         "signature": "Spacer.spaceChooser",
         "stripped_doc": "",
@@ -737,7 +832,7 @@
         "desc": "Table with key-value mapping of Space ID to it's user set name.",
         "doc": "Table with key-value mapping of Space ID to it's user set name.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "53",
+        "lineno": "78",
         "name": "spaceNames",
         "signature": "Spacer.spaceNames",
         "stripped_doc": "",
@@ -748,25 +843,91 @@
         "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
         "doc": "hs.spaces.watcher instance used for monitoring for space changes.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "48",
+        "lineno": "73",
         "name": "spaceWatcher",
         "signature": "Spacer.spaceWatcher",
         "stripped_doc": "",
         "type": "Variable"
+      },
+      {
+        "def": "Spacer.tilingMenuItem",
+        "desc": "Menu item for tiling window to the left. Set this according to your language.",
+        "doc": "Menu item for tiling window to the left. Set this according to your language.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "46",
+        "name": "tilingMenuItem",
+        "signature": "Spacer.tilingMenuItem",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.tilingMenuSection",
+        "desc": "Menu \"section\" which has tiling options. Set this according to your language.",
+        "doc": "Menu \"section\" which has tiling options. Set this according to your language.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "41",
+        "name": "tilingMenuSection",
+        "signature": "Spacer.tilingMenuSection",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
-    "desc": "Name and switch Mission Control spaces in the menu bar",
-    "doc": "Name and switch Mission Control spaces in the menu bar\n\nDownload: [Spacer.spoon.zip](https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip)\n\nREADME: [README.md](https://github.com/adammillerio/Spacer.spoon/blob/main/README.md)\n\nSpace names can be changed from the menubar by holding Alt while selecting\nthe desired space to rename. These are persisted between launches via the\nhs.settings module.",
+    "desc": "Name and switch Mission Control spaces in the menu bar, with fullscreen support!",
+    "doc": "Name and switch Mission Control spaces in the menu bar, with fullscreen support!\n\nDownload: [Spacer.spoon.zip](https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip)\n\nREADME: [README.md](https://github.com/adammillerio/Spacer.spoon/blob/main/README.md)\n\nSpace names can be changed from the menubar by holding Alt while selecting\nthe desired space to rename. These are persisted between launches via the\nhs.settings module.\n\nA GUI based space \"chooser\" can be opened space_chooser hotkey (default cmd+space)\n\nCurrent application can be put in fullscreen to the left of the current space\nvia the toggle_fullscreen_window_to_left hotkey (default cmd+shift+f)",
     "items": [
       {
         "def": "Spacer.defaultHotkeys",
-        "desc": "Default hotkey to use for the space chooser when \"hotkeys\" = ",
-        "doc": "Default hotkey to use for the space chooser when \"hotkeys\" = ",
+        "desc": "Default hotkey to use for the space chooser and fullscreen ",
+        "doc": "Default hotkey to use for the space chooser and fullscreen \nwhen \"hotkeys\" = \"default\".",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "27",
+        "lineno": "32",
         "name": "defaultHotkeys",
         "signature": "Spacer.defaultHotkeys",
+        "stripped_doc": "when \"hotkeys\" = \"default\".",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.delayedWindowClickTimer",
+        "desc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
+        "doc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "105",
+        "name": "delayedWindowClickTimer",
+        "signature": "Spacer.delayedWindowClickTimer",
         "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer:exitFullscreen(window)",
+        "desc": "Exit fullscreen on window.",
+        "doc": "Exit fullscreen on window.\n\nParameters:\n * None\nReturns:\n * None\n\nNotes:\n * This presses the keystroke cmd+ctrl+f by default, which should work globally\n   * Configurable via exitFullscreenKeystroke",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "521",
+        "name": "exitFullscreen",
+        "notes": [
+          " * This presses the keystroke cmd+ctrl+f by default, which should work globally",
+          "   * Configurable via exitFullscreenKeystroke"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Spacer:exitFullscreen(window)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Spacer.exitFullScreenKeystroke",
+        "desc": "Keystroke representing shortcut to exit a full screen application. Defaults to",
+        "doc": "Keystroke representing shortcut to exit a full screen application. Defaults to\nCmd+Ctrl+F which has worked for all applications so far.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "51",
+        "name": "exitFullScreenKeystroke",
+        "signature": "Spacer.exitFullScreenKeystroke",
+        "stripped_doc": "Cmd+Ctrl+F which has worked for all applications so far.",
         "type": "Variable"
       },
       {
@@ -774,11 +935,40 @@
         "desc": "int with the ID of the currently focused space.",
         "doc": "int with the ID of the currently focused space.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "70",
+        "lineno": "95",
         "name": "focusedSpace",
         "signature": "Spacer.focusedSpace",
         "stripped_doc": "",
         "type": "Variable"
+      },
+      {
+        "def": "Spacer:fullscreenWindowToLeft(app)",
+        "desc": "Fullscreen app's focused window to the left of current space.",
+        "doc": "Fullscreen app's focused window to the left of current space.\n\nParameters:\n * app - hs.application to fullscreen\n\nReturns:\n * None\n\nNotes:\n * Attempts to select Window -> Tile Window to Left of Screen in app menu\n   * Manually configurable via tilingMenuSection and tilingMenuItem\n * If this doesn't work, it will manually macro the OS flow for this\n   * Show the menu for the green resize button in the top left\n   * Press Down, Down, and Return to select Tile Window to Left of Screen\n * Clicks around the top-left of the current screen to exit tiling and fullscreen\n * Returns mouse to original position\n * All credit for this goes to clay_golem on Apple StackExchange\n   * https://apple.stackexchange.com/posts/462160/revisions",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "490",
+        "name": "fullscreenWindowToLeft",
+        "notes": [
+          " * Attempts to select Window -> Tile Window to Left of Screen in app menu",
+          "   * Manually configurable via tilingMenuSection and tilingMenuItem",
+          " * If this doesn't work, it will manually macro the OS flow for this",
+          "   * Show the menu for the green resize button in the top left",
+          "   * Press Down, Down, and Return to select Tile Window to Left of Screen",
+          " * Clicks around the top-left of the current screen to exit tiling and fullscreen",
+          " * Returns mouse to original position",
+          " * All credit for this goes to clay_golem on Apple StackExchange",
+          "   * https://apple.stackexchange.com/posts/462160/revisions"
+        ],
+        "parameters": [
+          " * app - hs.application to fullscreen"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Spacer:fullscreenWindowToLeft(app)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
         "def": "Spacer:init()",
@@ -786,7 +976,7 @@
         "doc": "Spoon initializer method for Spacer.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "396",
+        "lineno": "595",
         "name": "init",
         "notes": [],
         "parameters": [
@@ -804,7 +994,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "32",
+        "lineno": "57",
         "name": "logger",
         "signature": "Spacer.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -815,7 +1005,7 @@
         "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
         "doc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "38",
+        "lineno": "63",
         "name": "logLevel",
         "signature": "Spacer.logLevel",
         "stripped_doc": "",
@@ -826,7 +1016,7 @@
         "desc": "hs.menubar representing the menu bar for Spacer.",
         "doc": "hs.menubar representing the menu bar for Spacer.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "43",
+        "lineno": "68",
         "name": "menuBar",
         "signature": "Spacer.menuBar",
         "stripped_doc": "",
@@ -837,7 +1027,7 @@
         "desc": "Table with an ordered list of the space names, which is used when loading",
         "doc": "Table with an ordered list of the space names, which is used when loading\nthe menubar, as well as persisted to and from hs.settings between loads.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "64",
+        "lineno": "89",
         "name": "orderedSpaceNames",
         "signature": "Spacer.orderedSpaceNames",
         "stripped_doc": "the menubar, as well as persisted to and from hs.settings between loads.",
@@ -848,7 +1038,7 @@
         "desc": "Table holding an ordered list of space IDs, which is then used to resolve",
         "doc": "Table holding an ordered list of space IDs, which is then used to resolve\nactual space names for IDs from Spacer.spaceNames.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "58",
+        "lineno": "83",
         "name": "orderedSpaces",
         "signature": "Spacer.orderedSpaces",
         "stripped_doc": "actual space names for IDs from Spacer.spaceNames.",
@@ -859,7 +1049,7 @@
         "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
         "doc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "22",
+        "lineno": "27",
         "name": "settingsKey",
         "signature": "Spacer.settingsKey",
         "stripped_doc": "",
@@ -870,7 +1060,7 @@
         "desc": "hs.chooser object representing the Space chooser.",
         "doc": "hs.chooser object representing the Space chooser.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "75",
+        "lineno": "100",
         "name": "spaceChooser",
         "signature": "Spacer.spaceChooser",
         "stripped_doc": "",
@@ -881,7 +1071,7 @@
         "desc": "Table with key-value mapping of Space ID to it's user set name.",
         "doc": "Table with key-value mapping of Space ID to it's user set name.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "53",
+        "lineno": "78",
         "name": "spaceNames",
         "signature": "Spacer.spaceNames",
         "stripped_doc": "",
@@ -892,7 +1082,7 @@
         "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
         "doc": "hs.spaces.watcher instance used for monitoring for space changes.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "48",
+        "lineno": "73",
         "name": "spaceWatcher",
         "signature": "Spacer.spaceWatcher",
         "stripped_doc": "",
@@ -904,7 +1094,7 @@
         "doc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "410",
+        "lineno": "609",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -923,7 +1113,7 @@
         "doc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "454",
+        "lineno": "653",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -935,10 +1125,54 @@
         "signature": "Spacer:stop()",
         "stripped_doc": "",
         "type": "Method"
+      },
+      {
+        "def": "Spacer.tilingMenuItem",
+        "desc": "Menu item for tiling window to the left. Set this according to your language.",
+        "doc": "Menu item for tiling window to the left. Set this according to your language.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "46",
+        "name": "tilingMenuItem",
+        "signature": "Spacer.tilingMenuItem",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer.tilingMenuSection",
+        "desc": "Menu \"section\" which has tiling options. Set this according to your language.",
+        "doc": "Menu \"section\" which has tiling options. Set this according to your language.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "41",
+        "name": "tilingMenuSection",
+        "signature": "Spacer.tilingMenuSection",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Spacer:toggleFullscreenWindowToLeft()",
+        "desc": "Toggle the fullscreen state of current window to left of space.",
+        "doc": "Toggle the fullscreen state of current window to left of space.\n\nParameters:\n * args - Args provided to hs CLI after \"--\" via _cli.args.\n\nReturns:\n * None\n\nNotes:\n * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft\n   or exitFullscreen based on the current fullscreen state of the application.",
+        "examples": [],
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "453",
+        "name": "toggleFullscreenWindowToLeft",
+        "notes": [
+          " * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft",
+          "   or exitFullscreen based on the current fullscreen state of the application."
+        ],
+        "parameters": [
+          " * args - Args provided to hs CLI after \"--\" via _cli.args."
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Spacer:toggleFullscreenWindowToLeft()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
     "name": "Spacer",
-    "stripped_doc": "\nDownload: [Spacer.spoon.zip](https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip)\n\nREADME: [README.md](https://github.com/adammillerio/Spacer.spoon/blob/main/README.md)\n\nSpace names can be changed from the menubar by holding Alt while selecting\nthe desired space to rename. These are persisted between launches via the\nhs.settings module.",
+    "stripped_doc": "\nDownload: [Spacer.spoon.zip](https://github.com/adammillerio/Spoons/raw/main/Spoons/Spacer.spoon.zip)\n\nREADME: [README.md](https://github.com/adammillerio/Spacer.spoon/blob/main/README.md)\n\nSpace names can be changed from the menubar by holding Alt while selecting\nthe desired space to rename. These are persisted between launches via the\nhs.settings module.\n\nA GUI based space \"chooser\" can be opened space_chooser hotkey (default cmd+space)\n\nCurrent application can be put in fullscreen to the left of the current space\nvia the toggle_fullscreen_window_to_left hotkey (default cmd+shift+f)",
     "submodules": [],
     "type": "Module"
   },
