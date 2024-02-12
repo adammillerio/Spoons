@@ -1,0 +1,537 @@
+[
+  {
+    "Constant" : [
+      {
+        "doc" : "Move the window to appear under the provided frame as if it were a menu. This\nrequires the actionConfig `moveMenuBar` to be set to the destination hs.menubar\nduring calls to ensureApp().",
+        "stripped_doc" : [
+          "Move the window to appear under the provided frame as if it were a menu. This",
+          "requires the actionConfig `moveMenuBar` to be set to the destination hs.menubar",
+          "during calls to ensureApp()."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "Move the window to appear under the provided frame as if it were a menu. This",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.action.move",
+        "type" : "Constant",
+        "returns" : [
+
+        ],
+        "name" : "action",
+        "def" : "EnsureApp.action.move"
+      },
+      {
+        "doc" : "Maximize the application on the current space if it is not maximized already.",
+        "stripped_doc" : [
+          "Maximize the application on the current space if it is not maximized already."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "Maximize the application on the current space if it is not maximized already.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.action.maximize",
+        "type" : "Constant",
+        "returns" : [
+
+        ],
+        "name" : "action",
+        "def" : "EnsureApp.action.maximize"
+      }
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
+        "stripped_doc" : [
+          "Table containing each application's name and it's desired configuration. The",
+          "key of each entry is just an identifier used during calls to ensureApp, and",
+          "the value is a configuration table with the following entries:",
+          " * app - Application name as it appears in the title bar.",
+          " * action - String with action to take on window when showing. See constants.",
+          " * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.",
+          " * newWindowConfig - Configuration for opening a new window of the app with values.",
+          "   * menuSection - Menu section in app menu bar to select.",
+          "   * menuItem - Menu item in menu section to select",
+          " * disableOpen - If true, this will disable auto-opening the app if not open."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "Table containing each application's name and it's desired configuration. The",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.apps",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "apps",
+        "def" : "EnsureApp.apps"
+      },
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log ",
+          "level for the messages coming from the Spoon."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "def" : "EnsureApp.logger"
+      },
+      {
+        "doc" : "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
+        "stripped_doc" : [
+          "EnsureApp specific log level override, see hs.logger.setLogLevel for options."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.logLevel",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logLevel",
+        "def" : "EnsureApp.logLevel"
+      },
+      {
+        "doc" : "hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
+        "stripped_doc" : [
+          "hs.timer for moving an app's first window after being opened via EnsureApp.",
+          "This behavior can be disabled by setting disableOpen=true on the app config."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "hs.timer for moving an app's first window after being opened via EnsureApp.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.windowOpenTimer",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "windowOpenTimer",
+        "def" : "EnsureApp.windowOpenTimer"
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "desc" : "Utility for providing fast and guaranteed access to app windows during macros.",
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "doc" : "Utility for providing fast and guaranteed access to app windows during macros.\n\nDownload: https:\/\/github.com\/adammillerio\/Spoons\/raw\/main\/Spoons\/EnsureApp.spoon.zip\n\nREADME with Example Usage: [README.md](https:\/\/github.com\/adammillerio\/EnsureApp.spoon\/blob\/main\/README.md)",
+    "Method" : [
+      {
+        "doc" : "Spoon initializer method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Spoon initializer method for EnsureApp.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Spoon initializer method for EnsureApp.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp:init()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "name" : "init",
+        "def" : "EnsureApp:init()"
+      },
+      {
+        "doc" : "(Callback) Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * This is a utility class for mapping app ensures to things like menu bars.\n * Refer to EnsureApp.apps for information on how to configure apps.",
+        "stripped_doc" : [
+          "(Callback) Ensure the existence of a window from appName in the current Space.",
+          ""
+        ],
+        "parameters" : [
+          " * appName - Name of the application to ensure.",
+          " * actionConfig - Optional actionConfig table with action-specific information.",
+          "   * moveMenuBar- hs.menubar to move under with `action=move`.",
+          ""
+        ],
+        "desc" : "(Callback) Ensure the existence of a window from appName in the current Space.",
+        "notes" : [
+          " * This is a utility class for mapping app ensures to things like menu bars.",
+          " * Refer to EnsureApp.apps for information on how to configure apps."
+        ],
+        "signature" : "EnsureApp:ensureAppCallback(appName[, actionConfig])",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "ensureAppCallback",
+        "def" : "EnsureApp:ensureAppCallback(appName[, actionConfig])"
+      },
+      {
+        "doc" : "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * Refer to EnsureApp.apps for information on how to configure apps.",
+        "stripped_doc" : [
+          "Ensure the existence of a window from appName in the current Space.",
+          ""
+        ],
+        "parameters" : [
+          " * appName - Name of the application to ensure.",
+          " * actionConfig - Optional actionConfig table with action-specific information.",
+          "   * moveMenuBar- hs.menubar to move under with `action=move`.",
+          ""
+        ],
+        "desc" : "Ensure the existence of a window from appName in the current Space.",
+        "notes" : [
+          " * Refer to EnsureApp.apps for information on how to configure apps."
+        ],
+        "signature" : "EnsureApp:ensureApp(appName[, actionConfig])",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "ensureApp",
+        "def" : "EnsureApp:ensureApp(appName[, actionConfig])"
+      },
+      {
+        "doc" : "Spoon start method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Spoon start method for EnsureApp.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Spoon start method for EnsureApp.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp:start()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "name" : "start",
+        "def" : "EnsureApp:start()"
+      },
+      {
+        "doc" : "Spoon stop method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Spoon stop method for EnsureApp.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Spoon stop method for EnsureApp.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "name" : "stop",
+        "def" : "EnsureApp:stop()"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Move the window to appear under the provided frame as if it were a menu. This\nrequires the actionConfig `moveMenuBar` to be set to the destination hs.menubar\nduring calls to ensureApp().",
+        "stripped_doc" : [
+          "Move the window to appear under the provided frame as if it were a menu. This",
+          "requires the actionConfig `moveMenuBar` to be set to the destination hs.menubar",
+          "during calls to ensureApp()."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "Move the window to appear under the provided frame as if it were a menu. This",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.action.move",
+        "type" : "Constant",
+        "returns" : [
+
+        ],
+        "name" : "action",
+        "def" : "EnsureApp.action.move"
+      },
+      {
+        "doc" : "Maximize the application on the current space if it is not maximized already.",
+        "stripped_doc" : [
+          "Maximize the application on the current space if it is not maximized already."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "Maximize the application on the current space if it is not maximized already.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.action.maximize",
+        "type" : "Constant",
+        "returns" : [
+
+        ],
+        "name" : "action",
+        "def" : "EnsureApp.action.maximize"
+      },
+      {
+        "doc" : "Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
+        "stripped_doc" : [
+          "Table containing each application's name and it's desired configuration. The",
+          "key of each entry is just an identifier used during calls to ensureApp, and",
+          "the value is a configuration table with the following entries:",
+          " * app - Application name as it appears in the title bar.",
+          " * action - String with action to take on window when showing. See constants.",
+          " * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.",
+          " * newWindowConfig - Configuration for opening a new window of the app with values.",
+          "   * menuSection - Menu section in app menu bar to select.",
+          "   * menuItem - Menu item in menu section to select",
+          " * disableOpen - If true, this will disable auto-opening the app if not open."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "Table containing each application's name and it's desired configuration. The",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.apps",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "apps",
+        "def" : "EnsureApp.apps"
+      },
+      {
+        "doc" : "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
+        "stripped_doc" : [
+          "EnsureApp specific log level override, see hs.logger.setLogLevel for options."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.logLevel",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logLevel",
+        "def" : "EnsureApp.logLevel"
+      },
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log ",
+          "level for the messages coming from the Spoon."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "def" : "EnsureApp.logger"
+      },
+      {
+        "doc" : "hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
+        "stripped_doc" : [
+          "hs.timer for moving an app's first window after being opened via EnsureApp.",
+          "This behavior can be disabled by setting disableOpen=true on the app config."
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "hs.timer for moving an app's first window after being opened via EnsureApp.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp.windowOpenTimer",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "windowOpenTimer",
+        "def" : "EnsureApp.windowOpenTimer"
+      },
+      {
+        "doc" : "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * Refer to EnsureApp.apps for information on how to configure apps.",
+        "stripped_doc" : [
+          "Ensure the existence of a window from appName in the current Space.",
+          ""
+        ],
+        "parameters" : [
+          " * appName - Name of the application to ensure.",
+          " * actionConfig - Optional actionConfig table with action-specific information.",
+          "   * moveMenuBar- hs.menubar to move under with `action=move`.",
+          ""
+        ],
+        "desc" : "Ensure the existence of a window from appName in the current Space.",
+        "notes" : [
+          " * Refer to EnsureApp.apps for information on how to configure apps."
+        ],
+        "signature" : "EnsureApp:ensureApp(appName[, actionConfig])",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "ensureApp",
+        "def" : "EnsureApp:ensureApp(appName[, actionConfig])"
+      },
+      {
+        "doc" : "(Callback) Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * This is a utility class for mapping app ensures to things like menu bars.\n * Refer to EnsureApp.apps for information on how to configure apps.",
+        "stripped_doc" : [
+          "(Callback) Ensure the existence of a window from appName in the current Space.",
+          ""
+        ],
+        "parameters" : [
+          " * appName - Name of the application to ensure.",
+          " * actionConfig - Optional actionConfig table with action-specific information.",
+          "   * moveMenuBar- hs.menubar to move under with `action=move`.",
+          ""
+        ],
+        "desc" : "(Callback) Ensure the existence of a window from appName in the current Space.",
+        "notes" : [
+          " * This is a utility class for mapping app ensures to things like menu bars.",
+          " * Refer to EnsureApp.apps for information on how to configure apps."
+        ],
+        "signature" : "EnsureApp:ensureAppCallback(appName[, actionConfig])",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "ensureAppCallback",
+        "def" : "EnsureApp:ensureAppCallback(appName[, actionConfig])"
+      },
+      {
+        "doc" : "Spoon initializer method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Spoon initializer method for EnsureApp.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Spoon initializer method for EnsureApp.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp:init()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "name" : "init",
+        "def" : "EnsureApp:init()"
+      },
+      {
+        "doc" : "Spoon start method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Spoon start method for EnsureApp.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Spoon start method for EnsureApp.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp:start()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "name" : "start",
+        "def" : "EnsureApp:start()"
+      },
+      {
+        "doc" : "Spoon stop method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Spoon stop method for EnsureApp.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Spoon stop method for EnsureApp.",
+        "notes" : [
+
+        ],
+        "signature" : "EnsureApp:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "name" : "stop",
+        "def" : "EnsureApp:stop()"
+      }
+    ],
+    "name" : "EnsureApp"
+  }
+]

@@ -3,34 +3,638 @@
     "Command": [],
     "Constant": [
       {
-        "def": "MenuBarApps.action.maximize",
-        "def_gfm": "MenuBarApps.action.maximize",
+        "def": "EnsureApp.action.maximize",
+        "def_gfm": "EnsureApp.action.maximize",
         "desc": "Maximize the application on the current space if it is not maximized already.",
         "desc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
         "doc": "Maximize the application on the current space if it is not maximized already.",
         "doc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
-        "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "27",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "29",
         "name": "maximize",
-        "signature": "MenuBarApps.action.maximize",
+        "signature": "EnsureApp.action.maximize",
         "stripped_doc": "",
         "type": "Constant"
       },
       {
-        "def": "MenuBarApps.action.move",
-        "def_gfm": "MenuBarApps.action.move",
-        "desc": "Move the window to appear under the menu bar item as if it were a menu.",
-        "desc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
-        "doc": "Move the window to appear under the menu bar item as if it were a menu.",
-        "doc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
-        "file": "Source/MenuBarApps.spoon/init.lua",
+        "def": "EnsureApp.action.move",
+        "def_gfm": "EnsureApp.action.move",
+        "desc": "Move the window to appear under the provided frame as if it were a menu. This",
+        "desc_gfm": "<p>Move the window to appear under the provided frame as if it were a menu. This</p>\n",
+        "doc": "Move the window to appear under the provided frame as if it were a menu. This\nrequires the actionConfig `moveMenuBar` to be set to the destination hs.menubar\nduring calls to ensureApp().",
+        "doc_gfm": "<p>Move the window to appear under the provided frame as if it were a menu. This\nrequires the actionConfig <code>moveMenuBar</code> to be set to the destination hs.menubar\nduring calls to ensureApp().</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
         "lineno": "23",
         "name": "move",
-        "signature": "MenuBarApps.action.move",
-        "stripped_doc": "",
+        "signature": "EnsureApp.action.move",
+        "stripped_doc": "requires the actionConfig `moveMenuBar` to be set to the destination hs.menubar\nduring calls to ensureApp().",
         "type": "Constant"
       }
     ],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "EnsureApp:ensureApp(appName[, actionConfig])",
+        "def_gfm": "EnsureApp:ensureApp(appName[, actionConfig])",
+        "desc": "Ensure the existence of a window from appName in the current Space.",
+        "desc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n",
+        "doc": "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * Refer to EnsureApp.apps for information on how to configure apps.",
+        "doc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "232",
+        "name": "ensureApp",
+        "notes": [
+          " * Refer to EnsureApp.apps for information on how to configure apps."
+        ],
+        "notes_gfm": "<ul>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "parameters": [
+          " * appName - Name of the application to ensure.",
+          " * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`."
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:ensureApp(appName[, actionConfig])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:ensureAppCallback(appName[, actionConfig])",
+        "def_gfm": "EnsureApp:ensureAppCallback(appName[, actionConfig])",
+        "desc": "(Callback) Ensure the existence of a window from appName in the current Space.",
+        "desc_gfm": "<p>(Callback) Ensure the existence of a window from appName in the current Space.</p>\n",
+        "doc": "(Callback) Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * This is a utility class for mapping app ensures to things like menu bars.\n * Refer to EnsureApp.apps for information on how to configure apps.",
+        "doc_gfm": "<p>(Callback) Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>This is a utility class for mapping app ensures to things like menu bars.</li>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "213",
+        "name": "ensureAppCallback",
+        "notes": [
+          " * This is a utility class for mapping app ensures to things like menu bars.",
+          " * Refer to EnsureApp.apps for information on how to configure apps."
+        ],
+        "notes_gfm": "<ul>\n<li>This is a utility class for mapping app ensures to things like menu bars.</li>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "parameters": [
+          " * appName - Name of the application to ensure.",
+          " * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`."
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:ensureAppCallback(appName[, actionConfig])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:init()",
+        "def_gfm": "EnsureApp:init()",
+        "desc": "Spoon initializer method for EnsureApp.",
+        "desc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n",
+        "doc": "Spoon initializer method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "68",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:start()",
+        "def_gfm": "EnsureApp:start()",
+        "desc": "Spoon start method for EnsureApp.",
+        "desc_gfm": "<p>Spoon start method for EnsureApp.</p>\n",
+        "doc": "Spoon start method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon start method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "336",
+        "name": "start",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:stop()",
+        "def_gfm": "EnsureApp:stop()",
+        "desc": "Spoon stop method for EnsureApp.",
+        "desc_gfm": "<p>Spoon stop method for EnsureApp.</p>\n",
+        "doc": "Spoon stop method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon stop method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "354",
+        "name": "stop",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "EnsureApp.apps",
+        "def_gfm": "EnsureApp.apps",
+        "desc": "Table containing each application's name and it's desired configuration. The",
+        "desc_gfm": "<p>Table containing each application's name and it's desired configuration. The</p>\n",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
+        "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:</p>\n<ul>\n<li>app - Application name as it appears in the title bar.</li>\n<li>action - String with action to take on window when showing. See constants.</li>\n<li>spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.</li>\n<li>newWindowConfig - Configuration for opening a new window of the app with values.<ul>\n<li>menuSection - Menu section in app menu bar to select.</li>\n<li>menuItem - Menu item in menu section to select</li>\n</ul>\n</li>\n<li>disableOpen - If true, this will disable auto-opening the app if not open.</li>\n</ul>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "37",
+        "name": "apps",
+        "signature": "EnsureApp.apps",
+        "stripped_doc": "key of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
+        "type": "Variable"
+      },
+      {
+        "def": "EnsureApp.logger",
+        "def_gfm": "EnsureApp.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "51",
+        "name": "logger",
+        "signature": "EnsureApp.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "EnsureApp.logLevel",
+        "def_gfm": "EnsureApp.logLevel",
+        "desc": "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>EnsureApp specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>EnsureApp specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "57",
+        "name": "logLevel",
+        "signature": "EnsureApp.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EnsureApp.windowOpenTimer",
+        "def_gfm": "EnsureApp.windowOpenTimer",
+        "desc": "hs.timer for moving an app's first window after being opened via EnsureApp.",
+        "desc_gfm": "<p>hs.timer for moving an app's first window after being opened via EnsureApp.</p>\n",
+        "doc": "hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
+        "doc_gfm": "<p>hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "62",
+        "name": "windowOpenTimer",
+        "signature": "EnsureApp.windowOpenTimer",
+        "stripped_doc": "This behavior can be disabled by setting disableOpen=true on the app config.",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Utility for providing fast and guaranteed access to app windows during macros.",
+    "desc_gfm": "<p>Utility for providing fast and guaranteed access to app windows during macros.</p>\n",
+    "doc": "Utility for providing fast and guaranteed access to app windows during macros.\n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/EnsureApp.spoon.zip\n\nREADME with Example Usage: [README.md](https://github.com/adammillerio/EnsureApp.spoon/blob/main/README.md)",
+    "doc_gfm": "<p>Utility for providing fast and guaranteed access to app windows during macros.</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/EnsureApp.spoon.zip</p>\n<p>README with Example Usage: <a href=\"https://github.com/adammillerio/EnsureApp.spoon/blob/main/README.md\">README.md</a></p>\n",
+    "items": [
+      {
+        "def": "EnsureApp.apps",
+        "def_gfm": "EnsureApp.apps",
+        "desc": "Table containing each application's name and it's desired configuration. The",
+        "desc_gfm": "<p>Table containing each application's name and it's desired configuration. The</p>\n",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
+        "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:</p>\n<ul>\n<li>app - Application name as it appears in the title bar.</li>\n<li>action - String with action to take on window when showing. See constants.</li>\n<li>spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.</li>\n<li>newWindowConfig - Configuration for opening a new window of the app with values.<ul>\n<li>menuSection - Menu section in app menu bar to select.</li>\n<li>menuItem - Menu item in menu section to select</li>\n</ul>\n</li>\n<li>disableOpen - If true, this will disable auto-opening the app if not open.</li>\n</ul>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "37",
+        "name": "apps",
+        "signature": "EnsureApp.apps",
+        "stripped_doc": "key of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
+        "type": "Variable"
+      },
+      {
+        "def": "EnsureApp:ensureApp(appName[, actionConfig])",
+        "def_gfm": "EnsureApp:ensureApp(appName[, actionConfig])",
+        "desc": "Ensure the existence of a window from appName in the current Space.",
+        "desc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n",
+        "doc": "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * Refer to EnsureApp.apps for information on how to configure apps.",
+        "doc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "232",
+        "name": "ensureApp",
+        "notes": [
+          " * Refer to EnsureApp.apps for information on how to configure apps."
+        ],
+        "notes_gfm": "<ul>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "parameters": [
+          " * appName - Name of the application to ensure.",
+          " * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`."
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:ensureApp(appName[, actionConfig])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:ensureAppCallback(appName[, actionConfig])",
+        "def_gfm": "EnsureApp:ensureAppCallback(appName[, actionConfig])",
+        "desc": "(Callback) Ensure the existence of a window from appName in the current Space.",
+        "desc_gfm": "<p>(Callback) Ensure the existence of a window from appName in the current Space.</p>\n",
+        "doc": "(Callback) Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * This is a utility class for mapping app ensures to things like menu bars.\n * Refer to EnsureApp.apps for information on how to configure apps.",
+        "doc_gfm": "<p>(Callback) Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>This is a utility class for mapping app ensures to things like menu bars.</li>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "213",
+        "name": "ensureAppCallback",
+        "notes": [
+          " * This is a utility class for mapping app ensures to things like menu bars.",
+          " * Refer to EnsureApp.apps for information on how to configure apps."
+        ],
+        "notes_gfm": "<ul>\n<li>This is a utility class for mapping app ensures to things like menu bars.</li>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "parameters": [
+          " * appName - Name of the application to ensure.",
+          " * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`."
+        ],
+        "parameters_gfm": "<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:ensureAppCallback(appName[, actionConfig])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:init()",
+        "def_gfm": "EnsureApp:init()",
+        "desc": "Spoon initializer method for EnsureApp.",
+        "desc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n",
+        "doc": "Spoon initializer method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "68",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp.logger",
+        "def_gfm": "EnsureApp.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "51",
+        "name": "logger",
+        "signature": "EnsureApp.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "EnsureApp.logLevel",
+        "def_gfm": "EnsureApp.logLevel",
+        "desc": "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>EnsureApp specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>EnsureApp specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "57",
+        "name": "logLevel",
+        "signature": "EnsureApp.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EnsureApp.action.maximize",
+        "def_gfm": "EnsureApp.action.maximize",
+        "desc": "Maximize the application on the current space if it is not maximized already.",
+        "desc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
+        "doc": "Maximize the application on the current space if it is not maximized already.",
+        "doc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "29",
+        "name": "maximize",
+        "signature": "EnsureApp.action.maximize",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
+        "def": "EnsureApp.action.move",
+        "def_gfm": "EnsureApp.action.move",
+        "desc": "Move the window to appear under the provided frame as if it were a menu. This",
+        "desc_gfm": "<p>Move the window to appear under the provided frame as if it were a menu. This</p>\n",
+        "doc": "Move the window to appear under the provided frame as if it were a menu. This\nrequires the actionConfig `moveMenuBar` to be set to the destination hs.menubar\nduring calls to ensureApp().",
+        "doc_gfm": "<p>Move the window to appear under the provided frame as if it were a menu. This\nrequires the actionConfig <code>moveMenuBar</code> to be set to the destination hs.menubar\nduring calls to ensureApp().</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "23",
+        "name": "move",
+        "signature": "EnsureApp.action.move",
+        "stripped_doc": "requires the actionConfig `moveMenuBar` to be set to the destination hs.menubar\nduring calls to ensureApp().",
+        "type": "Constant"
+      },
+      {
+        "def": "EnsureApp:start()",
+        "def_gfm": "EnsureApp:start()",
+        "desc": "Spoon start method for EnsureApp.",
+        "desc_gfm": "<p>Spoon start method for EnsureApp.</p>\n",
+        "doc": "Spoon start method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon start method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "336",
+        "name": "start",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:stop()",
+        "def_gfm": "EnsureApp:stop()",
+        "desc": "Spoon stop method for EnsureApp.",
+        "desc_gfm": "<p>Spoon stop method for EnsureApp.</p>\n",
+        "doc": "Spoon stop method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon stop method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "354",
+        "name": "stop",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "EnsureApp:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp.windowOpenTimer",
+        "def_gfm": "EnsureApp.windowOpenTimer",
+        "desc": "hs.timer for moving an app's first window after being opened via EnsureApp.",
+        "desc_gfm": "<p>hs.timer for moving an app's first window after being opened via EnsureApp.</p>\n",
+        "doc": "hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
+        "doc_gfm": "<p>hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "62",
+        "name": "windowOpenTimer",
+        "signature": "EnsureApp.windowOpenTimer",
+        "stripped_doc": "This behavior can be disabled by setting disableOpen=true on the app config.",
+        "type": "Variable"
+      }
+    ],
+    "name": "EnsureApp",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/EnsureApp.spoon.zip\n\nREADME with Example Usage: [README.md](https://github.com/adammillerio/EnsureApp.spoon/blob/main/README.md)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "HotkeyApps:bindHotkeys(mapping)",
+        "def_gfm": "HotkeyApps:bindHotkeys(mapping)",
+        "desc": "Bind method, binds all provided hotkeys to their app ensure callbacks.",
+        "desc_gfm": "<p>Bind method, binds all provided hotkeys to their app ensure callbacks.</p>\n",
+        "doc": "Bind method, binds all provided hotkeys to their app ensure callbacks.\n\nParameters:\n * mapping - Table of app -> hotkey mappings where app is the name of the\n   app in the EnsureApps config.\nReturns:\n * None",
+        "doc_gfm": "<p>Bind method, binds all provided hotkeys to their app ensure callbacks.</p>\n<p>Parameters:</p>\n<ul>\n<li>mapping - Table of app -&gt; hotkey mappings where app is the name of the\napp in the EnsureApps config.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/HotkeyApps.spoon/init.lua",
+        "lineno": "45",
+        "name": "bindHotkeys",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * mapping - Table of app -> hotkey mappings where app is the name of the app in the EnsureApps config."
+        ],
+        "parameters_gfm": "<ul>\n<li>mapping - Table of app -&gt; hotkey mappings where app is the name of the app in the EnsureApps config.</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "HotkeyApps:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HotkeyApps:init()",
+        "def_gfm": "HotkeyApps:init()",
+        "desc": "Spoon initializer method for EnsureApp.",
+        "desc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n",
+        "doc": "Spoon initializer method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/HotkeyApps.spoon/init.lua",
+        "lineno": "34",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "HotkeyApps:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "HotkeyApps.logger",
+        "def_gfm": "HotkeyApps.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/HotkeyApps.spoon/init.lua",
+        "lineno": "23",
+        "name": "logger",
+        "signature": "HotkeyApps.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "HotkeyApps.logLevel",
+        "def_gfm": "HotkeyApps.logLevel",
+        "desc": "HotkeyApps specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>HotkeyApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "HotkeyApps specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>HotkeyApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/HotkeyApps.spoon/init.lua",
+        "lineno": "29",
+        "name": "logLevel",
+        "signature": "HotkeyApps.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Quickly ensure access to apps in the current Space via hotkeys.",
+    "desc_gfm": "<p>Quickly ensure access to apps in the current Space via hotkeys.</p>\n",
+    "doc": "Quickly ensure access to apps in the current Space via hotkeys.\n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/HotkeyApps.spoon.zip\n\nREADME with Example Usage: [README.md](https://github.com/adammillerio/HotkeyApps.spoon/blob/main/README.md)",
+    "doc_gfm": "<p>Quickly ensure access to apps in the current Space via hotkeys.</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/HotkeyApps.spoon.zip</p>\n<p>README with Example Usage: <a href=\"https://github.com/adammillerio/HotkeyApps.spoon/blob/main/README.md\">README.md</a></p>\n",
+    "items": [
+      {
+        "def": "HotkeyApps:bindHotkeys(mapping)",
+        "def_gfm": "HotkeyApps:bindHotkeys(mapping)",
+        "desc": "Bind method, binds all provided hotkeys to their app ensure callbacks.",
+        "desc_gfm": "<p>Bind method, binds all provided hotkeys to their app ensure callbacks.</p>\n",
+        "doc": "Bind method, binds all provided hotkeys to their app ensure callbacks.\n\nParameters:\n * mapping - Table of app -> hotkey mappings where app is the name of the\n   app in the EnsureApps config.\nReturns:\n * None",
+        "doc_gfm": "<p>Bind method, binds all provided hotkeys to their app ensure callbacks.</p>\n<p>Parameters:</p>\n<ul>\n<li>mapping - Table of app -&gt; hotkey mappings where app is the name of the\napp in the EnsureApps config.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/HotkeyApps.spoon/init.lua",
+        "lineno": "45",
+        "name": "bindHotkeys",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * mapping - Table of app -> hotkey mappings where app is the name of the app in the EnsureApps config."
+        ],
+        "parameters_gfm": "<ul>\n<li>mapping - Table of app -&gt; hotkey mappings where app is the name of the app in the EnsureApps config.</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "HotkeyApps:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HotkeyApps:init()",
+        "def_gfm": "HotkeyApps:init()",
+        "desc": "Spoon initializer method for EnsureApp.",
+        "desc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n",
+        "doc": "Spoon initializer method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/HotkeyApps.spoon/init.lua",
+        "lineno": "34",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "HotkeyApps:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HotkeyApps.logger",
+        "def_gfm": "HotkeyApps.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/HotkeyApps.spoon/init.lua",
+        "lineno": "23",
+        "name": "logger",
+        "signature": "HotkeyApps.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "HotkeyApps.logLevel",
+        "def_gfm": "HotkeyApps.logLevel",
+        "desc": "HotkeyApps specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>HotkeyApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "HotkeyApps specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>HotkeyApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/HotkeyApps.spoon/init.lua",
+        "lineno": "29",
+        "name": "logLevel",
+        "signature": "HotkeyApps.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "HotkeyApps",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/HotkeyApps.spoon.zip\n\nREADME with Example Usage: [README.md](https://github.com/adammillerio/HotkeyApps.spoon/blob/main/README.md)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
     "Constructor": [],
     "Deprecated": [],
     "Field": [],
@@ -45,7 +649,7 @@
         "doc_gfm": "<p>Spoon initializer method for MenuBarApps.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "66",
+        "lineno": "48",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -70,7 +674,7 @@
         "doc_gfm": "<p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "340",
+        "lineno": "159",
         "name": "start",
         "notes": [],
         "notes_gfm": "",
@@ -95,7 +699,7 @@
         "doc_gfm": "<p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "360",
+        "lineno": "179",
         "name": "stop",
         "notes": [],
         "notes_gfm": "",
@@ -118,13 +722,13 @@
         "def_gfm": "MenuBarApps.apps",
         "desc": "Table containing each application's name and it's desired configuration. The",
         "desc_gfm": "<p>Table containing each application's name and it's desired configuration. The</p>\n",
-        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
-        "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.</p>\n",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * app - Name of the application in EnsureApp config. \n    * action - String with action to take on window when showing. See constants.",
+        "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * app - Name of the application in EnsureApp config. \n    * action - String with action to take on window when showing. See constants.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "35",
+        "lineno": "22",
         "name": "apps",
         "signature": "MenuBarApps.apps",
-        "stripped_doc": "key of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
+        "stripped_doc": "key of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * app - Name of the application in EnsureApp config. \n    * action - String with action to take on window when showing. See constants.",
         "type": "Variable"
       },
       {
@@ -135,7 +739,7 @@
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "44",
+        "lineno": "32",
         "name": "logger",
         "signature": "MenuBarApps.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -149,24 +753,10 @@
         "doc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
         "doc_gfm": "<p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "50",
+        "lineno": "38",
         "name": "logLevel",
         "signature": "MenuBarApps.logLevel",
         "stripped_doc": "",
-        "type": "Variable"
-      },
-      {
-        "def": "MenuBarApps.menuBarOpenTimer",
-        "def_gfm": "MenuBarApps.menuBarOpenTimer",
-        "desc": "hs.timer for moving an app's first window after being opened via MenuBarApps.",
-        "desc_gfm": "<p>hs.timer for moving an app's first window after being opened via MenuBarApps.</p>\n",
-        "doc": "hs.timer for moving an app's first window after being opened via MenuBarApps.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
-        "doc_gfm": "<p>hs.timer for moving an app's first window after being opened via MenuBarApps.\nThis behavior can be disabled by setting disableOpen=true on the app config.</p>\n",
-        "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "60",
-        "name": "menuBarOpenTimer",
-        "signature": "MenuBarApps.menuBarOpenTimer",
-        "stripped_doc": "This behavior can be disabled by setting disableOpen=true on the app config.",
         "type": "Variable"
       },
       {
@@ -177,7 +767,7 @@
         "doc": "Table containing references to all of the created menu bars.",
         "doc_gfm": "<p>Table containing references to all of the created menu bars.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "55",
+        "lineno": "43",
         "name": "menuBars",
         "signature": "MenuBarApps.menuBars",
         "stripped_doc": "",
@@ -194,13 +784,13 @@
         "def_gfm": "MenuBarApps.apps",
         "desc": "Table containing each application's name and it's desired configuration. The",
         "desc_gfm": "<p>Table containing each application's name and it's desired configuration. The</p>\n",
-        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
-        "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.</p>\n",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * app - Name of the application in EnsureApp config. \n    * action - String with action to take on window when showing. See constants.",
+        "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * app - Name of the application in EnsureApp config. \n    * action - String with action to take on window when showing. See constants.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "35",
+        "lineno": "22",
         "name": "apps",
         "signature": "MenuBarApps.apps",
-        "stripped_doc": "key of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * action - String with action to take on window when showing. See constants.",
+        "stripped_doc": "key of each entry is the name of the App as it appears in the title bar, and\nthe value is a configuration table with the following entries:\n    * title - String with title text to display in the menu bar icon itself\n    * app - Name of the application in EnsureApp config. \n    * action - String with action to take on window when showing. See constants.",
         "type": "Variable"
       },
       {
@@ -212,7 +802,7 @@
         "doc_gfm": "<p>Spoon initializer method for MenuBarApps.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "66",
+        "lineno": "48",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -236,7 +826,7 @@
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "44",
+        "lineno": "32",
         "name": "logger",
         "signature": "MenuBarApps.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -250,38 +840,10 @@
         "doc": "MenuBarApps specific log level override, see hs.logger.setLogLevel for options.",
         "doc_gfm": "<p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "50",
+        "lineno": "38",
         "name": "logLevel",
         "signature": "MenuBarApps.logLevel",
         "stripped_doc": "",
-        "type": "Variable"
-      },
-      {
-        "def": "MenuBarApps.action.maximize",
-        "def_gfm": "MenuBarApps.action.maximize",
-        "desc": "Maximize the application on the current space if it is not maximized already.",
-        "desc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
-        "doc": "Maximize the application on the current space if it is not maximized already.",
-        "doc_gfm": "<p>Maximize the application on the current space if it is not maximized already.</p>\n",
-        "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "27",
-        "name": "maximize",
-        "signature": "MenuBarApps.action.maximize",
-        "stripped_doc": "",
-        "type": "Constant"
-      },
-      {
-        "def": "MenuBarApps.menuBarOpenTimer",
-        "def_gfm": "MenuBarApps.menuBarOpenTimer",
-        "desc": "hs.timer for moving an app's first window after being opened via MenuBarApps.",
-        "desc_gfm": "<p>hs.timer for moving an app's first window after being opened via MenuBarApps.</p>\n",
-        "doc": "hs.timer for moving an app's first window after being opened via MenuBarApps.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
-        "doc_gfm": "<p>hs.timer for moving an app's first window after being opened via MenuBarApps.\nThis behavior can be disabled by setting disableOpen=true on the app config.</p>\n",
-        "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "60",
-        "name": "menuBarOpenTimer",
-        "signature": "MenuBarApps.menuBarOpenTimer",
-        "stripped_doc": "This behavior can be disabled by setting disableOpen=true on the app config.",
         "type": "Variable"
       },
       {
@@ -292,25 +854,11 @@
         "doc": "Table containing references to all of the created menu bars.",
         "doc_gfm": "<p>Table containing references to all of the created menu bars.</p>\n",
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "55",
+        "lineno": "43",
         "name": "menuBars",
         "signature": "MenuBarApps.menuBars",
         "stripped_doc": "",
         "type": "Variable"
-      },
-      {
-        "def": "MenuBarApps.action.move",
-        "def_gfm": "MenuBarApps.action.move",
-        "desc": "Move the window to appear under the menu bar item as if it were a menu.",
-        "desc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
-        "doc": "Move the window to appear under the menu bar item as if it were a menu.",
-        "doc_gfm": "<p>Move the window to appear under the menu bar item as if it were a menu.</p>\n",
-        "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "23",
-        "name": "move",
-        "signature": "MenuBarApps.action.move",
-        "stripped_doc": "",
-        "type": "Constant"
       },
       {
         "def": "MenuBarApps:start()",
@@ -321,7 +869,7 @@
         "doc_gfm": "<p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "340",
+        "lineno": "159",
         "name": "start",
         "notes": [],
         "notes_gfm": "",
@@ -346,7 +894,7 @@
         "doc_gfm": "<p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "360",
+        "lineno": "179",
         "name": "stop",
         "notes": [],
         "notes_gfm": "",
