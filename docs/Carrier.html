@@ -1,7 +1,7 @@
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Hammerspoon docs: MenuBarApps</title>
+    <title>Hammerspoon docs: Carrier</title>
     <style type="text/css">
       a { text-decoration: none; }
       a:hover { text-decoration: underline; }
@@ -14,10 +14,13 @@
   </head>
   <body>
     <header>
-      <h1><a href="./index.html">docs</a> &raquo; MenuBarApps</h1>
-      <p>Control applications from the macOS Menu Bar</p>
-<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip</p>
-<p>README with Example Usage: <a href="https://github.com/adammillerio/MenuBarApps.spoon/blob/main/README.md">README.md</a></p>
+      <h1><a href="./index.html">docs</a> &raquo; Carrier</h1>
+      <p>Automatically hide apps that are out of focus.</p>
+<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/Carrier.spoon.zip</p>
+<p>This uses a hs.window.filter to detect windows that have gone out of focus. Then,
+if they are configured to be &quot;swept&quot; in the apps config, they will be automatically
+hidden if they remain out of focus after sweepCheckInterval (default 15 seconds).</p>
+<p>README with example usage: <a href="https://github.com/adammillerio/Carrier.spoon/blob/main/README.md">README.md</a></p>
 
       </header>
       <h3>API Overview</h3>
@@ -25,9 +28,10 @@
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#apps">apps</a></li>
+            <li><a href="#carryApps">carryApps</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#logLevel">logLevel</a></li>
-            <li><a href="#menuBars">menuBars</a></li>
+            <li><a href="#spaceWatcher">spaceWatcher</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -44,7 +48,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps.apps</code></td>
+                <td><code>Carrier.apps</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -57,7 +61,30 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L22">Source/MenuBarApps.spoon/init.lua line 22</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Carrier.spoon/init.lua#L27">Source/Carrier.spoon/init.lua line 27</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="carryApps">
+            <a name="//apple_ref/cpp/Variable/carryApps" class="dashAnchor"></a>
+            <h5><a href="#carryApps">carryApps</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Carrier.carryApps</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing the name of every app to carry on space change.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Carrier.spoon/init.lua#L51">Source/Carrier.spoon/init.lua line 51</a></td>
               </tr>
             </table>
           </section>
@@ -67,7 +94,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps.logger</code></td>
+                <td><code>Carrier.logger</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -80,7 +107,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L32">Source/MenuBarApps.spoon/init.lua line 32</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Carrier.spoon/init.lua#L35">Source/Carrier.spoon/init.lua line 35</a></td>
               </tr>
             </table>
           </section>
@@ -90,7 +117,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps.logLevel</code></td>
+                <td><code>Carrier.logLevel</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -98,22 +125,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>
+                <td><p>Carrier specific log level override, see hs.logger.setLogLevel for options.</p>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L38">Source/MenuBarApps.spoon/init.lua line 38</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Carrier.spoon/init.lua#L41">Source/Carrier.spoon/init.lua line 41</a></td>
               </tr>
             </table>
           </section>
-          <section id="menuBars">
-            <a name="//apple_ref/cpp/Variable/menuBars" class="dashAnchor"></a>
-            <h5><a href="#menuBars">menuBars</a></h5>
+          <section id="spaceWatcher">
+            <a name="//apple_ref/cpp/Variable/spaceWatcher" class="dashAnchor"></a>
+            <h5><a href="#spaceWatcher">spaceWatcher</a></h5>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps.menuBars</code></td>
+                <td><code>Carrier.spaceWatcher</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -121,12 +148,12 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing references to all of the created menu bars.</p>
+                <td><p>hs.spaces.watcher instance used for monitoring for space changes.</p>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L43">Source/MenuBarApps.spoon/init.lua line 43</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Carrier.spoon/init.lua#L46">Source/Carrier.spoon/init.lua line 46</a></td>
               </tr>
             </table>
           </section>
@@ -137,7 +164,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps:init()</code></td>
+                <td><code>Carrier:init()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -145,7 +172,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Spoon initializer method for MenuBarApps.</p>
+                <td><p>Spoon initializer method for Carrier.</p>
 </td>
               </tr>
               <tr>
@@ -164,7 +191,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L48">Source/MenuBarApps.spoon/init.lua line 48</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Carrier.spoon/init.lua#L56">Source/Carrier.spoon/init.lua line 56</a></td>
               </tr>
             </table>
           </section>
@@ -174,7 +201,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps:start()</code></td>
+                <td><code>Carrier:start()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -182,7 +209,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>
+                <td><p>Spoon start method for Carrier.</p>
 </td>
               </tr>
               <tr>
@@ -200,8 +227,15 @@
 </td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Configures the window filter, and subscribes to all window unfocus events.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L160">Source/MenuBarApps.spoon/init.lua line 160</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Carrier.spoon/init.lua#L83">Source/Carrier.spoon/init.lua line 83</a></td>
               </tr>
             </table>
           </section>
@@ -211,7 +245,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps:stop()</code></td>
+                <td><code>Carrier:stop()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -219,7 +253,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>
+                <td><p>Spoon stop method for Carrier.</p>
 </td>
               </tr>
               <tr>
@@ -237,8 +271,15 @@
 </td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Unsubscribes the window filter from all subscribed functions.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L180">Source/MenuBarApps.spoon/init.lua line 180</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Carrier.spoon/init.lua#L116">Source/Carrier.spoon/init.lua line 116</a></td>
               </tr>
             </table>
           </section>

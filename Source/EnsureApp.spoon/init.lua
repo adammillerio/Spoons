@@ -11,7 +11,7 @@ EnsureApp.__index = EnsureApp
 
 -- Metadata
 EnsureApp.name = "EnsureApp"
-EnsureApp.version = "0.0.1"
+EnsureApp.version = "0.0.2"
 EnsureApp.author = "Adam Miller <adam@adammiller.io>"
 EnsureApp.homepage = "https://github.com/adammillerio/EnsureApp.spoon"
 EnsureApp.license = "MIT - https://opensource.org/licenses/MIT"
@@ -91,20 +91,32 @@ function EnsureApp:_actionWindow(config, actionConfig, app, appWindow)
     -- move mode - This moves the application under the supplied moveMenuBar so that
     -- it appears like a menu
     if config.action == actions.move then
+        local appMenuBarFrame = nil
         if actionConfig then
             -- Get the hs.menubar to moe the window to from the supplied actionConfig.
-            appMoveMenuBar = actionConfig.moveMenuBar
+            local appMoveMenuBar = actionConfig.moveMenuBar
             if not appMoveMenuBar then
-                self.logger.ef("No moveMenuBar provided for move action")
+                self.logger.ef(
+                    "No moveMenuBar provided for move action for app %s",
+                    config.app)
+                -- Focus the window anyway just as a fallback.
+                appWindow:focus()
                 return
             end
 
             -- Get rect representing the hs.menubar frame.
             appMenuBarFrame = appMoveMenuBar:frame()
+        else
+            self.logger.ef(
+                "No actionConfig provided for move action for app %s",
+                config.app)
+            -- Focus the window anyway just as a fallback.
+            appWindow:focus()
+            return
         end
 
         -- Get rect representing the frame of the app window
-        appWindowFrame = appWindow:frame()
+        local appWindowFrame = appWindow:frame()
 
         -- move() only moves in absolute coordinates if a rect is provided, so we
         -- just update the appWindowFrame rect's x coordinate to be such that it is
@@ -120,7 +132,16 @@ function EnsureApp:_actionWindow(config, actionConfig, app, appWindow)
     elseif config.action == actions.maximize then
         if appWindow:isMaximizable() then appWindow:maximize() end
     else
-        self.logger.ef("Unknown action %s", config.action)
+        self.logger.ef("Unknown action %s", action)
+        return
+    end
+
+    if actionConfig then
+        -- Don't focus if the user specified not to for this ensure action.
+        if actionConfig.skipFocus then
+            self.logger.vf("Skipping app window focus after ensure")
+            return
+        end
     end
 
     -- Focus the window.
@@ -279,6 +300,7 @@ function EnsureApp:ensureApp(appName, actionConfig)
     end
 
     -- If we could not find a cached window for the app.
+    local app = nil
     if not appWindow then
         if config.disableOpen then
             -- Open is disabled and no window, cannot continue.
@@ -288,12 +310,12 @@ function EnsureApp:ensureApp(appName, actionConfig)
             return
         else
             -- Attempt to open app by name.
-            self.logger.vf("Opening application %s", appName)
-            app = hs.application.open(appName)
+            self.logger.vf("Opening application %s", config.app)
+            app = hs.application.open(config.app)
             if not app then
                 -- No application with this name exists, cannot continue.
                 self.logger.ef("No application named %s could be opened",
-                               appName)
+                               config.app)
                 return
             end
 

@@ -1,0 +1,382 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Table containing each application's name and it's desired configuration. The",
+          "key of each entry is the name of the application, and the value is a",
+          "configuration table with the following entries:",
+          " * carry - If true, this application will be carried on Space change."
+        ],
+        "def" : "Carrier.apps",
+        "doc" : "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * carry - If true, this application will be carried on Space change.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.apps",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "apps",
+        "desc" : "Table containing each application's name and it's desired configuration. The"
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log",
+          "level for the messages coming from the Spoon."
+        ],
+        "def" : "Carrier.logger",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log"
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Carrier specific log level override, see hs.logger.setLogLevel for options."
+        ],
+        "def" : "Carrier.logLevel",
+        "doc" : "Carrier specific log level override, see hs.logger.setLogLevel for options.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.logLevel",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logLevel",
+        "desc" : "Carrier specific log level override, see hs.logger.setLogLevel for options."
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "hs.spaces.watcher instance used for monitoring for space changes."
+        ],
+        "def" : "Carrier.spaceWatcher",
+        "doc" : "hs.spaces.watcher instance used for monitoring for space changes.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.spaceWatcher",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "spaceWatcher",
+        "desc" : "hs.spaces.watcher instance used for monitoring for space changes."
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Table containing the name of every app to carry on space change."
+        ],
+        "def" : "Carrier.carryApps",
+        "doc" : "Table containing the name of every app to carry on space change.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.carryApps",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "carryApps",
+        "desc" : "Table containing the name of every app to carry on space change."
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Automatically hide apps that are out of focus.",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "doc" : "Automatically hide apps that are out of focus.\n\nDownload: https:\/\/github.com\/adammillerio\/Spoons\/raw\/main\/Spoons\/Carrier.spoon.zip\n\nThis uses a hs.window.filter to detect windows that have gone out of focus. Then,\nif they are configured to be \"swept\" in the apps config, they will be automatically\nhidden if they remain out of focus after sweepCheckInterval (default 15 seconds).\n\nREADME with example usage: [README.md](https:\/\/github.com\/adammillerio\/Carrier.spoon\/blob\/main\/README.md)",
+    "Field" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Table containing each application's name and it's desired configuration. The",
+          "key of each entry is the name of the application, and the value is a",
+          "configuration table with the following entries:",
+          " * carry - If true, this application will be carried on Space change."
+        ],
+        "def" : "Carrier.apps",
+        "doc" : "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * carry - If true, this application will be carried on Space change.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.apps",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "apps",
+        "desc" : "Table containing each application's name and it's desired configuration. The"
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Table containing the name of every app to carry on space change."
+        ],
+        "def" : "Carrier.carryApps",
+        "doc" : "Table containing the name of every app to carry on space change.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.carryApps",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "carryApps",
+        "desc" : "Table containing the name of every app to carry on space change."
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Carrier specific log level override, see hs.logger.setLogLevel for options."
+        ],
+        "def" : "Carrier.logLevel",
+        "doc" : "Carrier specific log level override, see hs.logger.setLogLevel for options.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.logLevel",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logLevel",
+        "desc" : "Carrier specific log level override, see hs.logger.setLogLevel for options."
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log",
+          "level for the messages coming from the Spoon."
+        ],
+        "def" : "Carrier.logger",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log"
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "hs.spaces.watcher instance used for monitoring for space changes."
+        ],
+        "def" : "Carrier.spaceWatcher",
+        "doc" : "hs.spaces.watcher instance used for monitoring for space changes.",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier.spaceWatcher",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "spaceWatcher",
+        "desc" : "hs.spaces.watcher instance used for monitoring for space changes."
+      },
+      {
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Spoon initializer method for Carrier.",
+          ""
+        ],
+        "def" : "Carrier:init()",
+        "doc" : "Spoon initializer method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier:init()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "name" : "init",
+        "desc" : "Spoon initializer method for Carrier."
+      },
+      {
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Spoon start method for Carrier.",
+          ""
+        ],
+        "def" : "Carrier:start()",
+        "doc" : "Spoon start method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, and subscribes to all window unfocus events.",
+        "notes" : [
+          " * Configures the window filter, and subscribes to all window unfocus events."
+        ],
+        "signature" : "Carrier:start()",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "start",
+        "desc" : "Spoon start method for Carrier."
+      },
+      {
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Spoon stop method for Carrier.",
+          ""
+        ],
+        "def" : "Carrier:stop()",
+        "doc" : "Spoon stop method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
+        "notes" : [
+          " * Unsubscribes the window filter from all subscribed functions."
+        ],
+        "signature" : "Carrier:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "stop",
+        "desc" : "Spoon stop method for Carrier."
+      }
+    ],
+    "Method" : [
+      {
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Spoon initializer method for Carrier.",
+          ""
+        ],
+        "def" : "Carrier:init()",
+        "doc" : "Spoon initializer method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "notes" : [
+
+        ],
+        "signature" : "Carrier:init()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "name" : "init",
+        "desc" : "Spoon initializer method for Carrier."
+      },
+      {
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Spoon start method for Carrier.",
+          ""
+        ],
+        "def" : "Carrier:start()",
+        "doc" : "Spoon start method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, and subscribes to all window unfocus events.",
+        "notes" : [
+          " * Configures the window filter, and subscribes to all window unfocus events."
+        ],
+        "signature" : "Carrier:start()",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "start",
+        "desc" : "Spoon start method for Carrier."
+      },
+      {
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Spoon stop method for Carrier.",
+          ""
+        ],
+        "def" : "Carrier:stop()",
+        "doc" : "Spoon stop method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
+        "notes" : [
+          " * Unsubscribes the window filter from all subscribed functions."
+        ],
+        "signature" : "Carrier:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "stop",
+        "desc" : "Spoon stop method for Carrier."
+      }
+    ],
+    "name" : "Carrier"
+  }
+]
