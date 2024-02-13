@@ -1,7 +1,7 @@
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Hammerspoon docs: MenuBarApps</title>
+    <title>Hammerspoon docs: Sweeper</title>
     <style type="text/css">
       a { text-decoration: none; }
       a:hover { text-decoration: underline; }
@@ -14,10 +14,19 @@
   </head>
   <body>
     <header>
-      <h1><a href="./index.html">docs</a> &raquo; MenuBarApps</h1>
-      <p>Control applications from the macOS Menu Bar</p>
-<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/MenuBarApps.spoon.zip</p>
-<p>README with Example Usage: <a href="https://github.com/adammillerio/MenuBarApps.spoon/blob/main/README.md">README.md</a></p>
+      <h1><a href="./index.html">docs</a> &raquo; Sweeper</h1>
+      <p>Automatically hide apps that are out of focus.</p>
+<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/Sweeper.spoon.zip</p>
+<p>This uses a hs.window.filter to detect windows that have gone out of focus. Then,
+if they are configured to be &quot;swept&quot; in the apps config, they will be automatically
+hidden if they remain out of focus after sweepCheckInterval (default 15 seconds).</p>
+<p>Example Usage (Using <a href="https://zzamboni.org/post/using-spoons-in-hammerspoon/">SpoonInstall</a>):
+spoon.SpoonInstall:andUse(
+  &quot;Sweeper&quot;,
+  {
+    start = true
+  }
+)</p>
 
       </header>
       <h3>API Overview</h3>
@@ -27,7 +36,9 @@
             <li><a href="#apps">apps</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#logLevel">logLevel</a></li>
-            <li><a href="#menuBars">menuBars</a></li>
+            <li><a href="#subscribedFunctions">subscribedFunctions</a></li>
+            <li><a href="#sweepCheckInterval">sweepCheckInterval</a></li>
+            <li><a href="#windowFilter">windowFilter</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -44,7 +55,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps.apps</code></td>
+                <td><code>Sweeper.apps</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -57,7 +68,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L22">Source/MenuBarApps.spoon/init.lua line 22</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L29">Source/Sweeper.spoon/init.lua line 29</a></td>
               </tr>
             </table>
           </section>
@@ -67,7 +78,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps.logger</code></td>
+                <td><code>Sweeper.logger</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -80,7 +91,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L32">Source/MenuBarApps.spoon/init.lua line 32</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L43">Source/Sweeper.spoon/init.lua line 43</a></td>
               </tr>
             </table>
           </section>
@@ -90,7 +101,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps.logLevel</code></td>
+                <td><code>Sweeper.logLevel</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -98,22 +109,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>MenuBarApps specific log level override, see hs.logger.setLogLevel for options.</p>
+                <td><p>Sweeper specific log level override, see hs.logger.setLogLevel for options.</p>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L38">Source/MenuBarApps.spoon/init.lua line 38</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L49">Source/Sweeper.spoon/init.lua line 49</a></td>
               </tr>
             </table>
           </section>
-          <section id="menuBars">
-            <a name="//apple_ref/cpp/Variable/menuBars" class="dashAnchor"></a>
-            <h5><a href="#menuBars">menuBars</a></h5>
+          <section id="subscribedFunctions">
+            <a name="//apple_ref/cpp/Variable/subscribedFunctions" class="dashAnchor"></a>
+            <h5><a href="#subscribedFunctions">subscribedFunctions</a></h5>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps.menuBars</code></td>
+                <td><code>Sweeper.subscribedFunctions</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -121,12 +132,58 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing references to all of the created menu bars.</p>
+                <td><p>Table containing all subscribed instance callbacks for the window filter, used</p>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L43">Source/MenuBarApps.spoon/init.lua line 43</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L61">Source/Sweeper.spoon/init.lua line 61</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="sweepCheckInterval">
+            <a name="//apple_ref/cpp/Variable/sweepCheckInterval" class="dashAnchor"></a>
+            <h5><a href="#sweepCheckInterval">sweepCheckInterval</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Sweeper.sweepCheckInterval</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Time in seconds to wait after a window loses focus to check if it should be swept.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L38">Source/Sweeper.spoon/init.lua line 38</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="windowFilter">
+            <a name="//apple_ref/cpp/Variable/windowFilter" class="dashAnchor"></a>
+            <h5><a href="#windowFilter">windowFilter</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Sweeper.windowFilter</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Main hs.window.filter. This is what is used to detect and action on unfocused</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L54">Source/Sweeper.spoon/init.lua line 54</a></td>
               </tr>
             </table>
           </section>
@@ -137,7 +194,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps:init()</code></td>
+                <td><code>Sweeper:init()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -145,7 +202,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Spoon initializer method for MenuBarApps.</p>
+                <td><p>Spoon initializer method for Sweeper.</p>
 </td>
               </tr>
               <tr>
@@ -164,7 +221,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L48">Source/MenuBarApps.spoon/init.lua line 48</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L67">Source/Sweeper.spoon/init.lua line 67</a></td>
               </tr>
             </table>
           </section>
@@ -174,7 +231,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps:start()</code></td>
+                <td><code>Sweeper:start()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -182,7 +239,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Spoon start method for MenuBarApps. Creates all configured menu bars.</p>
+                <td><p>Spoon start method for Sweeper.</p>
 </td>
               </tr>
               <tr>
@@ -200,8 +257,15 @@
 </td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Configures the window filter, and subscribes to all window unfocus events.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L160">Source/MenuBarApps.spoon/init.lua line 160</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L146">Source/Sweeper.spoon/init.lua line 146</a></td>
               </tr>
             </table>
           </section>
@@ -211,7 +275,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenuBarApps:stop()</code></td>
+                <td><code>Sweeper:stop()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -219,7 +283,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Spoon stop method for MenuBarApps. Deletes all configured menu bars.</p>
+                <td><p>Spoon stop method for Sweeper.</p>
 </td>
               </tr>
               <tr>
@@ -237,8 +301,15 @@
 </td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Unsubscribes the window filter from all subscribed functions.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/MenuBarApps.spoon/init.lua#L180">Source/MenuBarApps.spoon/init.lua line 180</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/Sweeper.spoon/init.lua#L179">Source/Sweeper.spoon/init.lua line 179</a></td>
               </tr>
             </table>
           </section>

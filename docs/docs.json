@@ -1,6 +1,258 @@
 [
   {
     "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Carrier:init()",
+        "desc": "Spoon initializer method for Carrier.",
+        "doc": "Spoon initializer method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "56",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Carrier:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Carrier:start()",
+        "desc": "Spoon start method for Carrier.",
+        "doc": "Spoon start method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, and subscribes to all window unfocus events.",
+        "examples": [],
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "83",
+        "name": "start",
+        "notes": [
+          " * Configures the window filter, and subscribes to all window unfocus events."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Carrier:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Carrier:stop()",
+        "desc": "Spoon stop method for Carrier.",
+        "doc": "Spoon stop method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
+        "examples": [],
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "116",
+        "name": "stop",
+        "notes": [
+          " * Unsubscribes the window filter from all subscribed functions."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Carrier:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Carrier.apps",
+        "desc": "Table containing each application's name and it's desired configuration. The",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * carry - If true, this application will be carried on Space change.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "27",
+        "name": "apps",
+        "signature": "Carrier.apps",
+        "stripped_doc": "key of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * carry - If true, this application will be carried on Space change.",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.carryApps",
+        "desc": "Table containing the name of every app to carry on space change.",
+        "doc": "Table containing the name of every app to carry on space change.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "51",
+        "name": "carryApps",
+        "signature": "Carrier.carryApps",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "35",
+        "name": "logger",
+        "signature": "Carrier.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.logLevel",
+        "desc": "Carrier specific log level override, see hs.logger.setLogLevel for options.",
+        "doc": "Carrier specific log level override, see hs.logger.setLogLevel for options.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "41",
+        "name": "logLevel",
+        "signature": "Carrier.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.spaceWatcher",
+        "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
+        "doc": "hs.spaces.watcher instance used for monitoring for space changes.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "46",
+        "name": "spaceWatcher",
+        "signature": "Carrier.spaceWatcher",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Automatically hide apps that are out of focus.",
+    "doc": "Automatically hide apps that are out of focus.\n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Carrier.spoon.zip\n\nThis uses a hs.window.filter to detect windows that have gone out of focus. Then,\nif they are configured to be \"swept\" in the apps config, they will be automatically\nhidden if they remain out of focus after sweepCheckInterval (default 15 seconds).\n\nREADME with example usage: [README.md](https://github.com/adammillerio/Carrier.spoon/blob/main/README.md)",
+    "items": [
+      {
+        "def": "Carrier.apps",
+        "desc": "Table containing each application's name and it's desired configuration. The",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * carry - If true, this application will be carried on Space change.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "27",
+        "name": "apps",
+        "signature": "Carrier.apps",
+        "stripped_doc": "key of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * carry - If true, this application will be carried on Space change.",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.carryApps",
+        "desc": "Table containing the name of every app to carry on space change.",
+        "doc": "Table containing the name of every app to carry on space change.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "51",
+        "name": "carryApps",
+        "signature": "Carrier.carryApps",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier:init()",
+        "desc": "Spoon initializer method for Carrier.",
+        "doc": "Spoon initializer method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "56",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Carrier:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Carrier.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "35",
+        "name": "logger",
+        "signature": "Carrier.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.logLevel",
+        "desc": "Carrier specific log level override, see hs.logger.setLogLevel for options.",
+        "doc": "Carrier specific log level override, see hs.logger.setLogLevel for options.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "41",
+        "name": "logLevel",
+        "signature": "Carrier.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.spaceWatcher",
+        "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
+        "doc": "hs.spaces.watcher instance used for monitoring for space changes.",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "46",
+        "name": "spaceWatcher",
+        "signature": "Carrier.spaceWatcher",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier:start()",
+        "desc": "Spoon start method for Carrier.",
+        "doc": "Spoon start method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, and subscribes to all window unfocus events.",
+        "examples": [],
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "83",
+        "name": "start",
+        "notes": [
+          " * Configures the window filter, and subscribes to all window unfocus events."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Carrier:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Carrier:stop()",
+        "desc": "Spoon stop method for Carrier.",
+        "doc": "Spoon stop method for Carrier.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
+        "examples": [],
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "116",
+        "name": "stop",
+        "notes": [
+          " * Unsubscribes the window filter from all subscribed functions."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Carrier:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Carrier",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Carrier.spoon.zip\n\nThis uses a hs.window.filter to detect windows that have gone out of focus. Then,\nif they are configured to be \"swept\" in the apps config, they will be automatically\nhidden if they remain out of focus after sweepCheckInterval (default 15 seconds).\n\nREADME with example usage: [README.md](https://github.com/adammillerio/Carrier.spoon/blob/main/README.md)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
     "Constant": [
       {
         "def": "EnsureApp.action.maximize",
@@ -36,7 +288,7 @@
         "doc": "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * Refer to EnsureApp.apps for information on how to configure apps.",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "232",
+        "lineno": "253",
         "name": "ensureApp",
         "notes": [
           " * Refer to EnsureApp.apps for information on how to configure apps."
@@ -58,7 +310,7 @@
         "doc": "(Callback) Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * This is a utility class for mapping app ensures to things like menu bars.\n * Refer to EnsureApp.apps for information on how to configure apps.",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "213",
+        "lineno": "234",
         "name": "ensureAppCallback",
         "notes": [
           " * This is a utility class for mapping app ensures to things like menu bars.",
@@ -100,7 +352,7 @@
         "doc": "Spoon start method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "336",
+        "lineno": "358",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -119,7 +371,7 @@
         "doc": "Spoon stop method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "354",
+        "lineno": "376",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -199,7 +451,7 @@
         "doc": "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * Refer to EnsureApp.apps for information on how to configure apps.",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "232",
+        "lineno": "253",
         "name": "ensureApp",
         "notes": [
           " * Refer to EnsureApp.apps for information on how to configure apps."
@@ -221,7 +473,7 @@
         "doc": "(Callback) Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * This is a utility class for mapping app ensures to things like menu bars.\n * Refer to EnsureApp.apps for information on how to configure apps.",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "213",
+        "lineno": "234",
         "name": "ensureAppCallback",
         "notes": [
           " * This is a utility class for mapping app ensures to things like menu bars.",
@@ -307,7 +559,7 @@
         "doc": "Spoon start method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "336",
+        "lineno": "358",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -326,7 +578,7 @@
         "doc": "Spoon stop method for EnsureApp.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "354",
+        "lineno": "376",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -529,7 +781,7 @@
         "doc": "Spoon start method for MenuBarApps. Creates all configured menu bars.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "159",
+        "lineno": "160",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -548,7 +800,7 @@
         "doc": "Spoon stop method for MenuBarApps. Deletes all configured menu bars.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "179",
+        "lineno": "180",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -680,7 +932,7 @@
         "doc": "Spoon start method for MenuBarApps. Creates all configured menu bars.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "159",
+        "lineno": "160",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -699,7 +951,7 @@
         "doc": "Spoon stop method for MenuBarApps. Deletes all configured menu bars.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/MenuBarApps.spoon/init.lua",
-        "lineno": "179",
+        "lineno": "180",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -1021,6 +1273,17 @@
     "Command": [],
     "Constant": [
       {
+        "def": "Spacer.menuBarAutosaveName",
+        "desc": "Autosave name used with macOS to save menu bar item position.",
+        "doc": "Autosave name used with macOS to save menu bar item position.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "32",
+        "name": "menuBarAutosaveName",
+        "signature": "Spacer.menuBarAutosaveName",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
         "def": "Spacer.settingsKey",
         "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
         "doc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
@@ -1043,7 +1306,7 @@
         "doc": "Exit fullscreen on window.\n\nParameters:\n * None\nReturns:\n * None\n\nNotes:\n * This presses the keystroke cmd+ctrl+f by default, which should work globally\n   * Configurable via exitFullscreenKeystroke",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "521",
+        "lineno": "526",
         "name": "exitFullscreen",
         "notes": [
           " * This presses the keystroke cmd+ctrl+f by default, which should work globally",
@@ -1065,7 +1328,7 @@
         "doc": "Fullscreen app's focused window to the left of current space.\n\nParameters:\n * app - hs.application to fullscreen\n\nReturns:\n * None\n\nNotes:\n * Attempts to select Window -> Tile Window to Left of Screen in app menu\n   * Manually configurable via tilingMenuSection and tilingMenuItem\n * If this doesn't work, it will manually macro the OS flow for this\n   * Show the menu for the green resize button in the top left\n   * Press Down, Down, and Return to select Tile Window to Left of Screen\n * Clicks around the top-left of the current screen to exit tiling and fullscreen\n * Returns mouse to original position\n * All credit for this goes to clay_golem on Apple StackExchange\n   * https://apple.stackexchange.com/posts/462160/revisions",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "490",
+        "lineno": "495",
         "name": "fullscreenWindowToLeft",
         "notes": [
           " * Attempts to select Window -> Tile Window to Left of Screen in app menu",
@@ -1094,7 +1357,7 @@
         "doc": "Spoon initializer method for Spacer.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "595",
+        "lineno": "600",
         "name": "init",
         "notes": [],
         "parameters": [
@@ -1113,7 +1376,7 @@
         "doc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "609",
+        "lineno": "614",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -1132,7 +1395,7 @@
         "doc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "653",
+        "lineno": "659",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -1151,7 +1414,7 @@
         "doc": "Toggle the fullscreen state of current window to left of space.\n\nParameters:\n * args - Args provided to hs CLI after \"--\" via _cli.args.\n\nReturns:\n * None\n\nNotes:\n * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft\n   or exitFullscreen based on the current fullscreen state of the application.",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "453",
+        "lineno": "458",
         "name": "toggleFullscreenWindowToLeft",
         "notes": [
           " * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft",
@@ -1174,7 +1437,7 @@
         "desc": "Default hotkey to use for the space chooser and fullscreen ",
         "doc": "Default hotkey to use for the space chooser and fullscreen \nwhen \"hotkeys\" = \"default\".",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "32",
+        "lineno": "37",
         "name": "defaultHotkeys",
         "signature": "Spacer.defaultHotkeys",
         "stripped_doc": "when \"hotkeys\" = \"default\".",
@@ -1185,7 +1448,7 @@
         "desc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
         "doc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "105",
+        "lineno": "110",
         "name": "delayedWindowClickTimer",
         "signature": "Spacer.delayedWindowClickTimer",
         "stripped_doc": "",
@@ -1196,7 +1459,7 @@
         "desc": "Keystroke representing shortcut to exit a full screen application. Defaults to",
         "doc": "Keystroke representing shortcut to exit a full screen application. Defaults to\nCmd+Ctrl+F which has worked for all applications so far.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "56",
         "name": "exitFullScreenKeystroke",
         "signature": "Spacer.exitFullScreenKeystroke",
         "stripped_doc": "Cmd+Ctrl+F which has worked for all applications so far.",
@@ -1207,7 +1470,7 @@
         "desc": "int with the ID of the currently focused space.",
         "doc": "int with the ID of the currently focused space.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "95",
+        "lineno": "100",
         "name": "focusedSpace",
         "signature": "Spacer.focusedSpace",
         "stripped_doc": "",
@@ -1218,7 +1481,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "62",
         "name": "logger",
         "signature": "Spacer.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -1229,7 +1492,7 @@
         "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
         "doc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "63",
+        "lineno": "68",
         "name": "logLevel",
         "signature": "Spacer.logLevel",
         "stripped_doc": "",
@@ -1240,7 +1503,7 @@
         "desc": "hs.menubar representing the menu bar for Spacer.",
         "doc": "hs.menubar representing the menu bar for Spacer.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "68",
+        "lineno": "73",
         "name": "menuBar",
         "signature": "Spacer.menuBar",
         "stripped_doc": "",
@@ -1251,7 +1514,7 @@
         "desc": "Table with an ordered list of the space names, which is used when loading",
         "doc": "Table with an ordered list of the space names, which is used when loading\nthe menubar, as well as persisted to and from hs.settings between loads.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "89",
+        "lineno": "94",
         "name": "orderedSpaceNames",
         "signature": "Spacer.orderedSpaceNames",
         "stripped_doc": "the menubar, as well as persisted to and from hs.settings between loads.",
@@ -1262,7 +1525,7 @@
         "desc": "Table holding an ordered list of space IDs, which is then used to resolve",
         "doc": "Table holding an ordered list of space IDs, which is then used to resolve\nactual space names for IDs from Spacer.spaceNames.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "88",
         "name": "orderedSpaces",
         "signature": "Spacer.orderedSpaces",
         "stripped_doc": "actual space names for IDs from Spacer.spaceNames.",
@@ -1273,7 +1536,7 @@
         "desc": "hs.chooser object representing the Space chooser.",
         "doc": "hs.chooser object representing the Space chooser.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "100",
+        "lineno": "105",
         "name": "spaceChooser",
         "signature": "Spacer.spaceChooser",
         "stripped_doc": "",
@@ -1284,7 +1547,7 @@
         "desc": "Table with key-value mapping of Space ID to it's user set name.",
         "doc": "Table with key-value mapping of Space ID to it's user set name.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "78",
+        "lineno": "83",
         "name": "spaceNames",
         "signature": "Spacer.spaceNames",
         "stripped_doc": "",
@@ -1295,7 +1558,7 @@
         "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
         "doc": "hs.spaces.watcher instance used for monitoring for space changes.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "73",
+        "lineno": "78",
         "name": "spaceWatcher",
         "signature": "Spacer.spaceWatcher",
         "stripped_doc": "",
@@ -1306,7 +1569,7 @@
         "desc": "Menu item for tiling window to the left. Set this according to your language.",
         "doc": "Menu item for tiling window to the left. Set this according to your language.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "46",
+        "lineno": "51",
         "name": "tilingMenuItem",
         "signature": "Spacer.tilingMenuItem",
         "stripped_doc": "",
@@ -1317,7 +1580,7 @@
         "desc": "Menu \"section\" which has tiling options. Set this according to your language.",
         "doc": "Menu \"section\" which has tiling options. Set this according to your language.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "41",
+        "lineno": "46",
         "name": "tilingMenuSection",
         "signature": "Spacer.tilingMenuSection",
         "stripped_doc": "",
@@ -1332,7 +1595,7 @@
         "desc": "Default hotkey to use for the space chooser and fullscreen ",
         "doc": "Default hotkey to use for the space chooser and fullscreen \nwhen \"hotkeys\" = \"default\".",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "32",
+        "lineno": "37",
         "name": "defaultHotkeys",
         "signature": "Spacer.defaultHotkeys",
         "stripped_doc": "when \"hotkeys\" = \"default\".",
@@ -1343,7 +1606,7 @@
         "desc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
         "doc": "hs.timer used in fullscreenWindowToLeft to perform a delayed left click.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "105",
+        "lineno": "110",
         "name": "delayedWindowClickTimer",
         "signature": "Spacer.delayedWindowClickTimer",
         "stripped_doc": "",
@@ -1355,7 +1618,7 @@
         "doc": "Exit fullscreen on window.\n\nParameters:\n * None\nReturns:\n * None\n\nNotes:\n * This presses the keystroke cmd+ctrl+f by default, which should work globally\n   * Configurable via exitFullscreenKeystroke",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "521",
+        "lineno": "526",
         "name": "exitFullscreen",
         "notes": [
           " * This presses the keystroke cmd+ctrl+f by default, which should work globally",
@@ -1376,7 +1639,7 @@
         "desc": "Keystroke representing shortcut to exit a full screen application. Defaults to",
         "doc": "Keystroke representing shortcut to exit a full screen application. Defaults to\nCmd+Ctrl+F which has worked for all applications so far.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "56",
         "name": "exitFullScreenKeystroke",
         "signature": "Spacer.exitFullScreenKeystroke",
         "stripped_doc": "Cmd+Ctrl+F which has worked for all applications so far.",
@@ -1387,7 +1650,7 @@
         "desc": "int with the ID of the currently focused space.",
         "doc": "int with the ID of the currently focused space.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "95",
+        "lineno": "100",
         "name": "focusedSpace",
         "signature": "Spacer.focusedSpace",
         "stripped_doc": "",
@@ -1399,7 +1662,7 @@
         "doc": "Fullscreen app's focused window to the left of current space.\n\nParameters:\n * app - hs.application to fullscreen\n\nReturns:\n * None\n\nNotes:\n * Attempts to select Window -> Tile Window to Left of Screen in app menu\n   * Manually configurable via tilingMenuSection and tilingMenuItem\n * If this doesn't work, it will manually macro the OS flow for this\n   * Show the menu for the green resize button in the top left\n   * Press Down, Down, and Return to select Tile Window to Left of Screen\n * Clicks around the top-left of the current screen to exit tiling and fullscreen\n * Returns mouse to original position\n * All credit for this goes to clay_golem on Apple StackExchange\n   * https://apple.stackexchange.com/posts/462160/revisions",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "490",
+        "lineno": "495",
         "name": "fullscreenWindowToLeft",
         "notes": [
           " * Attempts to select Window -> Tile Window to Left of Screen in app menu",
@@ -1428,7 +1691,7 @@
         "doc": "Spoon initializer method for Spacer.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "595",
+        "lineno": "600",
         "name": "init",
         "notes": [],
         "parameters": [
@@ -1446,7 +1709,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log ",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "62",
         "name": "logger",
         "signature": "Spacer.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -1457,7 +1720,7 @@
         "desc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
         "doc": "Spacer specific log level override, see hs.logger.setLogLevel for options.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "63",
+        "lineno": "68",
         "name": "logLevel",
         "signature": "Spacer.logLevel",
         "stripped_doc": "",
@@ -1468,18 +1731,29 @@
         "desc": "hs.menubar representing the menu bar for Spacer.",
         "doc": "hs.menubar representing the menu bar for Spacer.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "68",
+        "lineno": "73",
         "name": "menuBar",
         "signature": "Spacer.menuBar",
         "stripped_doc": "",
         "type": "Variable"
       },
       {
+        "def": "Spacer.menuBarAutosaveName",
+        "desc": "Autosave name used with macOS to save menu bar item position.",
+        "doc": "Autosave name used with macOS to save menu bar item position.",
+        "file": "Source/Spacer.spoon/init.lua",
+        "lineno": "32",
+        "name": "menuBarAutosaveName",
+        "signature": "Spacer.menuBarAutosaveName",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
         "def": "Spacer.orderedSpaceNames",
         "desc": "Table with an ordered list of the space names, which is used when loading",
         "doc": "Table with an ordered list of the space names, which is used when loading\nthe menubar, as well as persisted to and from hs.settings between loads.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "89",
+        "lineno": "94",
         "name": "orderedSpaceNames",
         "signature": "Spacer.orderedSpaceNames",
         "stripped_doc": "the menubar, as well as persisted to and from hs.settings between loads.",
@@ -1490,7 +1764,7 @@
         "desc": "Table holding an ordered list of space IDs, which is then used to resolve",
         "doc": "Table holding an ordered list of space IDs, which is then used to resolve\nactual space names for IDs from Spacer.spaceNames.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "88",
         "name": "orderedSpaces",
         "signature": "Spacer.orderedSpaces",
         "stripped_doc": "actual space names for IDs from Spacer.spaceNames.",
@@ -1512,7 +1786,7 @@
         "desc": "hs.chooser object representing the Space chooser.",
         "doc": "hs.chooser object representing the Space chooser.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "100",
+        "lineno": "105",
         "name": "spaceChooser",
         "signature": "Spacer.spaceChooser",
         "stripped_doc": "",
@@ -1523,7 +1797,7 @@
         "desc": "Table with key-value mapping of Space ID to it's user set name.",
         "doc": "Table with key-value mapping of Space ID to it's user set name.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "78",
+        "lineno": "83",
         "name": "spaceNames",
         "signature": "Spacer.spaceNames",
         "stripped_doc": "",
@@ -1534,7 +1808,7 @@
         "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
         "doc": "hs.spaces.watcher instance used for monitoring for space changes.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "73",
+        "lineno": "78",
         "name": "spaceWatcher",
         "signature": "Spacer.spaceWatcher",
         "stripped_doc": "",
@@ -1546,7 +1820,7 @@
         "doc": "Spoon start method for Spacer. Creates/starts menu bar item and space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "609",
+        "lineno": "614",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -1565,7 +1839,7 @@
         "doc": "Spoon stop method for Spacer. Deletes menu bar item and stops space watcher.\n\nParameters:\n * None\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "653",
+        "lineno": "659",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -1583,7 +1857,7 @@
         "desc": "Menu item for tiling window to the left. Set this according to your language.",
         "doc": "Menu item for tiling window to the left. Set this according to your language.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "46",
+        "lineno": "51",
         "name": "tilingMenuItem",
         "signature": "Spacer.tilingMenuItem",
         "stripped_doc": "",
@@ -1594,7 +1868,7 @@
         "desc": "Menu \"section\" which has tiling options. Set this according to your language.",
         "doc": "Menu \"section\" which has tiling options. Set this according to your language.",
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "41",
+        "lineno": "46",
         "name": "tilingMenuSection",
         "signature": "Spacer.tilingMenuSection",
         "stripped_doc": "",
@@ -1606,7 +1880,7 @@
         "doc": "Toggle the fullscreen state of current window to left of space.\n\nParameters:\n * args - Args provided to hs CLI after \"--\" via _cli.args.\n\nReturns:\n * None\n\nNotes:\n * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft\n   or exitFullscreen based on the current fullscreen state of the application.",
         "examples": [],
         "file": "Source/Spacer.spoon/init.lua",
-        "lineno": "453",
+        "lineno": "458",
         "name": "toggleFullscreenWindowToLeft",
         "notes": [
           " * This is bound by default to Cmd+Shift+F and will call fullscreenWindowToLeft",
@@ -1637,12 +1911,286 @@
     "Function": [],
     "Method": [
       {
+        "def": "Sweeper:init()",
+        "desc": "Spoon initializer method for Sweeper.",
+        "doc": "Spoon initializer method for Sweeper.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "67",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Sweeper:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Sweeper:start()",
+        "desc": "Spoon start method for Sweeper.",
+        "doc": "Spoon start method for Sweeper.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, and subscribes to all window unfocus events.",
+        "examples": [],
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "146",
+        "name": "start",
+        "notes": [
+          " * Configures the window filter, and subscribes to all window unfocus events."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Sweeper:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Sweeper:stop()",
+        "desc": "Spoon stop method for Sweeper.",
+        "doc": "Spoon stop method for Sweeper.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
+        "examples": [],
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "179",
+        "name": "stop",
+        "notes": [
+          " * Unsubscribes the window filter from all subscribed functions."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Sweeper:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Sweeper.apps",
+        "desc": "Table containing each application's name and it's desired configuration. The",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * sweep - If true, this application will be swept.\n * sweepCheckInterval - Override time in seconds for global `Sweeper.sweepCheckInterval`.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "29",
+        "name": "apps",
+        "signature": "Sweeper.apps",
+        "stripped_doc": "key of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * sweep - If true, this application will be swept.\n * sweepCheckInterval - Override time in seconds for global `Sweeper.sweepCheckInterval`.",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "43",
+        "name": "logger",
+        "signature": "Sweeper.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper.logLevel",
+        "desc": "Sweeper specific log level override, see hs.logger.setLogLevel for options.",
+        "doc": "Sweeper specific log level override, see hs.logger.setLogLevel for options.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "49",
+        "name": "logLevel",
+        "signature": "Sweeper.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper.subscribedFunctions",
+        "desc": "Table containing all subscribed instance callbacks for the window filter, used",
+        "doc": "Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "61",
+        "name": "subscribedFunctions",
+        "signature": "Sweeper.subscribedFunctions",
+        "stripped_doc": "during shutdown.",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper.sweepCheckInterval",
+        "desc": "Time in seconds to wait after a window loses focus to check if it should be swept.",
+        "doc": "Time in seconds to wait after a window loses focus to check if it should be swept.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "38",
+        "name": "sweepCheckInterval",
+        "signature": "Sweeper.sweepCheckInterval",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper.windowFilter",
+        "desc": "Main hs.window.filter. This is what is used to detect and action on unfocused",
+        "doc": "Main hs.window.filter. This is what is used to detect and action on unfocused\nwindows. It is a copy of the \"default\" window filter with Sweeper specific\nsort order and callback configurations applied in the start method.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "54",
+        "name": "windowFilter",
+        "signature": "Sweeper.windowFilter",
+        "stripped_doc": "windows. It is a copy of the \"default\" window filter with Sweeper specific\nsort order and callback configurations applied in the start method.",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Automatically hide apps that are out of focus.",
+    "doc": "Automatically hide apps that are out of focus.\n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Sweeper.spoon.zip\n\nThis uses a hs.window.filter to detect windows that have gone out of focus. Then,\nif they are configured to be \"swept\" in the apps config, they will be automatically\nhidden if they remain out of focus after sweepCheckInterval (default 15 seconds).\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nspoon.SpoonInstall:andUse(\n  \"Sweeper\",\n  {\n    start = true\n  }\n)",
+    "items": [
+      {
+        "def": "Sweeper.apps",
+        "desc": "Table containing each application's name and it's desired configuration. The",
+        "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * sweep - If true, this application will be swept.\n * sweepCheckInterval - Override time in seconds for global `Sweeper.sweepCheckInterval`.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "29",
+        "name": "apps",
+        "signature": "Sweeper.apps",
+        "stripped_doc": "key of each entry is the name of the application, and the value is a\nconfiguration table with the following entries:\n * sweep - If true, this application will be swept.\n * sweepCheckInterval - Override time in seconds for global `Sweeper.sweepCheckInterval`.",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper:init()",
+        "desc": "Spoon initializer method for Sweeper.",
+        "doc": "Spoon initializer method for Sweeper.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "67",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Sweeper:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Sweeper.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "43",
+        "name": "logger",
+        "signature": "Sweeper.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper.logLevel",
+        "desc": "Sweeper specific log level override, see hs.logger.setLogLevel for options.",
+        "doc": "Sweeper specific log level override, see hs.logger.setLogLevel for options.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "49",
+        "name": "logLevel",
+        "signature": "Sweeper.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper:start()",
+        "desc": "Spoon start method for Sweeper.",
+        "doc": "Spoon start method for Sweeper.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, and subscribes to all window unfocus events.",
+        "examples": [],
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "146",
+        "name": "start",
+        "notes": [
+          " * Configures the window filter, and subscribes to all window unfocus events."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Sweeper:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Sweeper:stop()",
+        "desc": "Spoon stop method for Sweeper.",
+        "doc": "Spoon stop method for Sweeper.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
+        "examples": [],
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "179",
+        "name": "stop",
+        "notes": [
+          " * Unsubscribes the window filter from all subscribed functions."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Sweeper:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Sweeper.subscribedFunctions",
+        "desc": "Table containing all subscribed instance callbacks for the window filter, used",
+        "doc": "Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "61",
+        "name": "subscribedFunctions",
+        "signature": "Sweeper.subscribedFunctions",
+        "stripped_doc": "during shutdown.",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper.sweepCheckInterval",
+        "desc": "Time in seconds to wait after a window loses focus to check if it should be swept.",
+        "doc": "Time in seconds to wait after a window loses focus to check if it should be swept.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "38",
+        "name": "sweepCheckInterval",
+        "signature": "Sweeper.sweepCheckInterval",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Sweeper.windowFilter",
+        "desc": "Main hs.window.filter. This is what is used to detect and action on unfocused",
+        "doc": "Main hs.window.filter. This is what is used to detect and action on unfocused\nwindows. It is a copy of the \"default\" window filter with Sweeper specific\nsort order and callback configurations applied in the start method.",
+        "file": "Source/Sweeper.spoon/init.lua",
+        "lineno": "54",
+        "name": "windowFilter",
+        "signature": "Sweeper.windowFilter",
+        "stripped_doc": "windows. It is a copy of the \"default\" window filter with Sweeper specific\nsort order and callback configurations applied in the start method.",
+        "type": "Variable"
+      }
+    ],
+    "name": "Sweeper",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Sweeper.spoon.zip\n\nThis uses a hs.window.filter to detect windows that have gone out of focus. Then,\nif they are configured to be \"swept\" in the apps config, they will be automatically\nhidden if they remain out of focus after sweepCheckInterval (default 15 seconds).\n\nExample Usage (Using [SpoonInstall](https://zzamboni.org/post/using-spoons-in-hammerspoon/)):\nspoon.SpoonInstall:andUse(\n  \"Sweeper\",\n  {\n    start = true\n  }\n)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "WindowCache:findWindowByApp(appName[, spaceID])",
         "desc": "Find the last opened window by application name.",
         "doc": "Find the last opened window by application name.\n\nParameters:\n * appName - name of the application to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "134",
+        "lineno": "141",
         "name": "findWindowByApp",
         "notes": [],
         "parameters": [
@@ -1662,7 +2210,7 @@
         "doc": "Find a window by title.\n\nParameters:\n * title - title of the window to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "84",
+        "lineno": "91",
         "name": "findWindowByTitle",
         "notes": [],
         "parameters": [
@@ -1682,7 +2230,7 @@
         "doc": "Find the last opened window by application name and focus it.\n\nParameters:\n * appName - name of the application to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "185",
+        "lineno": "192",
         "name": "focusWindowByApp",
         "notes": [],
         "parameters": [
@@ -1702,7 +2250,7 @@
         "doc": "Find a window by title and focus it.\n\nParameters:\n * title - title of the window to focus\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "116",
+        "lineno": "123",
         "name": "focusWindowByTitle",
         "notes": [],
         "parameters": [
@@ -1741,7 +2289,7 @@
         "doc": "Spoon start method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, initializes the cache with all existing\n   windows, and then subscribes to all window related events to be cached.",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "300",
+        "lineno": "304",
         "name": "start",
         "notes": [
           " * Configures the window filter, initializes the cache with all existing",
@@ -1763,7 +2311,7 @@
         "doc": "Spoon stop method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "339",
+        "lineno": "343",
         "name": "stop",
         "notes": [
           " * Unsubscribes the window filter from all subscribed functions."
@@ -1784,7 +2332,7 @@
         "doc": "Wait for cached window in appName every interval and run fn when found.\n\nParameters:\n * appName - name of the application to wait for first cached window of\n * fn - function to run when first cached window is found. This function may\n   take a single argument, the timer itself\n * interval - How often to check for cached window, defaults to 1 second.\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The started `hs.timer` instance.",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "166",
+        "lineno": "173",
         "name": "waitForWindowByApp",
         "notes": [],
         "parameters": [
@@ -1889,7 +2437,7 @@
         "doc": "Find the last opened window by application name.\n\nParameters:\n * appName - name of the application to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "134",
+        "lineno": "141",
         "name": "findWindowByApp",
         "notes": [],
         "parameters": [
@@ -1909,7 +2457,7 @@
         "doc": "Find a window by title.\n\nParameters:\n * title - title of the window to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object if found, `nil` otherwise",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "84",
+        "lineno": "91",
         "name": "findWindowByTitle",
         "notes": [],
         "parameters": [
@@ -1929,7 +2477,7 @@
         "doc": "Find the last opened window by application name and focus it.\n\nParameters:\n * appName - name of the application to find\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "185",
+        "lineno": "192",
         "name": "focusWindowByApp",
         "notes": [],
         "parameters": [
@@ -1949,7 +2497,7 @@
         "doc": "Find a window by title and focus it.\n\nParameters:\n * title - title of the window to focus\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The `hs.window` object focused if found, `nil` otherwise",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "116",
+        "lineno": "123",
         "name": "focusWindowByTitle",
         "notes": [],
         "parameters": [
@@ -2010,7 +2558,7 @@
         "doc": "Spoon start method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, initializes the cache with all existing\n   windows, and then subscribes to all window related events to be cached.",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "300",
+        "lineno": "304",
         "name": "start",
         "notes": [
           " * Configures the window filter, initializes the cache with all existing",
@@ -2032,7 +2580,7 @@
         "doc": "Spoon stop method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "339",
+        "lineno": "343",
         "name": "stop",
         "notes": [
           " * Unsubscribes the window filter from all subscribed functions."
@@ -2064,7 +2612,7 @@
         "doc": "Wait for cached window in appName every interval and run fn when found.\n\nParameters:\n * appName - name of the application to wait for first cached window of\n * fn - function to run when first cached window is found. This function may\n   take a single argument, the timer itself\n * interval - How often to check for cached window, defaults to 1 second.\n * spaceID - optional ID of Space to access Space-specific cache for\n\nReturns:\n * The started `hs.timer` instance.",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "166",
+        "lineno": "173",
         "name": "waitForWindowByApp",
         "notes": [],
         "parameters": [

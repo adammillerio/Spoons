@@ -1,5 +1,58 @@
 [
   {
+    "desc": "Automatically hide apps that are out of focus.",
+    "name": "Carrier",
+    "type": "Module"
+  },
+  {
+    "desc": "Table containing each application's name and it's desired configuration. The",
+    "module": "Carrier",
+    "name": "apps",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table containing the name of every app to carry on space change.",
+    "module": "Carrier",
+    "name": "carryApps",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+    "module": "Carrier",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Carrier specific log level override, see hs.logger.setLogLevel for options.",
+    "module": "Carrier",
+    "name": "logLevel",
+    "type": "Variable"
+  },
+  {
+    "desc": "hs.spaces.watcher instance used for monitoring for space changes.",
+    "module": "Carrier",
+    "name": "spaceWatcher",
+    "type": "Variable"
+  },
+  {
+    "desc": "Spoon initializer method for Carrier.",
+    "module": "Carrier",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon start method for Carrier.",
+    "module": "Carrier",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon stop method for Carrier.",
+    "module": "Carrier",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Utility for providing fast and guaranteed access to app windows during macros.",
     "name": "EnsureApp",
     "type": "Module"
@@ -211,6 +264,12 @@
     "type": "Module"
   },
   {
+    "desc": "Autosave name used with macOS to save menu bar item position.",
+    "module": "Spacer",
+    "name": "menuBarAutosaveName",
+    "type": "Constant"
+  },
+  {
     "desc": "Key used for persisting space names between Hammerspoon launches via hs.settings.",
     "module": "Spacer",
     "name": "settingsKey",
@@ -334,6 +393,65 @@
     "desc": "Toggle the fullscreen state of current window to left of space.",
     "module": "Spacer",
     "name": "toggleFullscreenWindowToLeft",
+    "type": "Method"
+  },
+  {
+    "desc": "Automatically hide apps that are out of focus.",
+    "name": "Sweeper",
+    "type": "Module"
+  },
+  {
+    "desc": "Table containing each application's name and it's desired configuration. The",
+    "module": "Sweeper",
+    "name": "apps",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+    "module": "Sweeper",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Sweeper specific log level override, see hs.logger.setLogLevel for options.",
+    "module": "Sweeper",
+    "name": "logLevel",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table containing all subscribed instance callbacks for the window filter, used",
+    "module": "Sweeper",
+    "name": "subscribedFunctions",
+    "type": "Variable"
+  },
+  {
+    "desc": "Time in seconds to wait after a window loses focus to check if it should be swept.",
+    "module": "Sweeper",
+    "name": "sweepCheckInterval",
+    "type": "Variable"
+  },
+  {
+    "desc": "Main hs.window.filter. This is what is used to detect and action on unfocused",
+    "module": "Sweeper",
+    "name": "windowFilter",
+    "type": "Variable"
+  },
+  {
+    "desc": "Spoon initializer method for Sweeper.",
+    "module": "Sweeper",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon start method for Sweeper.",
+    "module": "Sweeper",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon stop method for Sweeper.",
+    "module": "Sweeper",
+    "name": "stop",
     "type": "Method"
   },
   {
