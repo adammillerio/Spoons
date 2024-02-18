@@ -17,6 +17,18 @@
     "type": "Variable"
   },
   {
+    "desc": "Time in seconds to wait before carrying windows after space change. Default 5 seconds.",
+    "module": "Carrier",
+    "name": "carryDelay",
+    "type": "Variable"
+  },
+  {
+    "desc": "Any running hs.timer instance for a delayed carry, if enabled.",
+    "module": "Carrier",
+    "name": "carryDelayTimer",
+    "type": "Variable"
+  },
+  {
     "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
     "module": "Carrier",
     "name": "logger",
@@ -70,9 +82,27 @@
     "type": "Constant"
   },
   {
+    "desc": "No-op, will do no action other than moving window to the space and focusing",
+    "module": "EnsureApp",
+    "name": "none",
+    "type": "Constant"
+  },
+  {
+    "desc": "Table with \"Set\" of all app names configured for EnsureApp.",
+    "module": "EnsureApp",
+    "name": "appNamesSet",
+    "type": "Variable"
+  },
+  {
     "desc": "Table containing each application's name and it's desired configuration. The",
     "module": "EnsureApp",
     "name": "apps",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table containing the default configuration to be used for any app that is not",
+    "module": "EnsureApp",
+    "name": "defaultAppConfig",
     "type": "Variable"
   },
   {
@@ -103,6 +133,24 @@
     "desc": "(Callback) Ensure the existence of a window from appName in the current Space.",
     "module": "EnsureApp",
     "name": "ensureAppCallback",
+    "type": "Method"
+  },
+  {
+    "desc": "Returns whether or not app name is configured for EnsureApp.",
+    "module": "EnsureApp",
+    "name": "getAppEnsured",
+    "type": "Method"
+  },
+  {
+    "desc": "Get a list of all app names currently configured in EnsureApps.",
+    "module": "EnsureApp",
+    "name": "getAppNames",
+    "type": "Method"
+  },
+  {
+    "desc": "Given a spaceID, return the name of all configured apps present in the space.",
+    "module": "EnsureApp",
+    "name": "getAppNamesForSpace",
     "type": "Method"
   },
   {
@@ -150,6 +198,53 @@
     "desc": "Spoon initializer method for EnsureApp.",
     "module": "HotkeyApps",
     "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Lightweight, consistent, and fast Spotlight replacement.",
+    "name": "Lightspot",
+    "type": "Module"
+  },
+  {
+    "desc": "hs.chooser object representing the chooser.",
+    "module": "Lightspot",
+    "name": "chooser",
+    "type": "Variable"
+  },
+  {
+    "desc": "Default hotkey to use for the chooser when \"hotkeys\" = \"default\".",
+    "module": "Lightspot",
+    "name": "defaultHotkeys",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+    "module": "Lightspot",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Lightspot specific log level override, see hs.logger.setLogLevel for options.",
+    "module": "Lightspot",
+    "name": "logLevel",
+    "type": "Variable"
+  },
+  {
+    "desc": "Spoon initializer method for Lightspot.",
+    "module": "Lightspot",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon start method for Lightspot.",
+    "module": "Lightspot",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Spoon stop method for Lightspot.",
+    "module": "Lightspot",
+    "name": "stop",
     "type": "Method"
   },
   {
@@ -478,6 +573,18 @@
     "type": "Variable"
   },
   {
+    "desc": "Interval in seconds between checks for \"stale\" windows to be removed from",
+    "module": "WindowCache",
+    "name": "staleWindowCheckInterval",
+    "type": "Variable"
+  },
+  {
+    "desc": "hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.",
+    "module": "WindowCache",
+    "name": "staleWindowCheckTimer",
+    "type": "Variable"
+  },
+  {
     "desc": "Table containing all subscribed instance callbacks for the window filter, used",
     "module": "WindowCache",
     "name": "subscribedFunctions",
@@ -517,6 +624,12 @@
     "desc": "Find a window by title and focus it.",
     "module": "WindowCache",
     "name": "focusWindowByTitle",
+    "type": "Method"
+  },
+  {
+    "desc": "Given a spaceID, get a list of all open app names in the space.",
+    "module": "WindowCache",
+    "name": "getAppNamesForSpace",
     "type": "Method"
   },
   {

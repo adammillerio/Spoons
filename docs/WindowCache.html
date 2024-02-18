@@ -39,6 +39,8 @@ spoon.SpoonInstall:andUse(
             <li><a href="#currentWindows">currentWindows</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#logLevel">logLevel</a></li>
+            <li><a href="#staleWindowCheckInterval">staleWindowCheckInterval</a></li>
+            <li><a href="#staleWindowCheckTimer">staleWindowCheckTimer</a></li>
             <li><a href="#subscribedFunctions">subscribedFunctions</a></li>
             <li><a href="#windowFilter">windowFilter</a></li>
             <li><a href="#windowsBySpace">windowsBySpace</a></li>
@@ -49,6 +51,7 @@ spoon.SpoonInstall:andUse(
             <li><a href="#findWindowByTitle">findWindowByTitle</a></li>
             <li><a href="#focusWindowByApp">focusWindowByApp</a></li>
             <li><a href="#focusWindowByTitle">focusWindowByTitle</a></li>
+            <li><a href="#getAppNamesForSpace">getAppNamesForSpace</a></li>
             <li><a href="#init">init</a></li>
             <li><a href="#start">start</a></li>
             <li><a href="#stop">stop</a></li>
@@ -76,7 +79,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L51">Source/WindowCache.spoon/init.lua line 51</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L57">Source/WindowCache.spoon/init.lua line 57</a></td>
               </tr>
             </table>
           </section>
@@ -99,7 +102,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L33">Source/WindowCache.spoon/init.lua line 33</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L39">Source/WindowCache.spoon/init.lua line 39</a></td>
               </tr>
             </table>
           </section>
@@ -122,7 +125,53 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L39">Source/WindowCache.spoon/init.lua line 39</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L45">Source/WindowCache.spoon/init.lua line 45</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="staleWindowCheckInterval">
+            <a name="//apple_ref/cpp/Variable/staleWindowCheckInterval" class="dashAnchor"></a>
+            <h5><a href="#staleWindowCheckInterval">staleWindowCheckInterval</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowCache.staleWindowCheckInterval</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Interval in seconds between checks for &quot;stale&quot; windows to be removed from</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L33">Source/WindowCache.spoon/init.lua line 33</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="staleWindowCheckTimer">
+            <a name="//apple_ref/cpp/Variable/staleWindowCheckTimer" class="dashAnchor"></a>
+            <h5><a href="#staleWindowCheckTimer">staleWindowCheckTimer</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowCache.staleWindowCheckTimer</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L75">Source/WindowCache.spoon/init.lua line 75</a></td>
               </tr>
             </table>
           </section>
@@ -145,7 +194,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L57">Source/WindowCache.spoon/init.lua line 57</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L63">Source/WindowCache.spoon/init.lua line 63</a></td>
               </tr>
             </table>
           </section>
@@ -168,7 +217,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L44">Source/WindowCache.spoon/init.lua line 44</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L50">Source/WindowCache.spoon/init.lua line 50</a></td>
               </tr>
             </table>
           </section>
@@ -191,7 +240,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L63">Source/WindowCache.spoon/init.lua line 63</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L69">Source/WindowCache.spoon/init.lua line 69</a></td>
               </tr>
             </table>
           </section>
@@ -230,7 +279,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L141">Source/WindowCache.spoon/init.lua line 141</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L154">Source/WindowCache.spoon/init.lua line 154</a></td>
               </tr>
             </table>
           </section>
@@ -268,7 +317,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L91">Source/WindowCache.spoon/init.lua line 91</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L102">Source/WindowCache.spoon/init.lua line 102</a></td>
               </tr>
             </table>
           </section>
@@ -306,7 +355,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L192">Source/WindowCache.spoon/init.lua line 192</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L218">Source/WindowCache.spoon/init.lua line 218</a></td>
               </tr>
             </table>
           </section>
@@ -344,7 +393,52 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L123">Source/WindowCache.spoon/init.lua line 123</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L136">Source/WindowCache.spoon/init.lua line 136</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="getAppNamesForSpace">
+            <a name="//apple_ref/cpp/Method/getAppNamesForSpace" class="dashAnchor"></a>
+            <h5><a href="#getAppNamesForSpace">getAppNamesForSpace</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowCache:getAppNamesForSpace(spaceID)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Given a spaceID, get a list of all open app names in the space.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>spaceID - ID of an hs.space to retrieve app names for.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A table representing the names of all app names open in the space, ordered
+by most recent first.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L236">Source/WindowCache.spoon/init.lua line 236</a></td>
               </tr>
             </table>
           </section>
@@ -381,7 +475,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L69">Source/WindowCache.spoon/init.lua line 69</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L80">Source/WindowCache.spoon/init.lua line 80</a></td>
               </tr>
             </table>
           </section>
@@ -420,13 +514,14 @@ spoon.SpoonInstall:andUse(
                   <th>Notes</th>
                   <td><ul>
 <li>Configures the window filter, initializes the cache with all existing
-windows, and then subscribes to all window related events to be cached.</li>
+windows, and then subscribes to all window related events to be cached. Also
+starts the periodic stale window checker.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L304">Source/WindowCache.spoon/init.lua line 304</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L393">Source/WindowCache.spoon/init.lua line 393</a></td>
               </tr>
             </table>
           </section>
@@ -464,13 +559,14 @@ windows, and then subscribes to all window related events to be cached.</li>
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>Unsubscribes the window filter from all subscribed functions.</li>
+<li>Unsubscribes the window filter from all subscribed functions and stops the
+stale window checker.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L343">Source/WindowCache.spoon/init.lua line 343</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L438">Source/WindowCache.spoon/init.lua line 438</a></td>
               </tr>
             </table>
           </section>
@@ -510,7 +606,7 @@ windows, and then subscribes to all window related events to be cached.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L173">Source/WindowCache.spoon/init.lua line 173</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/WindowCache.spoon/init.lua#L199">Source/WindowCache.spoon/init.lua line 199</a></td>
               </tr>
             </table>
           </section>

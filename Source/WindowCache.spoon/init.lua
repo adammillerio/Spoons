@@ -25,10 +25,16 @@ WindowCache.__index = WindowCache
 
 -- Metadata
 WindowCache.name = "WindowCache"
-WindowCache.version = "0.0.3"
+WindowCache.version = "0.0.4"
 WindowCache.author = "Adam Miller <adam@adammiller.io>"
 WindowCache.homepage = "https://github.com/adammillerio/WindowCache.spoon"
 WindowCache.license = "MIT - https://opensource.org/licenses/MIT"
+
+--- WindowCache.staleWindowCheckInterval
+--- Variable
+--- Interval in seconds between checks for "stale" windows to be removed from
+--- the cache.
+WindowCache.staleWindowCheckInterval = 300
 
 --- WindowCache.logger
 --- Variable
@@ -66,6 +72,11 @@ WindowCache.subscribedFunctions = nil
 --- which can be used for retrieving Space-specific instances of apps and windows.
 WindowCache.windowsBySpace = nil
 
+--- WindowCache.staleWindowCheckTimer
+--- Variable
+--- hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.
+WindowCache.staleWindowCheckTimer = nil
+
 --- WindowCache:init()
 --- Method
 --- Spoon initializer method for WindowCache.
@@ -99,6 +110,8 @@ end
 --- Returns:
 ---  * The `hs.window` object if found, `nil` otherwise
 function WindowCache:findWindowByTitle(title, spaceID)
+    local currentWindows = nil
+
     if spaceID then
         -- Attempt to load space specific cache.
         currentWindows = self.windowsBySpace[spaceID]
@@ -149,6 +162,8 @@ end
 --- Returns:
 ---  * The `hs.window` object if found, `nil` otherwise
 function WindowCache:findWindowByApp(appName, spaceID)
+    local currentWindows = nil
+
     if spaceID then
         -- Attempt to load space specific cache.
         currentWindows = self.windowsBySpace[spaceID]
@@ -162,9 +177,20 @@ function WindowCache:findWindowByApp(appName, spaceID)
     end
 
     for i, currentWindow in ipairs(currentWindows) do
-        if string.find(currentWindow:application():name(), appName) then
+        local windowApp = currentWindow:application()
+        if windowApp == nil then
+            -- This is probably a "stale" window that will be pruned by the stale
+            -- window checker soon, so skip it.
+            self.logger
+                .wf("Skipping stale window %s", hs.inspect(currentWindow))
+            goto continue
+        end
+
+        if string.find(windowApp:name(), appName) then
             return currentWindow
         end
+
+        ::continue::
     end
 
     return nil
@@ -205,6 +231,47 @@ function WindowCache:focusWindowByApp(appName, spaceID)
     if window then window:focus() end
 
     return window
+end
+
+--- WindowCache:getAppNamesForSpace(spaceID)
+--- Method
+--- Given a spaceID, get a list of all open app names in the space.
+---
+--- Parameters:
+---  * spaceID - ID of an hs.space to retrieve app names for.
+---
+--- Returns:
+---  * A table representing the names of all app names open in the space, ordered
+---    by most recent first.
+---
+--- Notes:
+---  * WindowCache window access history does not persist through Hammerspoon reloads.
+function WindowCache:getAppNamesForSpace(spaceID)
+    local windowsBySpace = self.windowsBySpace[spaceID]
+    if not windowsBySpace then
+        self.logger.vf("No windows for space: %d", spaceID)
+        return {}
+    end
+
+    local orderedAppNames = {}
+    local appNamesSet = {}
+    for _, window in ipairs(windowsBySpace) do
+        local windowApp = window:application()
+        if not windowApp then
+            self.logger.wf("Skipping stale window: %s", window)
+            goto continue
+        end
+
+        local appName = windowApp:name()
+        if not appNamesSet[appName] then
+            table.insert(orderedAppNames, appName)
+            appNamesSet[appName] = true
+        end
+
+        ::continue::
+    end
+
+    return orderedAppNames
 end
 
 -- Add window to the cache, which places it at the front in in the main
@@ -264,6 +331,28 @@ function WindowCache:_deleteWindowFromCache(window)
     end
 end
 
+-- Check for and remove "stale" windows.
+-- Sometimes windows seem to more or less be invalidated or disappear without
+-- the filter catching them. This ultimately results in weird errors like not
+-- being able to retrieve application name for filtering. This function runs every
+-- staleWindowCheckInterval seconds to compare the cached windows against the
+-- allowed windows from the filter and remove any "stale" matches.
+function WindowCache:_checkForStaleWindows()
+    -- Build a "set" of all the IDs of windows allowed by the current filter.
+    local allWindowSet = {}
+    for _, window in ipairs(self.windowFilter:getWindows()) do
+        allWindowSet[window:id()] = true
+    end
+
+    for i, window in ipairs(self.currentWindows) do
+        -- If this window isn't in the "set", delete it.
+        if not allWindowSet[window:id()] then
+            self.logger.wf("Removing stale window: %s", hs.inspect(window))
+            self:_deleteWindowFromCache(window)
+        end
+    end
+end
+
 -- Handler for a new window, which adds it to the cache in the first position.
 function WindowCache:_callbackWindowCreated(window, appName, event)
     self.logger.vf("Caching created window %s", window)
@@ -313,7 +402,8 @@ end
 ---
 --- Notes:
 ---  * Configures the window filter, initializes the cache with all existing
----    windows, and then subscribes to all window related events to be cached.
+---    windows, and then subscribes to all window related events to be cached. Also
+---    starts the periodic stale window checker.
 function WindowCache:start()
     -- Start logger, this has to be done in start because it relies on config.
     self.logger = hs.logger.new("WindowCache")
@@ -338,6 +428,11 @@ function WindowCache:start()
     self:_subscribe(hs.window.filter.windowDestroyed,
                     self._callbackWindowDestroyed)
     self:_subscribe(hs.window.filter.windowFocused, self._callbackWindowFocused)
+
+    self.logger.v("Starting stale window checker")
+    self.staleWindowCheckTimer = hs.timer.doEvery(self.staleWindowCheckInterval,
+                                                  self:_instanceCallback(
+                                                      self._checkForStaleWindows))
 end
 
 --- WindowCache:stop()
@@ -351,12 +446,16 @@ end
 ---  * None
 ---
 --- Notes:
----  * Unsubscribes the window filter from all subscribed functions.
+---  * Unsubscribes the window filter from all subscribed functions and stops the
+---    stale window checker.
 function WindowCache:stop()
     self.logger.v("Stopping WindowCache")
 
     self.logger.v("Stopping window filter")
     self.windowFilter:unsubscribe(nil, self.subscribedFunctions)
+
+    self.logger.v("Stopping stale window checker")
+    if self.staleWindowChecker then self.staleWindowChecker:stop() end
 end
 
 return WindowCache

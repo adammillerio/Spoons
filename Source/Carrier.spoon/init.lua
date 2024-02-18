@@ -15,7 +15,7 @@ Carrier.__index = Carrier
 
 -- Metadata
 Carrier.name = "Carrier"
-Carrier.version = "0.0.1"
+Carrier.version = "0.0.2"
 Carrier.author = "Adam Miller <adam@adammiller.io>"
 Carrier.homepage = "https://github.com/adammillerio/Carrier.spoon"
 Carrier.license = "MIT - https://opensource.org/licenses/MIT"
@@ -53,6 +53,16 @@ Carrier.spaceWatcher = nil
 --- Table containing the name of every app to carry on space change.
 Carrier.carryApps = nil
 
+--- Carrier.carryDelay
+--- Variable
+--- Time in seconds to wait before carrying windows after space change. Default 5 seconds.
+Carrier.carryDelay = 5
+
+--- Carrier.carryDelayTimer
+--- Variable
+--- Any running hs.timer instance for a delayed carry, if enabled.
+Carrier.carryDelayTimer = nil
+
 --- Carrier:init()
 --- Method
 --- Spoon initializer method for Carrier.
@@ -74,10 +84,33 @@ end
 -- Carry all configured apps. This just calls ensureApp on every configured app,
 -- disabling focus so they do not show up in front on the new space.
 function Carrier:_carryApps()
+    self.logger.vf("Carrying apps: %s", hs.inspect(self.carryApps))
     for _, app in ipairs(self.carryApps) do
-        -- Disable app focus since we don't want that on carry.
-        EnsureApp:ensureApp(app, {skipFocus = true})
+        self.logger.vf("Carrying app: %s", app)
+        -- Disable app focus since we don't want that on carry, same for opening,
+        -- we don't want it to keep reopening apps we have closed.
+        EnsureApp:ensureApp(app, {skipFocus = true, disableOpen = true})
     end
+
+    if self.carryDelayTimer then
+        -- Clear carry timer.
+        self.carryDelayTimer:stop()
+        self.carryDelayTimer = nil
+    end
+end
+
+function Carrier:_delayCarryApps()
+    self.logger.vf("Carrying apps after delay: %d", self.carryDelay)
+    if self.carryDelayTimer then
+        self.logger.v("Multiple space changes, cancelling existing timer")
+        -- Multiple space changes, reset timer.
+        self.carryDelayTimer:stop()
+        self.carryDelayTimer = nil
+    end
+
+    self.carryDelayTimer = hs.timer.doAfter(self.carryDelay,
+                                            self:_instanceCallback(
+                                                self._carryApps))
 end
 
 --- Carrier:start()
@@ -107,8 +140,13 @@ function Carrier:start()
 
     -- Set space watcher to call handler on space change.
     self.logger.v("Creating and starting space watcher")
-    self.spaceWatcher = hs.spaces.watcher.new(
-                            self:_instanceCallback(self._carryApps))
+    if self.carryDelay then
+        callbackFn = self:_instanceCallback(self._delayCarryApps)
+    else
+        callbackFn = self:_instanceCallback(self._carryApps)
+    end
+
+    self.spaceWatcher = hs.spaces.watcher.new(callbackFn)
 
     self.spaceWatcher:start()
 end
