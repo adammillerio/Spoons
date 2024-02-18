@@ -21,7 +21,7 @@ Sweeper.__index = Sweeper
 
 -- Metadata
 Sweeper.name = "Sweeper"
-Sweeper.version = "0.0.1"
+Sweeper.version = "0.0.2"
 Sweeper.author = "Adam Miller <adam@adammiller.io>"
 Sweeper.homepage = "https://github.com/adammillerio/Sweeper.spoon"
 Sweeper.license = "MIT - https://opensource.org/licenses/MIT"
@@ -88,10 +88,20 @@ end
 function Sweeper:_sweepWindow(window)
     self.logger.vf("Sweeping window: %s", window)
 
-    if hs.window.focusedWindow():id() ~= window:id() then
-        window:application():hide()
-    else
+    local windowApp = window:application()
+    if windowApp == nil then
+        -- This is probably a "stale" window, so skip it.
+        self.logger.wf("Skipping stale window %s", hs.inspect(window))
+        return
+    end
+
+    if windowApp:isFrontmost() then
+        self.logger.vf("Window's app is still in focus, not sweeping: %s",
+                       window)
+    elseif hs.window.focusedWindow():id() == window:id() then
         self.logger.vf("Window back in focus, not sweeping: %s", window)
+    else
+        windowApp:hide()
     end
 end
 
@@ -106,8 +116,6 @@ function Sweeper:_actionUnfocusedWindow(window, config)
             sweepCheckInterval = self.sweepCheckInterval
         end
 
-        app = window:application()
-
         self.logger.vf("Registering sweep timer after %d seconds for: %s",
                        sweepCheckInterval, window)
         local sweepTimer = hs.timer.doAfter(sweepCheckInterval,
@@ -121,15 +129,20 @@ end
 function Sweeper:_callbackWindowUnfocused(window, appName, event)
     self.logger.vf("Window unfocused: %s", window)
 
-    if self.apps then
-        appName = window:application():name()
-        appConfig = self.apps[appName]
+    local app = window:application()
+    if app == nil then
+        -- This is probably a "stale" window or one that stopped existing
+        -- quickly after being unfocused.
+        self.logger.wf("Skipping stale window: %s", hs.inspect(currentWindow))
+        return
+    end
 
-        if appConfig then
-            self.logger.vf("Sweeping unfocused window for %s: %s", appName,
-                           window)
-            self:_actionUnfocusedWindow(window, appConfig)
-        end
+    appName = window:application():name()
+    appConfig = self.apps[appName]
+
+    if appConfig then
+        self.logger.vf("Sweeping unfocused window for %s: %s", appName, window)
+        self:_actionUnfocusedWindow(window, appConfig)
     end
 end
 

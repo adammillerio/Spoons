@@ -26,10 +26,13 @@
           <ul>
             <li><a href="#maximize">maximize</a></li>
             <li><a href="#move">move</a></li>
+            <li><a href="#none">none</a></li>
           </ul>
         <li>Variables - Configurable values</li>
           <ul>
+            <li><a href="#appNamesSet">appNamesSet</a></li>
             <li><a href="#apps">apps</a></li>
+            <li><a href="#defaultAppConfig">defaultAppConfig</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#logLevel">logLevel</a></li>
             <li><a href="#windowOpenTimer">windowOpenTimer</a></li>
@@ -38,6 +41,9 @@
           <ul>
             <li><a href="#ensureApp">ensureApp</a></li>
             <li><a href="#ensureAppCallback">ensureAppCallback</a></li>
+            <li><a href="#getAppEnsured">getAppEnsured</a></li>
+            <li><a href="#getAppNames">getAppNames</a></li>
+            <li><a href="#getAppNamesForSpace">getAppNamesForSpace</a></li>
             <li><a href="#init">init</a></li>
             <li><a href="#start">start</a></li>
             <li><a href="#stop">stop</a></li>
@@ -91,7 +97,53 @@
               </tr>
             </table>
           </section>
+          <section id="none">
+            <a name="//apple_ref/cpp/Constant/none" class="dashAnchor"></a>
+            <h5><a href="#none">none</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>EnsureApp.action.none</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Constant</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>No-op, will do no action other than moving window to the space and focusing</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L33">Source/EnsureApp.spoon/init.lua line 33</a></td>
+              </tr>
+            </table>
+          </section>
         <h4 class="documentation-section">Variables</h4>
+          <section id="appNamesSet">
+            <a name="//apple_ref/cpp/Variable/appNamesSet" class="dashAnchor"></a>
+            <h5><a href="#appNamesSet">appNamesSet</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>EnsureApp.appNamesSet</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table with &quot;Set&quot; of all app names configured for EnsureApp.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L63">Source/EnsureApp.spoon/init.lua line 63</a></td>
+              </tr>
+            </table>
+          </section>
           <section id="apps">
             <a name="//apple_ref/cpp/Variable/apps" class="dashAnchor"></a>
             <h5><a href="#apps">apps</a></h5>
@@ -111,7 +163,30 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L37">Source/EnsureApp.spoon/init.lua line 37</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L42">Source/EnsureApp.spoon/init.lua line 42</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="defaultAppConfig">
+            <a name="//apple_ref/cpp/Variable/defaultAppConfig" class="dashAnchor"></a>
+            <h5><a href="#defaultAppConfig">defaultAppConfig</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>EnsureApp.defaultAppConfig</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing the default configuration to be used for any app that is not</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L56">Source/EnsureApp.spoon/init.lua line 56</a></td>
               </tr>
             </table>
           </section>
@@ -134,7 +209,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L51">Source/EnsureApp.spoon/init.lua line 51</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L68">Source/EnsureApp.spoon/init.lua line 68</a></td>
               </tr>
             </table>
           </section>
@@ -157,7 +232,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L57">Source/EnsureApp.spoon/init.lua line 57</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L74">Source/EnsureApp.spoon/init.lua line 74</a></td>
               </tr>
             </table>
           </section>
@@ -180,7 +255,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L62">Source/EnsureApp.spoon/init.lua line 62</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L79">Source/EnsureApp.spoon/init.lua line 79</a></td>
               </tr>
             </table>
           </section>
@@ -223,13 +298,21 @@
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>Refer to EnsureApp.apps for information on how to configure apps.</li>
+<li>The application name must be one recognized by macOS. hs.applications.find
+way to discover this.</li>
+<li>The default action is to move the most recently accessed window in any space
+corresponding to this application to the current space and focus it.<ul>
+<li>This can be configured with defaultAppConfig.</li>
+</ul>
+</li>
+<li>Refer to EnsureApp.apps for information on how to add additional app-specific
+configurations like space precedence.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L253">Source/EnsureApp.spoon/init.lua line 253</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L275">Source/EnsureApp.spoon/init.lua line 275</a></td>
               </tr>
             </table>
           </section>
@@ -278,7 +361,127 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L234">Source/EnsureApp.spoon/init.lua line 234</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L256">Source/EnsureApp.spoon/init.lua line 256</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="getAppEnsured">
+            <a name="//apple_ref/cpp/Method/getAppEnsured" class="dashAnchor"></a>
+            <h5><a href="#getAppEnsured">getAppEnsured</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>EnsureApp:getAppEnsured(app)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Returns whether or not app name is configured for EnsureApp.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>app - App name to check.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A boolean representing whether or not the app is configured for EnsureApp.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L457">Source/EnsureApp.spoon/init.lua line 457</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="getAppNames">
+            <a name="//apple_ref/cpp/Method/getAppNames" class="dashAnchor"></a>
+            <h5><a href="#getAppNames">getAppNames</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>EnsureApp:getAppNames([spaceID])</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Get a list of all app names currently configured in EnsureApps.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>spaceID - Optional space ID. If provided, WindowCache will be queried to find apps present in the provided space. These will then be placed at the beginning of the list before the rest of the configured apps are filled. This is useful for things like Lightspot.spoon.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A table representing the names of all configured app names, with recent apps
+in the current space being prioritized if spaceID is provided.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L397">Source/EnsureApp.spoon/init.lua line 397</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="getAppNamesForSpace">
+            <a name="//apple_ref/cpp/Method/getAppNamesForSpace" class="dashAnchor"></a>
+            <h5><a href="#getAppNamesForSpace">getAppNamesForSpace</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>EnsureApp:getAppNamesForSpace(spaceID)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Given a spaceID, return the name of all configured apps present in the space.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>spaceID - ID of an hs.space to retrieve ensured app names for.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A table representing the names of all ensured apps currently present in the
+space, ordered by most recent first.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L434">Source/EnsureApp.spoon/init.lua line 434</a></td>
               </tr>
             </table>
           </section>
@@ -315,7 +518,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L68">Source/EnsureApp.spoon/init.lua line 68</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L85">Source/EnsureApp.spoon/init.lua line 85</a></td>
               </tr>
             </table>
           </section>
@@ -352,7 +555,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L358">Source/EnsureApp.spoon/init.lua line 358</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L474">Source/EnsureApp.spoon/init.lua line 474</a></td>
               </tr>
             </table>
           </section>
@@ -389,7 +592,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L376">Source/EnsureApp.spoon/init.lua line 376</a></td>
+                <td><a href="https://github.com/adammillerio/Spoons/blob/main/Source/EnsureApp.spoon/init.lua#L495">Source/EnsureApp.spoon/init.lua line 495</a></td>
               </tr>
             </table>
           </section>

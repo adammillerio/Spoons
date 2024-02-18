@@ -11,7 +11,7 @@ EnsureApp.__index = EnsureApp
 
 -- Metadata
 EnsureApp.name = "EnsureApp"
-EnsureApp.version = "0.0.2"
+EnsureApp.version = "0.0.3"
 EnsureApp.author = "Adam Miller <adam@adammiller.io>"
 EnsureApp.homepage = "https://github.com/adammillerio/EnsureApp.spoon"
 EnsureApp.license = "MIT - https://opensource.org/licenses/MIT"
@@ -30,7 +30,12 @@ WindowCache = spoon.WindowCache
 --- Constant
 --- Maximize the application on the current space if it is not maximized already.
 
-local actions = {move = "move", maximize = "maximize"}
+--- EnsureApp.action.none
+--- Constant
+--- No-op, will do no action other than moving window to the space and focusing
+--- it (if enabled).
+
+local actions = {move = "move", maximize = "maximize", none = "none"}
 
 for k in pairs(actions) do EnsureApp[k] = k end -- expose actions
 
@@ -47,6 +52,18 @@ for k in pairs(actions) do EnsureApp[k] = k end -- expose actions
 ---    * menuItem - Menu item in menu section to select
 ---  * disableOpen - If true, this will disable auto-opening the app if not open.
 EnsureApp.apps = nil
+
+--- EnsureApp.defaultAppConfig
+--- Variable
+--- Table containing the default configuration to be used for any app that is not
+--- configured in self.apps with app-specific config. By default, this will move
+--- the most recently accessed window in any space to the current one and focus it.
+EnsureApp.defaultAppConfig = {action = "none"}
+
+--- EnsureApp.appNamesSet
+--- Variable
+--- Table with "Set" of all app names configured for EnsureApp.
+EnsureApp.appNamesSet = nil
 
 --- EnsureApp.logger
 --- Variable
@@ -74,7 +91,7 @@ EnsureApp.windowOpenTimer = nil
 ---
 --- Returns:
 ---  * None
-function EnsureApp:init() end
+function EnsureApp:init() self.appNamesSet = {} end
 
 -- Utility method for having instance specific callbacks.
 -- Inputs are the callback fn and any arguments to be applied after the instance
@@ -132,8 +149,13 @@ function EnsureApp:_actionWindow(config, actionConfig, app, appWindow)
     elseif config.action == actions.maximize then
         if appWindow:isMaximizable() then appWindow:maximize() end
     else
-        self.logger.ef("Unknown action %s", action)
-        return
+        if config.action == actions.none then
+            self.logger.vf("None action, executing no actions for app: %s",
+                           config.app)
+        else
+            self.logger.ef("Unknown action %s", action)
+            return
+        end
     end
 
     if actionConfig then
@@ -263,18 +285,35 @@ end
 ---  * None
 ---
 --- Notes:
----  * Refer to EnsureApp.apps for information on how to configure apps.
+---  * The application name must be one recognized by macOS. hs.applications.find
+---    way to discover this.
+---  * The default action is to move the most recently accessed window in any space
+---    corresponding to this application to the current space and focus it.
+---     * This can be configured with defaultAppConfig.
+---  * Refer to EnsureApp.apps for information on how to add additional app-specific
+---    configurations like space precedence.
 function EnsureApp:ensureApp(appName, actionConfig)
-    config = self.apps[appName]
+    local config = self.apps[appName]
     if not config then
-        self.logger.ef("No EnsureApp configuration for %s", appName)
-        return
+        self.logger.ef(
+            "No EnsureApp configuration for %s, using default config (this is best-effort)",
+            appName)
+        config = hs.fnutils.copy(self.defaultAppConfig)
+        -- Set the app to whatever appName we got.
+        config.app = appName
     end
 
     -- Store the focused space from before we start the action flow. This helps
     -- when apps try to force themselves to open in another space which will change
     -- the focused space during app open.
     currentlyFocusedSpace = hs.spaces.focusedSpace()
+
+    -- Fullscreen/tiled spaces cannot support ensuring apps and will actually
+    -- just cause an endless loop of more apps trying to go fullscreen.
+    if hs.spaces.spaceType(currentlyFocusedSpace) == "fullscreen" then
+        self.logger.v("In fullscreen space, skipping ensure action")
+        return
+    end
 
     -- Get app hs.window
     self.logger.vf("Finding open window for app %s", appName)
@@ -302,7 +341,7 @@ function EnsureApp:ensureApp(appName, actionConfig)
     -- If we could not find a cached window for the app.
     local app = nil
     if not appWindow then
-        if config.disableOpen then
+        if config.disableOpen or (actionConfig and actionConfig.disableOpen) then
             -- Open is disabled and no window, cannot continue.
             self.logger.wf(
                 "%s is not open or hidden and open disabled, cannot continue",
@@ -355,6 +394,83 @@ function EnsureApp:ensureApp(appName, actionConfig)
     end
 end
 
+--- EnsureApp:getAppNames([spaceID])
+--- Method
+--- Get a list of all app names currently configured in EnsureApps.
+---
+--- Parameters:
+---  * spaceID - Optional space ID. If provided, WindowCache will be queried to
+---     find apps present in the provided space. These will then be placed at the
+---     beginning of the list before the rest of the configured apps are filled.
+---     This is useful for things like Lightspot.spoon.
+---
+--- Returns:
+---  * A table representing the names of all configured app names, with recent apps
+---    in the current space being prioritized if spaceID is provided.
+---
+--- Notes:
+---  * WindowCache window access history does not persist through Hammerspoon reloads.
+function EnsureApp:getAppNames(spaceID)
+    local orderedAppNames = {}
+    local appNamesSet = {}
+
+    if spaceID then
+        local recentAppNamesForSpace = self:getAppNamesForSpace(spaceID)
+        for _, appName in ipairs(recentAppNamesForSpace) do
+            table.insert(orderedAppNames, appName)
+            appNamesSet[appName] = true
+        end
+    end
+
+    for appName, _ in pairs(self.apps) do
+        if not appNamesSet[appName] then
+            table.insert(orderedAppNames, appName)
+        end
+    end
+
+    return orderedAppNames
+end
+
+--- EnsureApp:getAppNamesForSpace(spaceID)
+--- Method
+--- Given a spaceID, return the name of all configured apps present in the space.
+---
+--- Parameters:
+---  * spaceID - ID of an hs.space to retrieve ensured app names for.
+---
+--- Returns:
+---  * A table representing the names of all ensured apps currently present in the
+---    space, ordered by most recent first.
+function EnsureApp:getAppNamesForSpace(spaceID)
+    local appNamesForSpace = WindowCache:getAppNamesForSpace(spaceID)
+
+    local ensuredAppNamesForSpace = {}
+    for _, appName in ipairs(appNamesForSpace) do
+        if self.apps[appName] then
+            table.insert(ensuredAppNamesForSpace, appName)
+        end
+    end
+
+    return ensuredAppNamesForSpace
+end
+
+--- EnsureApp:getAppEnsured(app)
+--- Method
+--- Returns whether or not app name is configured for EnsureApp.
+---
+--- Parameters:
+---  * app - App name to check.
+---
+--- Returns:
+---  * A boolean representing whether or not the app is configured for EnsureApp.
+function EnsureApp:getAppEnsured(app)
+    if self.appNamesSet[app] then
+        return true
+    else
+        return false
+    end
+end
+
 --- EnsureApp:start()
 --- Method
 --- Spoon start method for EnsureApp.
@@ -371,6 +487,9 @@ function EnsureApp:start()
     if self.logLevel ~= nil then self.logger.setLogLevel(self.logLevel) end
 
     self.logger.v("Starting EnsureApp")
+
+    -- Initialize the app names "set".
+    for appName, _ in pairs(self.apps) do self.appNamesSet[appName] = true end
 end
 
 --- EnsureApp:stop()

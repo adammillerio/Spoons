@@ -16,7 +16,7 @@
         "doc_gfm": "<p>Spoon initializer method for Carrier.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Carrier.spoon/init.lua",
-        "lineno": "56",
+        "lineno": "66",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -41,7 +41,7 @@
         "doc_gfm": "<p>Spoon start method for Carrier.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, and subscribes to all window unfocus events.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Carrier.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "116",
         "name": "start",
         "notes": [
           " * Configures the window filter, and subscribes to all window unfocus events."
@@ -68,7 +68,7 @@
         "doc_gfm": "<p>Spoon stop method for Carrier.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Carrier.spoon/init.lua",
-        "lineno": "116",
+        "lineno": "154",
         "name": "stop",
         "notes": [
           " * Unsubscribes the window filter from all subscribed functions."
@@ -113,6 +113,34 @@
         "lineno": "51",
         "name": "carryApps",
         "signature": "Carrier.carryApps",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.carryDelay",
+        "def_gfm": "Carrier.carryDelay",
+        "desc": "Time in seconds to wait before carrying windows after space change. Default 5 seconds.",
+        "desc_gfm": "<p>Time in seconds to wait before carrying windows after space change. Default 5 seconds.</p>\n",
+        "doc": "Time in seconds to wait before carrying windows after space change. Default 5 seconds.",
+        "doc_gfm": "<p>Time in seconds to wait before carrying windows after space change. Default 5 seconds.</p>\n",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "56",
+        "name": "carryDelay",
+        "signature": "Carrier.carryDelay",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.carryDelayTimer",
+        "def_gfm": "Carrier.carryDelayTimer",
+        "desc": "Any running hs.timer instance for a delayed carry, if enabled.",
+        "desc_gfm": "<p>Any running hs.timer instance for a delayed carry, if enabled.</p>\n",
+        "doc": "Any running hs.timer instance for a delayed carry, if enabled.",
+        "doc_gfm": "<p>Any running hs.timer instance for a delayed carry, if enabled.</p>\n",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "61",
+        "name": "carryDelayTimer",
+        "signature": "Carrier.carryDelayTimer",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -193,6 +221,34 @@
         "type": "Variable"
       },
       {
+        "def": "Carrier.carryDelay",
+        "def_gfm": "Carrier.carryDelay",
+        "desc": "Time in seconds to wait before carrying windows after space change. Default 5 seconds.",
+        "desc_gfm": "<p>Time in seconds to wait before carrying windows after space change. Default 5 seconds.</p>\n",
+        "doc": "Time in seconds to wait before carrying windows after space change. Default 5 seconds.",
+        "doc_gfm": "<p>Time in seconds to wait before carrying windows after space change. Default 5 seconds.</p>\n",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "56",
+        "name": "carryDelay",
+        "signature": "Carrier.carryDelay",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Carrier.carryDelayTimer",
+        "def_gfm": "Carrier.carryDelayTimer",
+        "desc": "Any running hs.timer instance for a delayed carry, if enabled.",
+        "desc_gfm": "<p>Any running hs.timer instance for a delayed carry, if enabled.</p>\n",
+        "doc": "Any running hs.timer instance for a delayed carry, if enabled.",
+        "doc_gfm": "<p>Any running hs.timer instance for a delayed carry, if enabled.</p>\n",
+        "file": "Source/Carrier.spoon/init.lua",
+        "lineno": "61",
+        "name": "carryDelayTimer",
+        "signature": "Carrier.carryDelayTimer",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "Carrier:init()",
         "def_gfm": "Carrier:init()",
         "desc": "Spoon initializer method for Carrier.",
@@ -201,7 +257,7 @@
         "doc_gfm": "<p>Spoon initializer method for Carrier.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Carrier.spoon/init.lua",
-        "lineno": "56",
+        "lineno": "66",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -268,7 +324,7 @@
         "doc_gfm": "<p>Spoon start method for Carrier.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, and subscribes to all window unfocus events.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Carrier.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "116",
         "name": "start",
         "notes": [
           " * Configures the window filter, and subscribes to all window unfocus events."
@@ -295,7 +351,7 @@
         "doc_gfm": "<p>Spoon stop method for Carrier.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Carrier.spoon/init.lua",
-        "lineno": "116",
+        "lineno": "154",
         "name": "stop",
         "notes": [
           " * Unsubscribes the window filter from all subscribed functions."
@@ -349,6 +405,20 @@
         "signature": "EnsureApp.action.move",
         "stripped_doc": "requires the actionConfig `moveMenuBar` to be set to the destination hs.menubar\nduring calls to ensureApp().",
         "type": "Constant"
+      },
+      {
+        "def": "EnsureApp.action.none",
+        "def_gfm": "EnsureApp.action.none",
+        "desc": "No-op, will do no action other than moving window to the space and focusing",
+        "desc_gfm": "<p>No-op, will do no action other than moving window to the space and focusing</p>\n",
+        "doc": "No-op, will do no action other than moving window to the space and focusing\nit (if enabled).",
+        "doc_gfm": "<p>No-op, will do no action other than moving window to the space and focusing\nit (if enabled).</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "33",
+        "name": "none",
+        "signature": "EnsureApp.action.none",
+        "stripped_doc": "it (if enabled).",
+        "type": "Constant"
       }
     ],
     "Constructor": [],
@@ -361,16 +431,22 @@
         "def_gfm": "EnsureApp:ensureApp(appName[, actionConfig])",
         "desc": "Ensure the existence of a window from appName in the current Space.",
         "desc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n",
-        "doc": "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * Refer to EnsureApp.apps for information on how to configure apps.",
-        "doc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "doc": "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * The application name must be one recognized by macOS. hs.applications.find\n   way to discover this.\n * The default action is to move the most recently accessed window in any space\n   corresponding to this application to the current space and focus it.\n    * This can be configured with defaultAppConfig.\n * Refer to EnsureApp.apps for information on how to add additional app-specific\n   configurations like space precedence.",
+        "doc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>The application name must be one recognized by macOS. hs.applications.find\nway to discover this.</li>\n<li>The default action is to move the most recently accessed window in any space\ncorresponding to this application to the current space and focus it.<ul>\n<li>This can be configured with defaultAppConfig.</li>\n</ul>\n</li>\n<li>Refer to EnsureApp.apps for information on how to add additional app-specific\nconfigurations like space precedence.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "253",
+        "lineno": "275",
         "name": "ensureApp",
         "notes": [
-          " * Refer to EnsureApp.apps for information on how to configure apps."
+          " * The application name must be one recognized by macOS. hs.applications.find",
+          "   way to discover this.",
+          " * The default action is to move the most recently accessed window in any space",
+          "   corresponding to this application to the current space and focus it.",
+          "    * This can be configured with defaultAppConfig.",
+          " * Refer to EnsureApp.apps for information on how to add additional app-specific",
+          "   configurations like space precedence."
         ],
-        "notes_gfm": "<ul>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "notes_gfm": "<ul>\n<li>The application name must be one recognized by macOS. hs.applications.find\nway to discover this.</li>\n<li>The default action is to move the most recently accessed window in any space\ncorresponding to this application to the current space and focus it.<ul>\n<li>This can be configured with defaultAppConfig.</li>\n</ul>\n</li>\n<li>Refer to EnsureApp.apps for information on how to add additional app-specific\nconfigurations like space precedence.</li>\n</ul>\n",
         "parameters": [
           " * appName - Name of the application to ensure.",
           " * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`."
@@ -393,7 +469,7 @@
         "doc_gfm": "<p>(Callback) Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>This is a utility class for mapping app ensures to things like menu bars.</li>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "234",
+        "lineno": "256",
         "name": "ensureAppCallback",
         "notes": [
           " * This is a utility class for mapping app ensures to things like menu bars.",
@@ -414,6 +490,85 @@
         "type": "Method"
       },
       {
+        "def": "EnsureApp:getAppEnsured(app)",
+        "def_gfm": "EnsureApp:getAppEnsured(app)",
+        "desc": "Returns whether or not app name is configured for EnsureApp.",
+        "desc_gfm": "<p>Returns whether or not app name is configured for EnsureApp.</p>\n",
+        "doc": "Returns whether or not app name is configured for EnsureApp.\n\nParameters:\n * app - App name to check.\n\nReturns:\n * A boolean representing whether or not the app is configured for EnsureApp.",
+        "doc_gfm": "<p>Returns whether or not app name is configured for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>app - App name to check.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A boolean representing whether or not the app is configured for EnsureApp.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "457",
+        "name": "getAppEnsured",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * app - App name to check."
+        ],
+        "parameters_gfm": "<ul>\n<li>app - App name to check.</li>\n</ul>\n",
+        "returns": [
+          " * A boolean representing whether or not the app is configured for EnsureApp."
+        ],
+        "returns_gfm": "<ul>\n<li>A boolean representing whether or not the app is configured for EnsureApp.</li>\n</ul>\n",
+        "signature": "EnsureApp:getAppEnsured(app)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:getAppNames([spaceID])",
+        "def_gfm": "EnsureApp:getAppNames([spaceID])",
+        "desc": "Get a list of all app names currently configured in EnsureApps.",
+        "desc_gfm": "<p>Get a list of all app names currently configured in EnsureApps.</p>\n",
+        "doc": "Get a list of all app names currently configured in EnsureApps.\n\nParameters:\n * spaceID - Optional space ID. If provided, WindowCache will be queried to\n    find apps present in the provided space. These will then be placed at the\n    beginning of the list before the rest of the configured apps are filled.\n    This is useful for things like Lightspot.spoon.\n\nReturns:\n * A table representing the names of all configured app names, with recent apps\n   in the current space being prioritized if spaceID is provided.\n\nNotes:\n * WindowCache window access history does not persist through Hammerspoon reloads.",
+        "doc_gfm": "<p>Get a list of all app names currently configured in EnsureApps.</p>\n<p>Parameters:</p>\n<ul>\n<li>spaceID - Optional space ID. If provided, WindowCache will be queried to\n find apps present in the provided space. These will then be placed at the\n beginning of the list before the rest of the configured apps are filled.\n This is useful for things like Lightspot.spoon.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A table representing the names of all configured app names, with recent apps\nin the current space being prioritized if spaceID is provided.</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "397",
+        "name": "getAppNames",
+        "notes": [
+          " * WindowCache window access history does not persist through Hammerspoon reloads."
+        ],
+        "notes_gfm": "<ul>\n<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>\n</ul>\n",
+        "parameters": [
+          " * spaceID - Optional space ID. If provided, WindowCache will be queried to find apps present in the provided space. These will then be placed at the beginning of the list before the rest of the configured apps are filled. This is useful for things like Lightspot.spoon."
+        ],
+        "parameters_gfm": "<ul>\n<li>spaceID - Optional space ID. If provided, WindowCache will be queried to find apps present in the provided space. These will then be placed at the beginning of the list before the rest of the configured apps are filled. This is useful for things like Lightspot.spoon.</li>\n</ul>\n",
+        "returns": [
+          " * A table representing the names of all configured app names, with recent apps",
+          "   in the current space being prioritized if spaceID is provided."
+        ],
+        "returns_gfm": "<ul>\n<li>A table representing the names of all configured app names, with recent apps\nin the current space being prioritized if spaceID is provided.</li>\n</ul>\n",
+        "signature": "EnsureApp:getAppNames([spaceID])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:getAppNamesForSpace(spaceID)",
+        "def_gfm": "EnsureApp:getAppNamesForSpace(spaceID)",
+        "desc": "Given a spaceID, return the name of all configured apps present in the space.",
+        "desc_gfm": "<p>Given a spaceID, return the name of all configured apps present in the space.</p>\n",
+        "doc": "Given a spaceID, return the name of all configured apps present in the space.\n\nParameters:\n * spaceID - ID of an hs.space to retrieve ensured app names for.\n\nReturns:\n * A table representing the names of all ensured apps currently present in the\n   space, ordered by most recent first.",
+        "doc_gfm": "<p>Given a spaceID, return the name of all configured apps present in the space.</p>\n<p>Parameters:</p>\n<ul>\n<li>spaceID - ID of an hs.space to retrieve ensured app names for.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A table representing the names of all ensured apps currently present in the\nspace, ordered by most recent first.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "434",
+        "name": "getAppNamesForSpace",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * spaceID - ID of an hs.space to retrieve ensured app names for."
+        ],
+        "parameters_gfm": "<ul>\n<li>spaceID - ID of an hs.space to retrieve ensured app names for.</li>\n</ul>\n",
+        "returns": [
+          " * A table representing the names of all ensured apps currently present in the",
+          "   space, ordered by most recent first."
+        ],
+        "returns_gfm": "<ul>\n<li>A table representing the names of all ensured apps currently present in the\nspace, ordered by most recent first.</li>\n</ul>\n",
+        "signature": "EnsureApp:getAppNamesForSpace(spaceID)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "EnsureApp:init()",
         "def_gfm": "EnsureApp:init()",
         "desc": "Spoon initializer method for EnsureApp.",
@@ -422,7 +577,7 @@
         "doc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "68",
+        "lineno": "85",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -447,7 +602,7 @@
         "doc_gfm": "<p>Spoon start method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "358",
+        "lineno": "474",
         "name": "start",
         "notes": [],
         "notes_gfm": "",
@@ -472,7 +627,7 @@
         "doc_gfm": "<p>Spoon stop method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "376",
+        "lineno": "495",
         "name": "stop",
         "notes": [],
         "notes_gfm": "",
@@ -491,6 +646,20 @@
     ],
     "Variable": [
       {
+        "def": "EnsureApp.appNamesSet",
+        "def_gfm": "EnsureApp.appNamesSet",
+        "desc": "Table with \"Set\" of all app names configured for EnsureApp.",
+        "desc_gfm": "<p>Table with &quot;Set&quot; of all app names configured for EnsureApp.</p>\n",
+        "doc": "Table with \"Set\" of all app names configured for EnsureApp.",
+        "doc_gfm": "<p>Table with &quot;Set&quot; of all app names configured for EnsureApp.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "63",
+        "name": "appNamesSet",
+        "signature": "EnsureApp.appNamesSet",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "EnsureApp.apps",
         "def_gfm": "EnsureApp.apps",
         "desc": "Table containing each application's name and it's desired configuration. The",
@@ -498,10 +667,24 @@
         "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
         "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:</p>\n<ul>\n<li>app - Application name as it appears in the title bar.</li>\n<li>action - String with action to take on window when showing. See constants.</li>\n<li>spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.</li>\n<li>newWindowConfig - Configuration for opening a new window of the app with values.<ul>\n<li>menuSection - Menu section in app menu bar to select.</li>\n<li>menuItem - Menu item in menu section to select</li>\n</ul>\n</li>\n<li>disableOpen - If true, this will disable auto-opening the app if not open.</li>\n</ul>\n",
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "37",
+        "lineno": "42",
         "name": "apps",
         "signature": "EnsureApp.apps",
         "stripped_doc": "key of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
+        "type": "Variable"
+      },
+      {
+        "def": "EnsureApp.defaultAppConfig",
+        "def_gfm": "EnsureApp.defaultAppConfig",
+        "desc": "Table containing the default configuration to be used for any app that is not",
+        "desc_gfm": "<p>Table containing the default configuration to be used for any app that is not</p>\n",
+        "doc": "Table containing the default configuration to be used for any app that is not\nconfigured in self.apps with app-specific config. By default, this will move\nthe most recently accessed window in any space to the current one and focus it.",
+        "doc_gfm": "<p>Table containing the default configuration to be used for any app that is not\nconfigured in self.apps with app-specific config. By default, this will move\nthe most recently accessed window in any space to the current one and focus it.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "56",
+        "name": "defaultAppConfig",
+        "signature": "EnsureApp.defaultAppConfig",
+        "stripped_doc": "configured in self.apps with app-specific config. By default, this will move\nthe most recently accessed window in any space to the current one and focus it.",
         "type": "Variable"
       },
       {
@@ -512,7 +695,7 @@
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "68",
         "name": "logger",
         "signature": "EnsureApp.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -526,7 +709,7 @@
         "doc": "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
         "doc_gfm": "<p>EnsureApp specific log level override, see hs.logger.setLogLevel for options.</p>\n",
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "74",
         "name": "logLevel",
         "signature": "EnsureApp.logLevel",
         "stripped_doc": "",
@@ -540,7 +723,7 @@
         "doc": "hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
         "doc_gfm": "<p>hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.</p>\n",
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "62",
+        "lineno": "79",
         "name": "windowOpenTimer",
         "signature": "EnsureApp.windowOpenTimer",
         "stripped_doc": "This behavior can be disabled by setting disableOpen=true on the app config.",
@@ -553,6 +736,20 @@
     "doc_gfm": "<p>Utility for providing fast and guaranteed access to app windows during macros.</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/EnsureApp.spoon.zip</p>\n<p>README with Example Usage: <a href=\"https://github.com/adammillerio/EnsureApp.spoon/blob/main/README.md\">README.md</a></p>\n",
     "items": [
       {
+        "def": "EnsureApp.appNamesSet",
+        "def_gfm": "EnsureApp.appNamesSet",
+        "desc": "Table with \"Set\" of all app names configured for EnsureApp.",
+        "desc_gfm": "<p>Table with &quot;Set&quot; of all app names configured for EnsureApp.</p>\n",
+        "doc": "Table with \"Set\" of all app names configured for EnsureApp.",
+        "doc_gfm": "<p>Table with &quot;Set&quot; of all app names configured for EnsureApp.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "63",
+        "name": "appNamesSet",
+        "signature": "EnsureApp.appNamesSet",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "EnsureApp.apps",
         "def_gfm": "EnsureApp.apps",
         "desc": "Table containing each application's name and it's desired configuration. The",
@@ -560,10 +757,24 @@
         "doc": "Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
         "doc_gfm": "<p>Table containing each application's name and it's desired configuration. The\nkey of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:</p>\n<ul>\n<li>app - Application name as it appears in the title bar.</li>\n<li>action - String with action to take on window when showing. See constants.</li>\n<li>spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.</li>\n<li>newWindowConfig - Configuration for opening a new window of the app with values.<ul>\n<li>menuSection - Menu section in app menu bar to select.</li>\n<li>menuItem - Menu item in menu section to select</li>\n</ul>\n</li>\n<li>disableOpen - If true, this will disable auto-opening the app if not open.</li>\n</ul>\n",
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "37",
+        "lineno": "42",
         "name": "apps",
         "signature": "EnsureApp.apps",
         "stripped_doc": "key of each entry is just an identifier used during calls to ensureApp, and\nthe value is a configuration table with the following entries:\n * app - Application name as it appears in the title bar.\n * action - String with action to take on window when showing. See constants.\n * spacePrecedence - Open a Space-specific window of this app, requires newWindowConfig.\n * newWindowConfig - Configuration for opening a new window of the app with values.\n   * menuSection - Menu section in app menu bar to select.\n   * menuItem - Menu item in menu section to select\n * disableOpen - If true, this will disable auto-opening the app if not open.",
+        "type": "Variable"
+      },
+      {
+        "def": "EnsureApp.defaultAppConfig",
+        "def_gfm": "EnsureApp.defaultAppConfig",
+        "desc": "Table containing the default configuration to be used for any app that is not",
+        "desc_gfm": "<p>Table containing the default configuration to be used for any app that is not</p>\n",
+        "doc": "Table containing the default configuration to be used for any app that is not\nconfigured in self.apps with app-specific config. By default, this will move\nthe most recently accessed window in any space to the current one and focus it.",
+        "doc_gfm": "<p>Table containing the default configuration to be used for any app that is not\nconfigured in self.apps with app-specific config. By default, this will move\nthe most recently accessed window in any space to the current one and focus it.</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "56",
+        "name": "defaultAppConfig",
+        "signature": "EnsureApp.defaultAppConfig",
+        "stripped_doc": "configured in self.apps with app-specific config. By default, this will move\nthe most recently accessed window in any space to the current one and focus it.",
         "type": "Variable"
       },
       {
@@ -571,16 +782,22 @@
         "def_gfm": "EnsureApp:ensureApp(appName[, actionConfig])",
         "desc": "Ensure the existence of a window from appName in the current Space.",
         "desc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n",
-        "doc": "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * Refer to EnsureApp.apps for information on how to configure apps.",
-        "doc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "doc": "Ensure the existence of a window from appName in the current Space.\n\nParameters:\n * appName - Name of the application to ensure.\n * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`.\n\nReturns:\n * None\n\nNotes:\n * The application name must be one recognized by macOS. hs.applications.find\n   way to discover this.\n * The default action is to move the most recently accessed window in any space\n   corresponding to this application to the current space and focus it.\n    * This can be configured with defaultAppConfig.\n * Refer to EnsureApp.apps for information on how to add additional app-specific\n   configurations like space precedence.",
+        "doc_gfm": "<p>Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>The application name must be one recognized by macOS. hs.applications.find\nway to discover this.</li>\n<li>The default action is to move the most recently accessed window in any space\ncorresponding to this application to the current space and focus it.<ul>\n<li>This can be configured with defaultAppConfig.</li>\n</ul>\n</li>\n<li>Refer to EnsureApp.apps for information on how to add additional app-specific\nconfigurations like space precedence.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "253",
+        "lineno": "275",
         "name": "ensureApp",
         "notes": [
-          " * Refer to EnsureApp.apps for information on how to configure apps."
+          " * The application name must be one recognized by macOS. hs.applications.find",
+          "   way to discover this.",
+          " * The default action is to move the most recently accessed window in any space",
+          "   corresponding to this application to the current space and focus it.",
+          "    * This can be configured with defaultAppConfig.",
+          " * Refer to EnsureApp.apps for information on how to add additional app-specific",
+          "   configurations like space precedence."
         ],
-        "notes_gfm": "<ul>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
+        "notes_gfm": "<ul>\n<li>The application name must be one recognized by macOS. hs.applications.find\nway to discover this.</li>\n<li>The default action is to move the most recently accessed window in any space\ncorresponding to this application to the current space and focus it.<ul>\n<li>This can be configured with defaultAppConfig.</li>\n</ul>\n</li>\n<li>Refer to EnsureApp.apps for information on how to add additional app-specific\nconfigurations like space precedence.</li>\n</ul>\n",
         "parameters": [
           " * appName - Name of the application to ensure.",
           " * actionConfig - Optional actionConfig table with action-specific information.\n   * moveMenuBar- hs.menubar to move under with `action=move`."
@@ -603,7 +820,7 @@
         "doc_gfm": "<p>(Callback) Ensure the existence of a window from appName in the current Space.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - Name of the application to ensure.</li>\n<li>actionConfig - Optional actionConfig table with action-specific information.<ul>\n<li>moveMenuBar- hs.menubar to move under with <code>action=move</code>.</li>\n</ul>\n</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>This is a utility class for mapping app ensures to things like menu bars.</li>\n<li>Refer to EnsureApp.apps for information on how to configure apps.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "234",
+        "lineno": "256",
         "name": "ensureAppCallback",
         "notes": [
           " * This is a utility class for mapping app ensures to things like menu bars.",
@@ -624,6 +841,85 @@
         "type": "Method"
       },
       {
+        "def": "EnsureApp:getAppEnsured(app)",
+        "def_gfm": "EnsureApp:getAppEnsured(app)",
+        "desc": "Returns whether or not app name is configured for EnsureApp.",
+        "desc_gfm": "<p>Returns whether or not app name is configured for EnsureApp.</p>\n",
+        "doc": "Returns whether or not app name is configured for EnsureApp.\n\nParameters:\n * app - App name to check.\n\nReturns:\n * A boolean representing whether or not the app is configured for EnsureApp.",
+        "doc_gfm": "<p>Returns whether or not app name is configured for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>app - App name to check.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A boolean representing whether or not the app is configured for EnsureApp.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "457",
+        "name": "getAppEnsured",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * app - App name to check."
+        ],
+        "parameters_gfm": "<ul>\n<li>app - App name to check.</li>\n</ul>\n",
+        "returns": [
+          " * A boolean representing whether or not the app is configured for EnsureApp."
+        ],
+        "returns_gfm": "<ul>\n<li>A boolean representing whether or not the app is configured for EnsureApp.</li>\n</ul>\n",
+        "signature": "EnsureApp:getAppEnsured(app)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:getAppNames([spaceID])",
+        "def_gfm": "EnsureApp:getAppNames([spaceID])",
+        "desc": "Get a list of all app names currently configured in EnsureApps.",
+        "desc_gfm": "<p>Get a list of all app names currently configured in EnsureApps.</p>\n",
+        "doc": "Get a list of all app names currently configured in EnsureApps.\n\nParameters:\n * spaceID - Optional space ID. If provided, WindowCache will be queried to\n    find apps present in the provided space. These will then be placed at the\n    beginning of the list before the rest of the configured apps are filled.\n    This is useful for things like Lightspot.spoon.\n\nReturns:\n * A table representing the names of all configured app names, with recent apps\n   in the current space being prioritized if spaceID is provided.\n\nNotes:\n * WindowCache window access history does not persist through Hammerspoon reloads.",
+        "doc_gfm": "<p>Get a list of all app names currently configured in EnsureApps.</p>\n<p>Parameters:</p>\n<ul>\n<li>spaceID - Optional space ID. If provided, WindowCache will be queried to\n find apps present in the provided space. These will then be placed at the\n beginning of the list before the rest of the configured apps are filled.\n This is useful for things like Lightspot.spoon.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A table representing the names of all configured app names, with recent apps\nin the current space being prioritized if spaceID is provided.</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "397",
+        "name": "getAppNames",
+        "notes": [
+          " * WindowCache window access history does not persist through Hammerspoon reloads."
+        ],
+        "notes_gfm": "<ul>\n<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>\n</ul>\n",
+        "parameters": [
+          " * spaceID - Optional space ID. If provided, WindowCache will be queried to find apps present in the provided space. These will then be placed at the beginning of the list before the rest of the configured apps are filled. This is useful for things like Lightspot.spoon."
+        ],
+        "parameters_gfm": "<ul>\n<li>spaceID - Optional space ID. If provided, WindowCache will be queried to find apps present in the provided space. These will then be placed at the beginning of the list before the rest of the configured apps are filled. This is useful for things like Lightspot.spoon.</li>\n</ul>\n",
+        "returns": [
+          " * A table representing the names of all configured app names, with recent apps",
+          "   in the current space being prioritized if spaceID is provided."
+        ],
+        "returns_gfm": "<ul>\n<li>A table representing the names of all configured app names, with recent apps\nin the current space being prioritized if spaceID is provided.</li>\n</ul>\n",
+        "signature": "EnsureApp:getAppNames([spaceID])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EnsureApp:getAppNamesForSpace(spaceID)",
+        "def_gfm": "EnsureApp:getAppNamesForSpace(spaceID)",
+        "desc": "Given a spaceID, return the name of all configured apps present in the space.",
+        "desc_gfm": "<p>Given a spaceID, return the name of all configured apps present in the space.</p>\n",
+        "doc": "Given a spaceID, return the name of all configured apps present in the space.\n\nParameters:\n * spaceID - ID of an hs.space to retrieve ensured app names for.\n\nReturns:\n * A table representing the names of all ensured apps currently present in the\n   space, ordered by most recent first.",
+        "doc_gfm": "<p>Given a spaceID, return the name of all configured apps present in the space.</p>\n<p>Parameters:</p>\n<ul>\n<li>spaceID - ID of an hs.space to retrieve ensured app names for.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A table representing the names of all ensured apps currently present in the\nspace, ordered by most recent first.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "434",
+        "name": "getAppNamesForSpace",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * spaceID - ID of an hs.space to retrieve ensured app names for."
+        ],
+        "parameters_gfm": "<ul>\n<li>spaceID - ID of an hs.space to retrieve ensured app names for.</li>\n</ul>\n",
+        "returns": [
+          " * A table representing the names of all ensured apps currently present in the",
+          "   space, ordered by most recent first."
+        ],
+        "returns_gfm": "<ul>\n<li>A table representing the names of all ensured apps currently present in the\nspace, ordered by most recent first.</li>\n</ul>\n",
+        "signature": "EnsureApp:getAppNamesForSpace(spaceID)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "EnsureApp:init()",
         "def_gfm": "EnsureApp:init()",
         "desc": "Spoon initializer method for EnsureApp.",
@@ -632,7 +928,7 @@
         "doc_gfm": "<p>Spoon initializer method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "68",
+        "lineno": "85",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -656,7 +952,7 @@
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.",
         "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log \nlevel for the messages coming from the Spoon.</p>\n",
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "68",
         "name": "logger",
         "signature": "EnsureApp.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -670,7 +966,7 @@
         "doc": "EnsureApp specific log level override, see hs.logger.setLogLevel for options.",
         "doc_gfm": "<p>EnsureApp specific log level override, see hs.logger.setLogLevel for options.</p>\n",
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "74",
         "name": "logLevel",
         "signature": "EnsureApp.logLevel",
         "stripped_doc": "",
@@ -705,6 +1001,20 @@
         "type": "Constant"
       },
       {
+        "def": "EnsureApp.action.none",
+        "def_gfm": "EnsureApp.action.none",
+        "desc": "No-op, will do no action other than moving window to the space and focusing",
+        "desc_gfm": "<p>No-op, will do no action other than moving window to the space and focusing</p>\n",
+        "doc": "No-op, will do no action other than moving window to the space and focusing\nit (if enabled).",
+        "doc_gfm": "<p>No-op, will do no action other than moving window to the space and focusing\nit (if enabled).</p>\n",
+        "file": "Source/EnsureApp.spoon/init.lua",
+        "lineno": "33",
+        "name": "none",
+        "signature": "EnsureApp.action.none",
+        "stripped_doc": "it (if enabled).",
+        "type": "Constant"
+      },
+      {
         "def": "EnsureApp:start()",
         "def_gfm": "EnsureApp:start()",
         "desc": "Spoon start method for EnsureApp.",
@@ -713,7 +1023,7 @@
         "doc_gfm": "<p>Spoon start method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "358",
+        "lineno": "474",
         "name": "start",
         "notes": [],
         "notes_gfm": "",
@@ -738,7 +1048,7 @@
         "doc_gfm": "<p>Spoon stop method for EnsureApp.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "376",
+        "lineno": "495",
         "name": "stop",
         "notes": [],
         "notes_gfm": "",
@@ -762,7 +1072,7 @@
         "doc": "hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.",
         "doc_gfm": "<p>hs.timer for moving an app's first window after being opened via EnsureApp.\nThis behavior can be disabled by setting disableOpen=true on the app config.</p>\n",
         "file": "Source/EnsureApp.spoon/init.lua",
-        "lineno": "62",
+        "lineno": "79",
         "name": "windowOpenTimer",
         "signature": "EnsureApp.windowOpenTimer",
         "stripped_doc": "This behavior can be disabled by setting disableOpen=true on the app config.",
@@ -949,6 +1259,298 @@
     ],
     "name": "HotkeyApps",
     "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/HotkeyApps.spoon.zip\n\nREADME with Example Usage: [README.md](https://github.com/adammillerio/HotkeyApps.spoon/blob/main/README.md)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Lightspot:init()",
+        "def_gfm": "Lightspot:init()",
+        "desc": "Spoon initializer method for Lightspot.",
+        "desc_gfm": "<p>Spoon initializer method for Lightspot.</p>\n",
+        "doc": "Spoon initializer method for Lightspot.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for Lightspot.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "44",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Lightspot:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Lightspot:start()",
+        "def_gfm": "Lightspot:start()",
+        "desc": "Spoon start method for Lightspot.",
+        "desc_gfm": "<p>Spoon start method for Lightspot.</p>\n",
+        "doc": "Spoon start method for Lightspot.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Starts the hs.chooser which is then bound to the \"chooser\" hotkey.",
+        "doc_gfm": "<p>Spoon start method for Lightspot.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Starts the hs.chooser which is then bound to the &quot;chooser&quot; hotkey.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "151",
+        "name": "start",
+        "notes": [
+          " * Starts the hs.chooser which is then bound to the \"chooser\" hotkey."
+        ],
+        "notes_gfm": "<ul>\n<li>Starts the hs.chooser which is then bound to the &quot;chooser&quot; hotkey.</li>\n</ul>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Lightspot:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Lightspot:stop()",
+        "def_gfm": "Lightspot:stop()",
+        "desc": "Spoon stop method for Lightspot.",
+        "desc_gfm": "<p>Spoon stop method for Lightspot.</p>\n",
+        "doc": "Spoon stop method for Lightspot.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Stops the hs.chooser.",
+        "doc_gfm": "<p>Spoon stop method for Lightspot.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Stops the hs.chooser.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "181",
+        "name": "stop",
+        "notes": [
+          " * Stops the hs.chooser."
+        ],
+        "notes_gfm": "<ul>\n<li>Stops the hs.chooser.</li>\n</ul>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Lightspot:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Lightspot.chooser",
+        "def_gfm": "Lightspot.chooser",
+        "desc": "hs.chooser object representing the chooser.",
+        "desc_gfm": "<p>hs.chooser object representing the chooser.</p>\n",
+        "doc": "hs.chooser object representing the chooser.",
+        "doc_gfm": "<p>hs.chooser object representing the chooser.</p>\n",
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "39",
+        "name": "chooser",
+        "signature": "Lightspot.chooser",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Lightspot.defaultHotkeys",
+        "def_gfm": "Lightspot.defaultHotkeys",
+        "desc": "Default hotkey to use for the chooser when \"hotkeys\" = \"default\".",
+        "desc_gfm": "<p>Default hotkey to use for the chooser when &quot;hotkeys&quot; = &quot;default&quot;.</p>\n",
+        "doc": "Default hotkey to use for the chooser when \"hotkeys\" = \"default\".",
+        "doc_gfm": "<p>Default hotkey to use for the chooser when &quot;hotkeys&quot; = &quot;default&quot;.</p>\n",
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "23",
+        "name": "defaultHotkeys",
+        "signature": "Lightspot.defaultHotkeys",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Lightspot.logger",
+        "def_gfm": "Lightspot.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "28",
+        "name": "logger",
+        "signature": "Lightspot.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Lightspot.logLevel",
+        "def_gfm": "Lightspot.logLevel",
+        "desc": "Lightspot specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>Lightspot specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "Lightspot specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>Lightspot specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "34",
+        "name": "logLevel",
+        "signature": "Lightspot.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Lightweight, consistent, and fast Spotlight replacement.",
+    "desc_gfm": "<p>Lightweight, consistent, and fast Spotlight replacement.</p>\n",
+    "doc": "Lightweight, consistent, and fast Spotlight replacement.\n\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Lightspot.spoon.zip\n\nREADME: [README.md](https://github.com/adammillerio/Lightspot.spoon/blob/main/README.md)",
+    "doc_gfm": "<p>Lightweight, consistent, and fast Spotlight replacement.</p>\n<p>Download: https://github.com/adammillerio/Spoons/raw/main/Spoons/Lightspot.spoon.zip</p>\n<p>README: <a href=\"https://github.com/adammillerio/Lightspot.spoon/blob/main/README.md\">README.md</a></p>\n",
+    "items": [
+      {
+        "def": "Lightspot.chooser",
+        "def_gfm": "Lightspot.chooser",
+        "desc": "hs.chooser object representing the chooser.",
+        "desc_gfm": "<p>hs.chooser object representing the chooser.</p>\n",
+        "doc": "hs.chooser object representing the chooser.",
+        "doc_gfm": "<p>hs.chooser object representing the chooser.</p>\n",
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "39",
+        "name": "chooser",
+        "signature": "Lightspot.chooser",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Lightspot.defaultHotkeys",
+        "def_gfm": "Lightspot.defaultHotkeys",
+        "desc": "Default hotkey to use for the chooser when \"hotkeys\" = \"default\".",
+        "desc_gfm": "<p>Default hotkey to use for the chooser when &quot;hotkeys&quot; = &quot;default&quot;.</p>\n",
+        "doc": "Default hotkey to use for the chooser when \"hotkeys\" = \"default\".",
+        "doc_gfm": "<p>Default hotkey to use for the chooser when &quot;hotkeys&quot; = &quot;default&quot;.</p>\n",
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "23",
+        "name": "defaultHotkeys",
+        "signature": "Lightspot.defaultHotkeys",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Lightspot:init()",
+        "def_gfm": "Lightspot:init()",
+        "desc": "Spoon initializer method for Lightspot.",
+        "desc_gfm": "<p>Spoon initializer method for Lightspot.</p>\n",
+        "doc": "Spoon initializer method for Lightspot.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc_gfm": "<p>Spoon initializer method for Lightspot.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "44",
+        "name": "init",
+        "notes": [],
+        "notes_gfm": "",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Lightspot:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Lightspot.logger",
+        "def_gfm": "Lightspot.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "desc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log</p>\n",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
+        "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.</p>\n",
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "28",
+        "name": "logger",
+        "signature": "Lightspot.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Lightspot.logLevel",
+        "def_gfm": "Lightspot.logLevel",
+        "desc": "Lightspot specific log level override, see hs.logger.setLogLevel for options.",
+        "desc_gfm": "<p>Lightspot specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "doc": "Lightspot specific log level override, see hs.logger.setLogLevel for options.",
+        "doc_gfm": "<p>Lightspot specific log level override, see hs.logger.setLogLevel for options.</p>\n",
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "34",
+        "name": "logLevel",
+        "signature": "Lightspot.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Lightspot:start()",
+        "def_gfm": "Lightspot:start()",
+        "desc": "Spoon start method for Lightspot.",
+        "desc_gfm": "<p>Spoon start method for Lightspot.</p>\n",
+        "doc": "Spoon start method for Lightspot.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Starts the hs.chooser which is then bound to the \"chooser\" hotkey.",
+        "doc_gfm": "<p>Spoon start method for Lightspot.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Starts the hs.chooser which is then bound to the &quot;chooser&quot; hotkey.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "151",
+        "name": "start",
+        "notes": [
+          " * Starts the hs.chooser which is then bound to the \"chooser\" hotkey."
+        ],
+        "notes_gfm": "<ul>\n<li>Starts the hs.chooser which is then bound to the &quot;chooser&quot; hotkey.</li>\n</ul>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Lightspot:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Lightspot:stop()",
+        "def_gfm": "Lightspot:stop()",
+        "desc": "Spoon stop method for Lightspot.",
+        "desc_gfm": "<p>Spoon stop method for Lightspot.</p>\n",
+        "doc": "Spoon stop method for Lightspot.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Stops the hs.chooser.",
+        "doc_gfm": "<p>Spoon stop method for Lightspot.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Stops the hs.chooser.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/Lightspot.spoon/init.lua",
+        "lineno": "181",
+        "name": "stop",
+        "notes": [
+          " * Stops the hs.chooser."
+        ],
+        "notes_gfm": "<ul>\n<li>Stops the hs.chooser.</li>\n</ul>\n",
+        "parameters": [
+          " * None"
+        ],
+        "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "returns": [
+          " * None"
+        ],
+        "returns_gfm": "<ul>\n<li>None</li>\n</ul>\n",
+        "signature": "Lightspot:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Lightspot",
+    "stripped_doc": "\nDownload: https://github.com/adammillerio/Spoons/raw/main/Spoons/Lightspot.spoon.zip\n\nREADME: [README.md](https://github.com/adammillerio/Lightspot.spoon/blob/main/README.md)",
     "submodules": [],
     "type": "Module"
   },
@@ -2448,7 +3050,7 @@
         "doc_gfm": "<p>Spoon start method for Sweeper.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, and subscribes to all window unfocus events.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Sweeper.spoon/init.lua",
-        "lineno": "146",
+        "lineno": "159",
         "name": "start",
         "notes": [
           " * Configures the window filter, and subscribes to all window unfocus events."
@@ -2475,7 +3077,7 @@
         "doc_gfm": "<p>Spoon stop method for Sweeper.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Sweeper.spoon/init.lua",
-        "lineno": "179",
+        "lineno": "192",
         "name": "stop",
         "notes": [
           " * Unsubscribes the window filter from all subscribed functions."
@@ -2661,7 +3263,7 @@
         "doc_gfm": "<p>Spoon start method for Sweeper.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, and subscribes to all window unfocus events.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Sweeper.spoon/init.lua",
-        "lineno": "146",
+        "lineno": "159",
         "name": "start",
         "notes": [
           " * Configures the window filter, and subscribes to all window unfocus events."
@@ -2688,7 +3290,7 @@
         "doc_gfm": "<p>Spoon stop method for Sweeper.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/Sweeper.spoon/init.lua",
-        "lineno": "179",
+        "lineno": "192",
         "name": "stop",
         "notes": [
           " * Unsubscribes the window filter from all subscribed functions."
@@ -2771,7 +3373,7 @@
         "doc_gfm": "<p>Find the last opened window by application name.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "141",
+        "lineno": "154",
         "name": "findWindowByApp",
         "notes": [],
         "notes_gfm": "",
@@ -2797,7 +3399,7 @@
         "doc_gfm": "<p>Find a window by title.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "91",
+        "lineno": "102",
         "name": "findWindowByTitle",
         "notes": [],
         "notes_gfm": "",
@@ -2823,7 +3425,7 @@
         "doc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "192",
+        "lineno": "218",
         "name": "focusWindowByApp",
         "notes": [],
         "notes_gfm": "",
@@ -2849,7 +3451,7 @@
         "doc_gfm": "<p>Find a window by title and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to focus</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "123",
+        "lineno": "136",
         "name": "focusWindowByTitle",
         "notes": [],
         "notes_gfm": "",
@@ -2867,6 +3469,34 @@
         "type": "Method"
       },
       {
+        "def": "WindowCache:getAppNamesForSpace(spaceID)",
+        "def_gfm": "WindowCache:getAppNamesForSpace(spaceID)",
+        "desc": "Given a spaceID, get a list of all open app names in the space.",
+        "desc_gfm": "<p>Given a spaceID, get a list of all open app names in the space.</p>\n",
+        "doc": "Given a spaceID, get a list of all open app names in the space.\n\nParameters:\n * spaceID - ID of an hs.space to retrieve app names for.\n\nReturns:\n * A table representing the names of all app names open in the space, ordered\n   by most recent first.\n\nNotes:\n * WindowCache window access history does not persist through Hammerspoon reloads.",
+        "doc_gfm": "<p>Given a spaceID, get a list of all open app names in the space.</p>\n<p>Parameters:</p>\n<ul>\n<li>spaceID - ID of an hs.space to retrieve app names for.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A table representing the names of all app names open in the space, ordered\nby most recent first.</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "236",
+        "name": "getAppNamesForSpace",
+        "notes": [
+          " * WindowCache window access history does not persist through Hammerspoon reloads."
+        ],
+        "notes_gfm": "<ul>\n<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>\n</ul>\n",
+        "parameters": [
+          " * spaceID - ID of an hs.space to retrieve app names for."
+        ],
+        "parameters_gfm": "<ul>\n<li>spaceID - ID of an hs.space to retrieve app names for.</li>\n</ul>\n",
+        "returns": [
+          " * A table representing the names of all app names open in the space, ordered",
+          "   by most recent first."
+        ],
+        "returns_gfm": "<ul>\n<li>A table representing the names of all app names open in the space, ordered\nby most recent first.</li>\n</ul>\n",
+        "signature": "WindowCache:getAppNamesForSpace(spaceID)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "WindowCache:init()",
         "def_gfm": "WindowCache:init()",
         "desc": "Spoon initializer method for WindowCache.",
@@ -2875,7 +3505,7 @@
         "doc_gfm": "<p>Spoon initializer method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "69",
+        "lineno": "80",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -2896,17 +3526,18 @@
         "def_gfm": "WindowCache:start()",
         "desc": "Spoon start method for WindowCache.",
         "desc_gfm": "<p>Spoon start method for WindowCache.</p>\n",
-        "doc": "Spoon start method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, initializes the cache with all existing\n   windows, and then subscribes to all window related events to be cached.",
-        "doc_gfm": "<p>Spoon start method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
+        "doc": "Spoon start method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, initializes the cache with all existing\n   windows, and then subscribes to all window related events to be cached. Also\n   starts the periodic stale window checker.",
+        "doc_gfm": "<p>Spoon start method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached. Also\nstarts the periodic stale window checker.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "304",
+        "lineno": "393",
         "name": "start",
         "notes": [
           " * Configures the window filter, initializes the cache with all existing",
-          "   windows, and then subscribes to all window related events to be cached."
+          "   windows, and then subscribes to all window related events to be cached. Also",
+          "   starts the periodic stale window checker."
         ],
-        "notes_gfm": "<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
+        "notes_gfm": "<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached. Also\nstarts the periodic stale window checker.</li>\n</ul>\n",
         "parameters": [
           " * None"
         ],
@@ -2924,16 +3555,17 @@
         "def_gfm": "WindowCache:stop()",
         "desc": "Spoon stop method for WindowCache.",
         "desc_gfm": "<p>Spoon stop method for WindowCache.</p>\n",
-        "doc": "Spoon stop method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
-        "doc_gfm": "<p>Spoon stop method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
+        "doc": "Spoon stop method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions and stops the\n   stale window checker.",
+        "doc_gfm": "<p>Spoon stop method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions and stops the\nstale window checker.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "343",
+        "lineno": "438",
         "name": "stop",
         "notes": [
-          " * Unsubscribes the window filter from all subscribed functions."
+          " * Unsubscribes the window filter from all subscribed functions and stops the",
+          "   stale window checker."
         ],
-        "notes_gfm": "<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
+        "notes_gfm": "<ul>\n<li>Unsubscribes the window filter from all subscribed functions and stops the\nstale window checker.</li>\n</ul>\n",
         "parameters": [
           " * None"
         ],
@@ -2955,7 +3587,7 @@
         "doc_gfm": "<p>Wait for cached window in appName every interval and run fn when found.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to wait for first cached window of</li>\n<li>fn - function to run when first cached window is found. This function may\ntake a single argument, the timer itself</li>\n<li>interval - How often to check for cached window, defaults to 1 second.</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The started <code>hs.timer</code> instance.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "173",
+        "lineno": "199",
         "name": "waitForWindowByApp",
         "notes": [],
         "notes_gfm": "",
@@ -2984,7 +3616,7 @@
         "doc": "Table containing the window cache, ordered by the time it was added to the\ncache.",
         "doc_gfm": "<p>Table containing the window cache, ordered by the time it was added to the\ncache.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "57",
         "name": "currentWindows",
         "signature": "WindowCache.currentWindows",
         "stripped_doc": "cache.",
@@ -2998,7 +3630,7 @@
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
         "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "33",
+        "lineno": "39",
         "name": "logger",
         "signature": "WindowCache.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -3012,9 +3644,37 @@
         "doc": "WindowCache specific log level override, see hs.logger.setLogLevel for options.",
         "doc_gfm": "<p>WindowCache specific log level override, see hs.logger.setLogLevel for options.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "39",
+        "lineno": "45",
         "name": "logLevel",
         "signature": "WindowCache.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.staleWindowCheckInterval",
+        "def_gfm": "WindowCache.staleWindowCheckInterval",
+        "desc": "Interval in seconds between checks for \"stale\" windows to be removed from",
+        "desc_gfm": "<p>Interval in seconds between checks for &quot;stale&quot; windows to be removed from</p>\n",
+        "doc": "Interval in seconds between checks for \"stale\" windows to be removed from\nthe cache.",
+        "doc_gfm": "<p>Interval in seconds between checks for &quot;stale&quot; windows to be removed from\nthe cache.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "33",
+        "name": "staleWindowCheckInterval",
+        "signature": "WindowCache.staleWindowCheckInterval",
+        "stripped_doc": "the cache.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.staleWindowCheckTimer",
+        "def_gfm": "WindowCache.staleWindowCheckTimer",
+        "desc": "hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.",
+        "desc_gfm": "<p>hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.</p>\n",
+        "doc": "hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.",
+        "doc_gfm": "<p>hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "75",
+        "name": "staleWindowCheckTimer",
+        "signature": "WindowCache.staleWindowCheckTimer",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -3026,7 +3686,7 @@
         "doc": "Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.",
         "doc_gfm": "<p>Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "63",
         "name": "subscribedFunctions",
         "signature": "WindowCache.subscribedFunctions",
         "stripped_doc": "during shutdown.",
@@ -3040,7 +3700,7 @@
         "doc": "Main hs.window.filter. This is what is used to enumerate and maintain the window\ncache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
         "doc_gfm": "<p>Main hs.window.filter. This is what is used to enumerate and maintain the window\ncache. It is a copy of the &quot;default&quot; window filter with WindowCache specific\nsort order and callback configurations applied in the start method.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "44",
+        "lineno": "50",
         "name": "windowFilter",
         "signature": "WindowCache.windowFilter",
         "stripped_doc": "cache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
@@ -3054,7 +3714,7 @@
         "doc": "Table containing per-Space window caches, keyed off of Mission Control Space ID,\nwhich can be used for retrieving Space-specific instances of apps and windows.",
         "doc_gfm": "<p>Table containing per-Space window caches, keyed off of Mission Control Space ID,\nwhich can be used for retrieving Space-specific instances of apps and windows.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "63",
+        "lineno": "69",
         "name": "windowsBySpace",
         "signature": "WindowCache.windowsBySpace",
         "stripped_doc": "which can be used for retrieving Space-specific instances of apps and windows.",
@@ -3074,7 +3734,7 @@
         "doc": "Table containing the window cache, ordered by the time it was added to the\ncache.",
         "doc_gfm": "<p>Table containing the window cache, ordered by the time it was added to the\ncache.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "57",
         "name": "currentWindows",
         "signature": "WindowCache.currentWindows",
         "stripped_doc": "cache.",
@@ -3089,7 +3749,7 @@
         "doc_gfm": "<p>Find the last opened window by application name.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "141",
+        "lineno": "154",
         "name": "findWindowByApp",
         "notes": [],
         "notes_gfm": "",
@@ -3115,7 +3775,7 @@
         "doc_gfm": "<p>Find a window by title.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "91",
+        "lineno": "102",
         "name": "findWindowByTitle",
         "notes": [],
         "notes_gfm": "",
@@ -3141,7 +3801,7 @@
         "doc_gfm": "<p>Find the last opened window by application name and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to find</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "192",
+        "lineno": "218",
         "name": "focusWindowByApp",
         "notes": [],
         "notes_gfm": "",
@@ -3167,7 +3827,7 @@
         "doc_gfm": "<p>Find a window by title and focus it.</p>\n<p>Parameters:</p>\n<ul>\n<li>title - title of the window to focus</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The <code>hs.window</code> object focused if found, <code>nil</code> otherwise</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "123",
+        "lineno": "136",
         "name": "focusWindowByTitle",
         "notes": [],
         "notes_gfm": "",
@@ -3185,6 +3845,34 @@
         "type": "Method"
       },
       {
+        "def": "WindowCache:getAppNamesForSpace(spaceID)",
+        "def_gfm": "WindowCache:getAppNamesForSpace(spaceID)",
+        "desc": "Given a spaceID, get a list of all open app names in the space.",
+        "desc_gfm": "<p>Given a spaceID, get a list of all open app names in the space.</p>\n",
+        "doc": "Given a spaceID, get a list of all open app names in the space.\n\nParameters:\n * spaceID - ID of an hs.space to retrieve app names for.\n\nReturns:\n * A table representing the names of all app names open in the space, ordered\n   by most recent first.\n\nNotes:\n * WindowCache window access history does not persist through Hammerspoon reloads.",
+        "doc_gfm": "<p>Given a spaceID, get a list of all open app names in the space.</p>\n<p>Parameters:</p>\n<ul>\n<li>spaceID - ID of an hs.space to retrieve app names for.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A table representing the names of all app names open in the space, ordered\nby most recent first.</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>\n</ul>\n",
+        "examples": [],
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "236",
+        "name": "getAppNamesForSpace",
+        "notes": [
+          " * WindowCache window access history does not persist through Hammerspoon reloads."
+        ],
+        "notes_gfm": "<ul>\n<li>WindowCache window access history does not persist through Hammerspoon reloads.</li>\n</ul>\n",
+        "parameters": [
+          " * spaceID - ID of an hs.space to retrieve app names for."
+        ],
+        "parameters_gfm": "<ul>\n<li>spaceID - ID of an hs.space to retrieve app names for.</li>\n</ul>\n",
+        "returns": [
+          " * A table representing the names of all app names open in the space, ordered",
+          "   by most recent first."
+        ],
+        "returns_gfm": "<ul>\n<li>A table representing the names of all app names open in the space, ordered\nby most recent first.</li>\n</ul>\n",
+        "signature": "WindowCache:getAppNamesForSpace(spaceID)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "WindowCache:init()",
         "def_gfm": "WindowCache:init()",
         "desc": "Spoon initializer method for WindowCache.",
@@ -3193,7 +3881,7 @@
         "doc_gfm": "<p>Spoon initializer method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "69",
+        "lineno": "80",
         "name": "init",
         "notes": [],
         "notes_gfm": "",
@@ -3217,7 +3905,7 @@
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.",
         "doc_gfm": "<p>Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "33",
+        "lineno": "39",
         "name": "logger",
         "signature": "WindowCache.logger",
         "stripped_doc": "level for the messages coming from the Spoon.",
@@ -3231,9 +3919,37 @@
         "doc": "WindowCache specific log level override, see hs.logger.setLogLevel for options.",
         "doc_gfm": "<p>WindowCache specific log level override, see hs.logger.setLogLevel for options.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "39",
+        "lineno": "45",
         "name": "logLevel",
         "signature": "WindowCache.logLevel",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.staleWindowCheckInterval",
+        "def_gfm": "WindowCache.staleWindowCheckInterval",
+        "desc": "Interval in seconds between checks for \"stale\" windows to be removed from",
+        "desc_gfm": "<p>Interval in seconds between checks for &quot;stale&quot; windows to be removed from</p>\n",
+        "doc": "Interval in seconds between checks for \"stale\" windows to be removed from\nthe cache.",
+        "doc_gfm": "<p>Interval in seconds between checks for &quot;stale&quot; windows to be removed from\nthe cache.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "33",
+        "name": "staleWindowCheckInterval",
+        "signature": "WindowCache.staleWindowCheckInterval",
+        "stripped_doc": "the cache.",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowCache.staleWindowCheckTimer",
+        "def_gfm": "WindowCache.staleWindowCheckTimer",
+        "desc": "hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.",
+        "desc_gfm": "<p>hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.</p>\n",
+        "doc": "hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.",
+        "doc_gfm": "<p>hs.timer periodically running _checkForStaleWindows every staleWindowCheckInterval.</p>\n",
+        "file": "Source/WindowCache.spoon/init.lua",
+        "lineno": "75",
+        "name": "staleWindowCheckTimer",
+        "signature": "WindowCache.staleWindowCheckTimer",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -3242,17 +3958,18 @@
         "def_gfm": "WindowCache:start()",
         "desc": "Spoon start method for WindowCache.",
         "desc_gfm": "<p>Spoon start method for WindowCache.</p>\n",
-        "doc": "Spoon start method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, initializes the cache with all existing\n   windows, and then subscribes to all window related events to be cached.",
-        "doc_gfm": "<p>Spoon start method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
+        "doc": "Spoon start method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Configures the window filter, initializes the cache with all existing\n   windows, and then subscribes to all window related events to be cached. Also\n   starts the periodic stale window checker.",
+        "doc_gfm": "<p>Spoon start method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached. Also\nstarts the periodic stale window checker.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "304",
+        "lineno": "393",
         "name": "start",
         "notes": [
           " * Configures the window filter, initializes the cache with all existing",
-          "   windows, and then subscribes to all window related events to be cached."
+          "   windows, and then subscribes to all window related events to be cached. Also",
+          "   starts the periodic stale window checker."
         ],
-        "notes_gfm": "<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached.</li>\n</ul>\n",
+        "notes_gfm": "<ul>\n<li>Configures the window filter, initializes the cache with all existing\nwindows, and then subscribes to all window related events to be cached. Also\nstarts the periodic stale window checker.</li>\n</ul>\n",
         "parameters": [
           " * None"
         ],
@@ -3270,16 +3987,17 @@
         "def_gfm": "WindowCache:stop()",
         "desc": "Spoon stop method for WindowCache.",
         "desc_gfm": "<p>Spoon stop method for WindowCache.</p>\n",
-        "doc": "Spoon stop method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions.",
-        "doc_gfm": "<p>Spoon stop method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
+        "doc": "Spoon stop method for WindowCache.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Unsubscribes the window filter from all subscribed functions and stops the\n   stale window checker.",
+        "doc_gfm": "<p>Spoon stop method for WindowCache.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Unsubscribes the window filter from all subscribed functions and stops the\nstale window checker.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "343",
+        "lineno": "438",
         "name": "stop",
         "notes": [
-          " * Unsubscribes the window filter from all subscribed functions."
+          " * Unsubscribes the window filter from all subscribed functions and stops the",
+          "   stale window checker."
         ],
-        "notes_gfm": "<ul>\n<li>Unsubscribes the window filter from all subscribed functions.</li>\n</ul>\n",
+        "notes_gfm": "<ul>\n<li>Unsubscribes the window filter from all subscribed functions and stops the\nstale window checker.</li>\n</ul>\n",
         "parameters": [
           " * None"
         ],
@@ -3300,7 +4018,7 @@
         "doc": "Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.",
         "doc_gfm": "<p>Table containing all subscribed instance callbacks for the window filter, used\nduring shutdown.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "63",
         "name": "subscribedFunctions",
         "signature": "WindowCache.subscribedFunctions",
         "stripped_doc": "during shutdown.",
@@ -3315,7 +4033,7 @@
         "doc_gfm": "<p>Wait for cached window in appName every interval and run fn when found.</p>\n<p>Parameters:</p>\n<ul>\n<li>appName - name of the application to wait for first cached window of</li>\n<li>fn - function to run when first cached window is found. This function may\ntake a single argument, the timer itself</li>\n<li>interval - How often to check for cached window, defaults to 1 second.</li>\n<li>spaceID - optional ID of Space to access Space-specific cache for</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The started <code>hs.timer</code> instance.</li>\n</ul>\n",
         "examples": [],
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "173",
+        "lineno": "199",
         "name": "waitForWindowByApp",
         "notes": [],
         "notes_gfm": "",
@@ -3342,7 +4060,7 @@
         "doc": "Main hs.window.filter. This is what is used to enumerate and maintain the window\ncache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
         "doc_gfm": "<p>Main hs.window.filter. This is what is used to enumerate and maintain the window\ncache. It is a copy of the &quot;default&quot; window filter with WindowCache specific\nsort order and callback configurations applied in the start method.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "44",
+        "lineno": "50",
         "name": "windowFilter",
         "signature": "WindowCache.windowFilter",
         "stripped_doc": "cache. It is a copy of the \"default\" window filter with WindowCache specific\nsort order and callback configurations applied in the start method.",
@@ -3356,7 +4074,7 @@
         "doc": "Table containing per-Space window caches, keyed off of Mission Control Space ID,\nwhich can be used for retrieving Space-specific instances of apps and windows.",
         "doc_gfm": "<p>Table containing per-Space window caches, keyed off of Mission Control Space ID,\nwhich can be used for retrieving Space-specific instances of apps and windows.</p>\n",
         "file": "Source/WindowCache.spoon/init.lua",
-        "lineno": "63",
+        "lineno": "69",
         "name": "windowsBySpace",
         "signature": "WindowCache.windowsBySpace",
         "stripped_doc": "which can be used for retrieving Space-specific instances of apps and windows.",
